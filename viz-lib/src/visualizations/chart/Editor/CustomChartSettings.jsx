@@ -15,7 +15,7 @@ export default function CustomChartSettings({ options, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <TextArea
-          label="Custom code"
+          label="自定义代码"
           data-test="Chart.Custom.Code"
           rows="10"
           defaultValue={isNil(options.customCode) ? defaultCustomCode : options.customCode}
@@ -28,7 +28,7 @@ export default function CustomChartSettings({ options, onOptionsChange }) {
           data-test="Chart.Custom.EnableConsoleLogs"
           defaultChecked={options.enableConsoleLogs}
           onChange={enableConsoleLogs => onOptionsChange({ enableConsoleLogs })}>
-          Show errors in the console
+          在终端显示错误
         </Switch>
       </Section>
 
@@ -38,7 +38,7 @@ export default function CustomChartSettings({ options, onOptionsChange }) {
           data-test="Chart.Custom.AutoUpdate"
           defaultChecked={options.autoRedraw}
           onChange={autoRedraw => onOptionsChange({ autoRedraw })}>
-          Auto update graph
+          自动更新图表
         </Switch>
       </Section>
     </React.Fragment>

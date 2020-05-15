@@ -44,7 +44,7 @@ function ListItem({ destination: { name, type }, user, unsubscribe }) {
         <EmailSettingsWarning className="destination-warning" featureName="alert emails" mode="icon" />
       )}
       {canUnsubscribe && (
-        <Tooltip title="Remove" mouseEnterDelay={0.5}>
+        <Tooltip title="删除" mouseEnterDelay={0.5}>
           <Icon type="close" className="remove-button" onClick={unsubscribe} />
         </Tooltip>
       )}
@@ -88,15 +88,15 @@ export default class AlertDestinations extends React.Component {
       extraFooterContent: (
         <>
           <i className="fa fa-info-circle" /> Create new destinations in{" "}
-          <Tooltip title="Opens page in a new tab.">
+          <Tooltip title="在新标签页中打开。">
             <a href="destinations/new" target="_blank">
               Alert Destinations
             </a>
           </Tooltip>
         </>
       ),
-      dialogTitle: "Add Existing Alert Destinations",
-      inputPlaceholder: "Search destinations...",
+      dialogTitle: "添加提醒设置",
+      inputPlaceholder: "搜索...",
       searchItems: searchTerm => {
         searchTerm = toLower(searchTerm);
         return Promise.resolve(dests.filter(d => includes(toLower(d.name), searchTerm)));
@@ -120,10 +120,10 @@ export default class AlertDestinations extends React.Component {
       const promises = map(items, item => this.subscribe(item));
       return Promise.all(promises)
         .then(() => {
-          notification.success("Subscribed.");
+          notification.success("订阅成功！");
         })
         .catch(() => {
-          notification.error("Failed saving subscription.");
+          notification.error("订阅失败。");
           return Promise.reject(null); // keep dialog visible but suppress its default error message
         });
     });
@@ -163,7 +163,7 @@ export default class AlertDestinations extends React.Component {
         });
       })
       .catch(() => {
-        notification.error("Failed unsubscribing.");
+        notification.error("订阅失败。");
       });
   };
 
@@ -182,14 +182,14 @@ export default class AlertDestinations extends React.Component {
 
     return (
       <div className="alert-destinations" data-test="AlertDestinations">
-        <Tooltip title='Click to add an existing "Alert Destination"' mouseEnterDelay={0.5}>
+        <Tooltip title='添加提醒设置' mouseEnterDelay={0.5}>
           <Button
             data-test="ShowAddAlertSubDialog"
             type="primary"
             size="small"
             className="add-button"
             onClick={this.showAddAlertSubDialog}>
-            <i className="fa fa-plus f-12 m-r-5" /> Add
+            <i className="fa fa-plus f-12 m-r-5" /> 添加
           </Button>
         </Tooltip>
         <ul>

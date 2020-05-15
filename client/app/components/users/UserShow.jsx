@@ -50,12 +50,12 @@ export default class UserShow extends React.Component {
         <hr />
 
         <dl className="profile__dl">
-          <dt>Name:</dt>
+          <dt>名称:</dt>
           <dd>{name}</dd>
-          <dt>Email:</dt>
+          <dt>电子邮箱:</dt>
           <dd>{email}</dd>
-          <dt>Groups:</dt>
-          <dd>{loadingGroups ? "Loading..." : this.renderUserGroups()}</dd>
+          <dt>角色:</dt>
+          <dd>{loadingGroups ? "加载中..." : this.renderUserGroups()}</dd>
         </dl>
       </div>
     );

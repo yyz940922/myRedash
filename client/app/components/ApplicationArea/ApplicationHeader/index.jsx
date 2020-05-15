@@ -37,19 +37,19 @@ function DesktopNavbar() {
         <Menu mode="horizontal" selectable={false}>
           {currentUser.hasPermission("list_dashboards") && (
             <Menu.Item key="dashboards" className="dropdown-menu-item">
-              <Button href="dashboards">Dashboards</Button>
+              <Button href="dashboards">报表</Button>
               <FavoritesDropdown fetch={Dashboard.favorites} urlTemplate="dashboard/${slug}" />
             </Menu.Item>
           )}
           {currentUser.hasPermission("view_query") && (
             <Menu.Item key="queries" className="dropdown-menu-item">
-              <Button href="queries">Queries</Button>
+              <Button href="queries">查询</Button>
               <FavoritesDropdown fetch={Query.favorites} urlTemplate="queries/${id}" />
             </Menu.Item>
           )}
           {currentUser.hasPermission("list_alerts") && (
             <Menu.Item key="alerts">
-              <Button href="alerts">Alerts</Button>
+              <Button href="alerts">提醒</Button>
             </Menu.Item>
           )}
         </Menu>
@@ -60,23 +60,23 @@ function DesktopNavbar() {
               <Menu>
                 {currentUser.hasPermission("create_query") && (
                   <Menu.Item key="new-query">
-                    <a href="queries/new">New Query</a>
+                    <a href="queries/new">新建查询</a>
                   </Menu.Item>
                 )}
                 {currentUser.hasPermission("create_dashboard") && (
                   <Menu.Item key="new-dashboard">
-                    <a onMouseUp={showCreateDashboardDialog}>New Dashboard</a>
+                    <a onMouseUp={showCreateDashboardDialog}>新建报表</a>
                   </Menu.Item>
                 )}
                 {currentUser.hasPermission("list_alerts") && (
                   <Menu.Item key="new-alert">
-                    <a href="alerts/new">New Alert</a>
+                    <a href="alerts/new">新建提醒</a>
                   </Menu.Item>
                 )}
               </Menu>
             }>
             <Button type="primary" data-test="CreateButton">
-              Create <Icon type="down" />
+              新建 <Icon type="down" />
             </Button>
           </Dropdown>
         )}
@@ -89,7 +89,7 @@ function DesktopNavbar() {
       <div>
         <Input.Search
           className="searchbar"
-          placeholder="Search queries..."
+          placeholder="搜索查询..."
           data-test="AppHeaderSearch"
           onSearch={onSearch}
         />
@@ -99,7 +99,7 @@ function DesktopNavbar() {
           </Menu.Item>
           {currentUser.isAdmin && (
             <Menu.Item key="settings">
-              <Tooltip title="Settings">
+              <Tooltip title="设置">
                 <Button href="data_sources" className="menu-item-button">
                   <i className="fa fa-sliders" />
                 </Button>
@@ -114,47 +114,47 @@ function DesktopNavbar() {
               overlay={
                 <Menu>
                   <Menu.Item key="profile">
-                    <a href="users/me">Edit Profile</a>
+                    <a href="users/me">个人设置</a>
                   </Menu.Item>
                   {currentUser.hasPermission("super_admin") && <Menu.Divider />}
                   {currentUser.isAdmin && (
                     <Menu.Item key="datasources">
-                      <a href="data_sources">Data Sources</a>
+                      <a href="data_sources">数据源</a>
                     </Menu.Item>
                   )}
                   {currentUser.hasPermission("list_users") && (
                     <Menu.Item key="groups">
-                      <a href="groups">Groups</a>
+                      <a href="groups">角色</a>
                     </Menu.Item>
                   )}
                   {currentUser.hasPermission("list_users") && (
                     <Menu.Item key="users">
-                      <a href="users">Users</a>
+                      <a href="users">用户</a>
                     </Menu.Item>
                   )}
                   {currentUser.hasPermission("create_query") && (
                     <Menu.Item key="snippets">
-                      <a href="query_snippets">Query Snippets</a>
+                      <a href="query_snippets">常用查询脚本</a>
                     </Menu.Item>
                   )}
                   {currentUser.isAdmin && (
                     <Menu.Item key="destinations">
-                      <a href="destinations">Alert Destinations</a>
+                      <a href="destinations">提醒设置</a>
                     </Menu.Item>
                   )}
                   {currentUser.hasPermission("super_admin") && <Menu.Divider />}
                   {currentUser.hasPermission("super_admin") && (
                     <Menu.Item key="status">
-                      <a href="admin/status">System Status</a>
+                      <a href="admin/status">系统状态</a>
                     </Menu.Item>
                   )}
                   <Menu.Divider />
                   <Menu.Item key="logout" onClick={() => Auth.logout()}>
-                    Log out
+                    退出
                   </Menu.Item>
                   <Menu.Divider />
                   <Menu.Item key="version" disabled>
-                    Version: {clientConfig.version}
+                    版本: {clientConfig.version}
                     {frontendVersion !== clientConfig.version && ` (${frontendVersion.substring(0, 8)})`}
                     {clientConfig.newVersionAvailable && currentUser.hasPermission("super_admin") && (
                       <Tooltip title="Update Available" placement="rightTop">
@@ -204,42 +204,42 @@ function MobileNavbar() {
             <Menu mode="vertical" selectable={false}>
               {currentUser.hasPermission("list_dashboards") && (
                 <Menu.Item key="dashboards">
-                  <a href="dashboards">Dashboards</a>
+                  <a href="dashboards">报表</a>
                 </Menu.Item>
               )}
               {currentUser.hasPermission("view_query") && (
                 <Menu.Item key="queries">
-                  <a href="queries">Queries</a>
+                  <a href="queries">查询</a>
                 </Menu.Item>
               )}
               {currentUser.hasPermission("list_alerts") && (
                 <Menu.Item key="alerts">
-                  <a href="alerts">Alerts</a>
+                  <a href="alerts">提醒</a>
                 </Menu.Item>
               )}
               <Menu.Item key="profile">
-                <a href="users/me">Edit Profile</a>
+                <a href="users/me">个人设置</a>
               </Menu.Item>
               <Menu.Divider />
               {currentUser.isAdmin && (
                 <Menu.Item key="settings">
-                  <a href="data_sources">Settings</a>
+                  <a href="data_sources">设置</a>
                 </Menu.Item>
               )}
               {currentUser.hasPermission("super_admin") && (
                 <Menu.Item key="status">
-                  <a href="admin/status">System Status</a>
+                  <a href="admin/status">系统状态</a>
                 </Menu.Item>
               )}
               {currentUser.hasPermission("super_admin") && <Menu.Divider />}
               <Menu.Item key="help">
                 {/* eslint-disable-next-line react/jsx-no-target-blank */}
                 <a href="https://redash.io/help" target="_blank" rel="noopener">
-                  Help
+                  帮助
                 </a>
               </Menu.Item>
               <Menu.Item key="logout" onClick={() => Auth.logout()}>
-                Log out
+                退出
               </Menu.Item>
             </Menu>
           }>

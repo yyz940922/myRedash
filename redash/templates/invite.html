@@ -7,9 +7,9 @@
   <div class="bg-white tiled">
     <div class="m-b-25">
       {% if show_google_openid or show_saml_login or show_remote_user_login or show_ldap_login %}
-        To create your account, please choose a password or login with your SSO provider.
+        请输入密码或者启用SSO认证。
       {% else %}
-        To create your account, please choose a password.
+        请输入密码。
       {% endif %}
     </div>
 
@@ -24,20 +24,20 @@
     {% if show_google_openid %}
       <a href="{{ google_auth_url }}" class="login-button btn btn-default btn-block">
         <img src="/static/images/google_logo.svg">
-        Login with Google
+        使用Google账户登录
       </a>
     {% endif %}
 
     {% if show_saml_login %}
-      <a href="{{ url_for('saml_auth.sp_initiated', org_slug=org_slug) }}" class="login-button btn btn-default btn-block">SAML Login</a>
+      <a href="{{ url_for('saml_auth.sp_initiated', org_slug=org_slug) }}" class="login-button btn btn-default btn-block">SAML认证</a>
     {% endif %}
 
     {% if show_remote_user_login %}
-      <a href="{{ url_for('remote_user_auth.login') }}" class="login-button btn btn-default btn-block">Remote User Login</a>
+      <a href="{{ url_for('remote_user_auth.login') }}" class="login-button btn btn-default btn-block">远程用户登录</a>
     {% endif %}
 
     {% if show_ldap_login %}
-      <a href="{{ url_for('ldap_auth.login') }}" class="login-button btn btn-default btn-block">LDAP/SSO Login</a>
+      <a href="{{ url_for('ldap_auth.login') }}" class="login-button btn btn-default btn-block">LDAP/SSO认证</a>
     {% endif %}
 
     {% if show_google_openid or show_saml_login or show_remote_user_login or show_ldap_login %}
@@ -46,10 +46,10 @@
 
     <form role="form" method="post" name="invite">
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">密码</label>
         <input type="password" class="form-control" id="password" name="password">
       </div>
-      <button type="submit" class="btn btn-primary btn-block m-t-25">Set Password</button>
+      <button type="submit" class="btn btn-primary btn-block m-t-25">设置密码</button>
     </form>
   </div>
 </div>

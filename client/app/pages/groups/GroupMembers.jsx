@@ -39,19 +39,19 @@ class GroupMembers extends React.Component {
     {
       key: "users",
       href: `groups/${this.groupId}`,
-      title: "Members",
+      title: "成员",
     },
     {
       key: "datasources",
       href: `groups/${this.groupId}/data_sources`,
-      title: "Data Sources",
+      title: "数据源",
       isAvailable: () => currentUser.isAdmin,
     },
   ];
 
   listColumns = [
     Columns.custom((text, user) => <UserPreviewCard user={user} withLink />, {
-      title: "Name",
+      title: "名称",
       field: "name",
       width: null,
     }),
@@ -67,7 +67,7 @@ class GroupMembers extends React.Component {
         }
         return (
           <Button className="w-100" type="danger" onClick={event => this.removeGroupMember(event, user)}>
-            Remove
+            移除
           </Button>
         );
       },
@@ -96,15 +96,15 @@ class GroupMembers extends React.Component {
         this.props.controller.update();
       })
       .catch(() => {
-        notification.error("Failed to remove member from group.");
+        notification.error("移出成员失败。");
       });
 
   addMembers = () => {
     const alreadyAddedUsers = map(this.props.controller.allItems, u => u.id);
     SelectItemsDialog.showModal({
-      dialogTitle: "Add Members",
-      inputPlaceholder: "Search users...",
-      selectedItemsTitle: "New Members",
+      dialogTitle: "添加成员",
+      inputPlaceholder: "搜索用户...",
+      selectedItemsTitle: "添加用户",
       searchItems: searchTerm => User.query({ q: searchTerm }).then(({ results }) => results),
       renderItem: (item, { isSelected }) => {
         const alreadyInGroup = includes(alreadyAddedUsers, item.id);
@@ -155,7 +155,7 @@ class GroupMembers extends React.Component {
                 {currentUser.isAdmin && (
                   <Button type="primary" onClick={this.addMembers}>
                     <i className="fa fa-plus m-r-5" />
-                    Add Members
+                    添加成员
                   </Button>
                 )}
               </div>
@@ -206,6 +206,6 @@ const GroupMembersPage = wrapSettingsTab(
 
 export default routeWithUserSession({
   path: "/groups/:groupId([0-9]+)",
-  title: "Group Members",
+  title: "角色成员",
   render: pageProps => <GroupMembersPage {...pageProps} currentPage="users" />,
 });

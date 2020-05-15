@@ -19,7 +19,7 @@ const DateInput = React.forwardRef(({ defaultValue, value, onSelect, className, 
       className={className}
       {...additionalAttributes}
       format={format}
-      placeholder="Select Date"
+      placeholder="选择日期"
       onChange={onSelect}
       {...props}
     />

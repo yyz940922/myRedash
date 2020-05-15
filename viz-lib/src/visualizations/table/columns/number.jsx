@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
       <Input
         label={
           <React.Fragment>
-            Number format
+            数字格式
             <ContextHelp.NumberFormatSpecs />
           </React.Fragment>
         }
@@ -52,5 +52,5 @@ export default function initNumberColumn(column) {
   return NumberColumn;
 }
 
-initNumberColumn.friendlyName = "Number";
+initNumberColumn.friendlyName = "数字";
 initNumberColumn.Editor = Editor;

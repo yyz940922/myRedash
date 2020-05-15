@@ -6,7 +6,7 @@ import useEmbedDialog from "../hooks/useEmbedDialog";
 import QueryControlDropdown from "@/components/EditVisualizationButton/QueryControlDropdown";
 import EditVisualizationButton from "@/components/EditVisualizationButton";
 import getQueryResultData from "@/lib/getQueryResultData";
-import { durationHumanize, pluralize, prettySize } from "@/lib/utils";
+import { durationHumanize, prettySize } from "@/lib/utils";
 
 import "./QueryExecutionMetadata.less";
 
@@ -42,16 +42,16 @@ export default function QueryExecutionMetadata({
       )}
       <span className="m-l-5 m-r-10">
         <span>
-          <strong>{queryResultData.rows.length}</strong> {pluralize("row", queryResultData.rows.length)}
+          <strong>{queryResultData.rows.length}</strong> 条记录
         </span>
         <span className="m-l-5">
           {!isQueryExecuting && (
             <React.Fragment>
               <strong>{durationHumanize(queryResultData.runtime)}</strong>
-              <span className="hidden-xs"> runtime</span>
+              <span className="hidden-xs"> 耗时</span>
             </React.Fragment>
           )}
-          {isQueryExecuting && <span>Running&hellip;</span>}
+          {isQueryExecuting && <span>运行中&hellip;</span>}
         </span>
         {queryResultData.metadata.data_scanned && (
           <span className="m-l-5">
@@ -62,7 +62,7 @@ export default function QueryExecutionMetadata({
       </span>
       <div>
         <span className="m-r-10">
-          <span className="hidden-xs">Refreshed </span>
+          <span className="hidden-xs">刷新时间：</span>
           <strong>
             <TimeAgo date={queryResultData.retrievedAt} placeholder="-" />
           </strong>

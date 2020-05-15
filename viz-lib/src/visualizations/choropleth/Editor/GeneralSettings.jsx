@@ -9,18 +9,18 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     switch (options.mapType) {
       case "countries":
         return {
-          name: "Short name",
-          name_long: "Full name",
-          abbrev: "Abbreviated name",
-          iso_a2: "ISO code (2 letters)",
-          iso_a3: "ISO code (3 letters)",
-          iso_n3: "ISO code (3 digits)",
+          name: "国家简称(英文)",
+          name_long: "国家全称(英文)",
+          abbrev: "国家缩写(英文)",
+          iso_a2: "ISO国家代码(2字母)",
+          iso_a3: "ISO国家代码(3字母)",
+          iso_n3: "ISO国家代码(3数字)",
         };
       case "subdiv_japan":
         return {
-          name: "Name",
-          name_local: "Name (local)",
-          iso_3166_2: "ISO-3166-2",
+          name: "日本行政区划名称(英文)",
+          name_local: "日本行政区划名称(日文)",
+          iso_3166_2: "ISO-3166-2日本行政区划代码",
         };
       default:
         return {};
@@ -41,22 +41,22 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Map type"
+          label="地图选择"
           data-test="Choropleth.Editor.MapType"
           defaultValue={options.mapType}
           onChange={mapType => handleChangeAndInferType({ mapType })}>
           <Select.Option key="countries" data-test="Choropleth.Editor.MapType.Countries">
-            Countries
+            全球国家地图
           </Select.Option>
           <Select.Option key="subdiv_japan" data-test="Choropleth.Editor.MapType.Japan">
-            Japan/Prefectures
+            日本行政区划图
           </Select.Option>
         </Select>
       </Section>
 
       <Section>
         <Select
-          label="Key column"
+          label="地理区域取值"
           data-test="Choropleth.Editor.KeyColumn"
           defaultValue={options.countryCodeColumn}
           onChange={countryCodeColumn => handleChangeAndInferType({ countryCodeColumn })}>
@@ -70,7 +70,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Key type"
+          label="地理区域值类型"
           data-test="Choropleth.Editor.KeyType"
           value={options.countryCodeType}
           onChange={countryCodeType => onOptionsChange({ countryCodeType })}>
@@ -84,7 +84,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Value column"
+          label="数据取值"
           data-test="Choropleth.Editor.ValueColumn"
           defaultValue={options.valueColumn}
           onChange={valueColumn => onOptionsChange({ valueColumn })}>

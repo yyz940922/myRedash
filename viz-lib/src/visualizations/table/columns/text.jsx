@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
           data-test="Table.ColumnEditor.Text.AllowHTML"
           checked={column.allowHTML}
           onChange={event => onChange({ allowHTML: event.target.checked })}>
-          Allow HTML content
+          允许HTML内容
         </Checkbox>
       </Section>
 
@@ -22,7 +22,7 @@ function Editor({ column, onChange }) {
             data-test="Table.ColumnEditor.Text.HighlightLinks"
             checked={column.highlightLinks}
             onChange={event => onChange({ highlightLinks: event.target.checked })}>
-            Highlight links
+            链接高亮显示
           </Checkbox>
         </Section>
       )}

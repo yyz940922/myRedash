@@ -80,7 +80,7 @@ class OrganizationSettings extends React.Component {
     return (
       <React.Fragment>
         <h4>Google Login</h4>
-        <Form.Item label="Allowed Google Apps Domains">
+        <Form.Item label="允许 Google Apps Domains">
           <Select
             mode="tags"
             value={formValues.auth_google_apps_domains}
@@ -90,9 +90,8 @@ class OrganizationSettings extends React.Component {
             <Alert
               message={
                 <p>
-                  Any user registered with a <strong>{join(formValues.auth_google_apps_domains, ", ")}</strong> Google
-                  Apps account will be able to login. If they don{"'"}t have an existing user, a new user will be
-                  created and join the <strong>Default</strong> group.
+                  可以用<strong>{join(formValues.auth_google_apps_domains, ", ")}</strong>谷歌账户注册新用户；
+                  没有注册而直接用谷歌账户登陆，将会自动创建一个默认角色用户。
                 </p>
               }
               className="m-t-15"
@@ -113,7 +112,7 @@ class OrganizationSettings extends React.Component {
             name="auth_saml_enabled"
             checked={formValues.auth_saml_enabled}
             onChange={e => this.handleChange("auth_saml_enabled", e.target.checked)}>
-            SAML Enabled
+            SAML 认证启用
           </Checkbox>
         </Form.Item>
         {formValues.auth_saml_enabled && (
@@ -146,9 +145,9 @@ class OrganizationSettings extends React.Component {
     const { formValues } = this.state;
     return (
       <React.Fragment>
-        <h3 className="m-t-0">General</h3>
+        <h3 className="m-t-0">参数</h3>
         <hr />
-        <Form.Item label="Date Format">
+        <Form.Item label="日期格式">
           <Select
             value={formValues.date_format}
             onChange={value => this.handleChange("date_format", value)}
@@ -158,7 +157,7 @@ class OrganizationSettings extends React.Component {
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label="Time Format">
+        <Form.Item label="时间格式">
           <Select
             value={formValues.time_format}
             onChange={value => this.handleChange("time_format", value)}
@@ -168,20 +167,20 @@ class OrganizationSettings extends React.Component {
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label="Chart Visualization">
+        <Form.Item label="图表视图(Chart)">
           <Checkbox
             name="hide_plotly_mode_bar"
             checked={formValues.hide_plotly_mode_bar}
             onChange={e => this.handleChange("hide_plotly_mode_bar", e.target.checked)}>
-            Hide Plotly mode bar
+            隐藏绘图模式栏
           </Checkbox>
         </Form.Item>
-        <Form.Item label="Feature Flags">
+        <Form.Item label="特征">
           <Checkbox
             name="feature_show_permissions_control"
             checked={formValues.feature_show_permissions_control}
             onChange={e => this.handleChange("feature_show_permissions_control", e.target.checked)}>
-            Enable experimental multiple owners support
+            启用查询报表支持多拥有者模式
           </Checkbox>
         </Form.Item>
         <Form.Item>
@@ -189,7 +188,7 @@ class OrganizationSettings extends React.Component {
             name="send_email_on_failed_scheduled_queries"
             checked={formValues.send_email_on_failed_scheduled_queries}
             onChange={e => this.handleChange("send_email_on_failed_scheduled_queries", e.target.checked)}>
-            Email query owners when scheduled queries fail
+            查询后台执行调度失败时，邮件通知创建人
           </Checkbox>
         </Form.Item>
         <Form.Item>
@@ -197,21 +196,21 @@ class OrganizationSettings extends React.Component {
             name="multi_byte_search_enabled"
             checked={formValues.multi_byte_search_enabled}
             onChange={e => this.handleChange("multi_byte_search_enabled", e.target.checked)}>
-            Enable multi-byte (Chinese, Japanese, and Korean) search for query names and descriptions (slower)
+            查询报表支持多字节语言检索(中文、日文、韩文，速度较慢)
           </Checkbox>
         </Form.Item>
         <DynamicComponent name="BeaconConsentSetting">
           <Form.Item
             label={
               <>
-                Anonymous Usage Data Sharing <HelpTrigger type="USAGE_DATA_SHARING" />
+                匿名共享使用统计数据 <HelpTrigger type="USAGE_DATA_SHARING" />
               </>
             }>
             <Checkbox
               name="beacon_consent"
               checked={formValues.beacon_consent}
               onChange={e => this.handleChange("beacon_consent", e.target.checked)}>
-              Help Redash improve by automatically sending anonymous usage data
+              自动发送使用统计数据，帮助Redash完善产品
             </Checkbox>
           </Form.Item>
         </DynamicComponent>
@@ -224,13 +223,12 @@ class OrganizationSettings extends React.Component {
     return (
       <React.Fragment>
         <h3 className="m-t-0">
-          Authentication <HelpTrigger type="AUTHENTICATION_OPTIONS" />
+          用户认证 <HelpTrigger type="AUTHENTICATION_OPTIONS" />
         </h3>
         <hr />
         {!settings.auth_password_login_enabled && (
           <Alert
-            message="Password based login is currently disabled and users will
-            be able to login only with the enabled SSO options."
+            message="用户名密码登陆方式已禁用，仅支持SSO集成认证方式登陆。"
             type="warning"
             className="m-t-15 m-b-15"
           />
@@ -243,11 +241,11 @@ class OrganizationSettings extends React.Component {
             <Tooltip
               title={
                 this.disablePasswordLoginToggle()
-                  ? "Password login can be disabled only if another login method is enabled."
+                  ? "只有用户启用了其它登陆认证，才可以取消用户名密码登陆方式。"
                   : null
               }
               placement="right">
-              Password Login Enabled
+              用户名密码登陆方式
             </Tooltip>
           </Checkbox>
         </Form.Item>
@@ -269,7 +267,7 @@ class OrganizationSettings extends React.Component {
               {this.renderGeneralSettings()}
               {this.renderAuthSettings()}
               <Button className="w-100" type="primary" htmlType="submit" loading={submitting}>
-                Save
+                保存
               </Button>
             </Form>
           )}
@@ -282,7 +280,7 @@ class OrganizationSettings extends React.Component {
 const OrganizationSettingsPage = wrapSettingsTab(
   {
     permission: "admin",
-    title: "Settings",
+    title: "系统设置",
     path: "settings/organization",
     order: 6,
   },
@@ -291,6 +289,6 @@ const OrganizationSettingsPage = wrapSettingsTab(
 
 export default routeWithUserSession({
   path: "/settings/organization",
-  title: "Organization Settings",
+  title: "系统设置",
   render: pageProps => <OrganizationSettingsPage {...pageProps} />,
 });

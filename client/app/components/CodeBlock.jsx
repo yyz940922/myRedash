@@ -40,10 +40,10 @@ export default class CodeBlock extends React.Component {
       if (!success) {
         throw new Error();
       }
-      this.setState({ copied: "Copied!" });
+      this.setState({ copied: "复制成功！" });
     } catch (err) {
       this.setState({
-        copied: "Copy failed",
+        copied: "复制失败。",
       });
     }
 

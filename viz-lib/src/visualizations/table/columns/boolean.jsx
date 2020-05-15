@@ -19,7 +19,7 @@ function Editor({ column, onChange }) {
         <Input
           label={
             <React.Fragment>
-              Value for <code>false</code>
+              值为假 <code>false</code>
             </React.Fragment>
           }
           data-test="Table.ColumnEditor.Boolean.False"
@@ -32,7 +32,7 @@ function Editor({ column, onChange }) {
         <Input
           label={
             <React.Fragment>
-              Value for <code>true</code>
+              值为真 <code>true</code>
             </React.Fragment>
           }
           data-test="Table.ColumnEditor.Boolean.True"

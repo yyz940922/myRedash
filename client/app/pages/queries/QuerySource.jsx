@@ -200,7 +200,7 @@ function QuerySource(props) {
                 <Select
                   className="w-100"
                   data-test="SelectDataSource"
-                  placeholder="Choose data source..."
+                  placeholder="选择数据源..."
                   value={dataSource ? dataSource.id : undefined}
                   disabled={!queryFlags.canEdit || !dataSourcesLoaded || dataSources.length === 0}
                   loading={!dataSourcesLoaded}
@@ -234,7 +234,7 @@ function QuerySource(props) {
                   isEditable={queryFlags.canEdit}
                   markdown
                   ignoreBlanks={false}
-                  placeholder="Add description"
+                  placeholder="添加描述"
                   value={query.description}
                   onDone={updateQueryDescription}
                   multiline
@@ -267,12 +267,12 @@ function QuerySource(props) {
 
                     <QueryEditor.Controls
                       addParameterButtonProps={{
-                        title: "Add New Parameter",
+                        title: "新增参数",
                         shortcut: "mod+p",
                         onClick: openAddNewParameterDialog,
                       }}
                       formatButtonProps={{
-                        title: "Format Query",
+                        title: "格式化查询脚本",
                         shortcut: "mod+shift+f",
                         onClick: formatQuery,
                       }}
@@ -280,7 +280,7 @@ function QuerySource(props) {
                         queryFlags.canEdit && {
                           text: (
                             <React.Fragment>
-                              <span className="hidden-xs">Save</span>
+                              <span className="hidden-xs">保存</span>
                               {isDirty && !isQuerySaving ? "*" : null}
                             </React.Fragment>
                           ),
@@ -294,7 +294,7 @@ function QuerySource(props) {
                         shortcut: "mod+enter, alt+enter",
                         onClick: doExecuteQuery,
                         text: (
-                          <span className="hidden-xs">{selectedText === null ? "Execute" : "Execute Selected"}</span>
+                          <span className="hidden-xs">{selectedText === null ? "执行" : "执行选中脚本"}</span>
                         ),
                       }}
                       autocompleteToggleProps={{
@@ -381,7 +381,7 @@ function QuerySource(props) {
                           loading={isQueryExecuting}
                           onClick={doExecuteQuery}>
                           {!isQueryExecuting && <i className="zmdi zmdi-refresh m-r-5" aria-hidden="true" />}
-                          Refresh Now
+                          立即刷新
                         </Button>
                       }
                     />

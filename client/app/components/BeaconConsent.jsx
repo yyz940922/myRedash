@@ -22,10 +22,10 @@ function BeaconConsent() {
   };
 
   const confirmConsent = confirm => {
-    let message = "🙏 Thank you.";
+    let message = "🙏 谢谢！";
 
     if (!confirm) {
-      message = "Settings Saved.";
+      message = "设置保存成功！";
     }
 
     OrgSettings.save({ beacon_consent: confirm }, message)
@@ -42,31 +42,31 @@ function BeaconConsent() {
         <Card
           title={
             <>
-              Would you be ok with sharing anonymous usage data with the Redash team?{" "}
+              你愿意以匿名的方式把使用统计数据共享给Redash团队吗?{" "}
               <HelpTrigger type="USAGE_DATA_SHARING" />
             </>
           }
           bordered={false}>
-          <Text>Help Redash improve by automatically sending anonymous usage data:</Text>
+          <Text>自动发送使用统计数据，帮助Redash完善产品：</Text>
           <div className="m-t-5">
             <ul>
-              <li> Number of users, queries, dashboards, alerts, widgets and visualizations.</li>
-              <li> Types of data sources, alert destinations and visualizations.</li>
+              <li> 用户数量，查询数，报表数，提醒数，部件和视图数</li>
+              <li> 数据源类型，提醒和视图设置。</li>
             </ul>
           </div>
-          <Text>All data is aggregated and will never include any sensitive or private data.</Text>
+          <Text>所有发送数据都是统计数，绝不包含敏感和私有数据。</Text>
           <div className="m-t-5">
             <Button type="primary" className="m-r-5" onClick={() => confirmConsent(true)}>
-              Yes
+              同意
             </Button>
             <Button type="default" onClick={() => confirmConsent(false)}>
-              No
+              拒绝
             </Button>
           </div>
           <div className="m-t-15">
             <Text type="secondary">
-              You can change this setting anytime from the <a href="settings/organization">Organization Settings</a>{" "}
-              page.
+              你随时可以进入 <a href="settings/organization">系统设置</a>{" "}
+              页，更改这项配置。
             </Text>
           </div>
         </Card>

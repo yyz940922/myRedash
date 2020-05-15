@@ -31,39 +31,39 @@ function visualizationWidgetMenuOptions({ widget, canEditDashboard, onParameters
     <Menu.Item key="download_csv" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("csv")} download={downloadName("csv")} target="_self">
-          Download as CSV File
+          另存为CSV文件
         </a>
       ) : (
-        "Download as CSV File"
+        "另存为CSV文件"
       )}
     </Menu.Item>,
     <Menu.Item key="download_tsv" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("tsv")} download={downloadName("tsv")} target="_self">
-          Download as TSV File
+          另存为TSV文件
         </a>
       ) : (
-        "Download as TSV File"
+        "另存为TSV文件"
       )}
     </Menu.Item>,
     <Menu.Item key="download_excel" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("xlsx")} download={downloadName("xlsx")} target="_self">
-          Download as Excel File
+          另存为Excel文件
         </a>
       ) : (
-        "Download as Excel File"
+        "另存为Excel文件"
       )}
     </Menu.Item>,
     (canViewQuery || canEditParameters) && <Menu.Divider key="divider" />,
     canViewQuery && (
       <Menu.Item key="view_query">
-        <a href={widget.getQuery().getUrl(true, widget.visualization.id)}>View Query</a>
+        <a href={widget.getQuery().getUrl(true, widget.visualization.id)}>查看查询定义</a>
       </Menu.Item>
     ),
     canEditParameters && (
       <Menu.Item key="edit_parameters" onClick={onParametersEdit}>
-        Edit Parameters
+        编辑参数
       </Menu.Item>
     ),
   ]);
@@ -247,7 +247,7 @@ class VisualizationWidget extends React.Component {
           <div className="body-row-auto scrollbox">
             {widgetQueryResult.getError() && (
               <div className="alert alert-danger m-5">
-                Error running query: <strong>{widgetQueryResult.getError()}</strong>
+                查询运行错误： <strong>{widgetQueryResult.getError()}</strong>
               </div>
             )}
           </div>

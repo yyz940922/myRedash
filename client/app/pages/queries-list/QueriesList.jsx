@@ -33,24 +33,24 @@ class QueriesList extends React.Component {
     {
       key: "all",
       href: "queries",
-      title: "All Queries",
+      title: "所有查询",
     },
     {
       key: "favorites",
       href: "queries/favorites",
-      title: "Favorites",
+      title: "我关注的查询",
       icon: () => <Sidebar.MenuIcon icon="fa fa-star" />,
     },
     {
       key: "archive",
       href: "queries/archive",
-      title: "Archived",
+      title: "归档的查询",
       icon: () => <Sidebar.MenuIcon icon="fa fa-archive" />,
     },
     {
       key: "my",
       href: "queries/my",
-      title: "My Queries",
+      title: "我的查询",
       icon: () => <Sidebar.ProfileImage user={currentUser} />,
       isAvailable: () => currentUser.hasPermission("create_query"),
     },
@@ -73,16 +73,16 @@ class QueriesList extends React.Component {
         </React.Fragment>
       ),
       {
-        title: "Name",
+        title: "名称",
         field: "name",
         width: null,
       }
     ),
-    Columns.custom((text, item) => item.user.name, { title: "Created By" }),
-    Columns.dateTime.sortable({ title: "Created At", field: "created_at" }),
-    Columns.dateTime.sortable({ title: "Last Executed At", field: "retrieved_at", orderByField: "executed_at" }),
+    Columns.custom((text, item) => item.user.name, { title: "创建人" }),
+    Columns.dateTime.sortable({ title: "创建时间", field: "created_at" }),
+    Columns.dateTime.sortable({ title: "最后执行时间", field: "retrieved_at", orderByField: "executed_at" }),
     Columns.custom.sortable((text, item) => <SchedulePhrase schedule={item.schedule} isNew={item.isNew()} />, {
-      title: "Refresh Schedule",
+      title: "自动刷新",
       field: "schedule",
     }),
   ];
@@ -112,7 +112,7 @@ class QueriesList extends React.Component {
           <Layout className="m-l-15 m-r-15">
             <Layout.Sidebar className="m-b-0">
               <Sidebar.SearchInput
-                placeholder="Search Queries..."
+                placeholder="搜索查询..."
                 value={controller.searchTerm}
                 onChange={controller.updateSearch}
               />
@@ -181,22 +181,22 @@ const QueriesListPage = itemsList(
 export default [
   routeWithUserSession({
     path: "/queries",
-    title: "Queries",
+    title: "所有查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="all" />,
   }),
   routeWithUserSession({
     path: "/queries/favorites",
-    title: "Favorite Queries",
+    title: "我关注的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="favorites" />,
   }),
   routeWithUserSession({
     path: "/queries/archive",
-    title: "Archived Queries",
+    title: "归档的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="archive" />,
   }),
   routeWithUserSession({
     path: "/queries/my",
-    title: "My Queries",
+    title: "我的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="my" />,
   }),
 ];

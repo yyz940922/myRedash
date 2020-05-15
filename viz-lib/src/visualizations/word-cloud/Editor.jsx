@@ -13,7 +13,7 @@ export default function Editor({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Words Column"
+          label="关键词取值"
           data-test="WordCloud.WordsColumn"
           value={options.column}
           onChange={column => optionsChanged({ column })}>
@@ -26,7 +26,7 @@ export default function Editor({ options, data, onOptionsChange }) {
       </Section>
       <Section>
         <Select
-          label="Frequencies Column"
+          label="出现频率取值"
           data-test="WordCloud.FrequenciesColumn"
           value={options.frequenciesColumn}
           onChange={frequenciesColumn => optionsChanged({ frequenciesColumn })}>
@@ -41,12 +41,12 @@ export default function Editor({ options, data, onOptionsChange }) {
         </Select>
       </Section>
       <Section>
-        <ControlLabel label="Words Length Limit">
+        <ControlLabel label="关键词长度限制">
           <Grid.Row gutter={15} type="flex">
             <Grid.Col span={12}>
               <InputNumber
                 data-test="WordCloud.WordLengthLimit.Min"
-                placeholder="Min"
+                placeholder="最小"
                 min={0}
                 value={options.wordLengthLimit.min}
                 onChange={value => optionsChanged({ wordLengthLimit: { min: value > 0 ? value : null } })}
@@ -55,7 +55,7 @@ export default function Editor({ options, data, onOptionsChange }) {
             <Grid.Col span={12}>
               <InputNumber
                 data-test="WordCloud.WordLengthLimit.Max"
-                placeholder="Max"
+                placeholder="最大"
                 min={0}
                 value={options.wordLengthLimit.max}
                 onChange={value => optionsChanged({ wordLengthLimit: { max: value > 0 ? value : null } })}
@@ -65,12 +65,12 @@ export default function Editor({ options, data, onOptionsChange }) {
         </ControlLabel>
       </Section>
       <Section>
-        <ControlLabel label="Frequencies Limit">
+        <ControlLabel label="出现频率限制">
           <Grid.Row gutter={15} type="flex">
             <Grid.Col span={12}>
               <InputNumber
                 data-test="WordCloud.WordCountLimit.Min"
-                placeholder="Min"
+                placeholder="最小"
                 min={0}
                 value={options.wordCountLimit.min}
                 onChange={value => optionsChanged({ wordCountLimit: { min: value > 0 ? value : null } })}
@@ -79,7 +79,7 @@ export default function Editor({ options, data, onOptionsChange }) {
             <Grid.Col span={12}>
               <InputNumber
                 data-test="WordCloud.WordCountLimit.Max"
-                placeholder="Max"
+                placeholder="最大"
                 min={0}
                 value={options.wordCountLimit.max}
                 onChange={value => optionsChanged({ wordCountLimit: { max: value > 0 ? value : null } })}

@@ -17,7 +17,7 @@ export default function EmailSettingsWarning({ featureName, className, mode, adm
 
   const message = (
     <span>
-      Your mail server isn&apos;t configured correctly, and is needed for {featureName} to work.{" "}
+      邮件服务器未能正确配置，“{featureName} ”功能需要配置邮件服务器才能进行。{" "}
       <HelpTrigger type="MAIL_CONFIG" className="f-inherit" />
     </span>
   );

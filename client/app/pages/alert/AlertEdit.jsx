@@ -54,11 +54,11 @@ export default class AlertEdit extends React.Component {
         <Title name={name} alert={alert} onChange={onNameChange} editMode>
           <Button className="m-r-5" onClick={() => this.cancel()}>
             <i className="fa fa-times m-r-5" />
-            Cancel
+            取消
           </Button>
           <Button type="primary" onClick={() => this.save()}>
             {saving ? <i className="fa fa-spinner fa-pulse m-r-5" /> : <i className="fa fa-check m-r-5" />}
-            Save Changes
+            保存
           </Button>
           {menuButton}
         </Title>
@@ -70,7 +70,7 @@ export default class AlertEdit extends React.Component {
               </HorizontalFormItem>
               {queryResult && options && (
                 <>
-                  <HorizontalFormItem label="Trigger when" className="alert-criteria">
+                  <HorizontalFormItem label="触发条件" className="alert-criteria">
                     <Criteria
                       columnNames={queryResult.getColumnNames()}
                       resultValues={queryResult.getData()}
@@ -79,10 +79,10 @@ export default class AlertEdit extends React.Component {
                       editMode
                     />
                   </HorizontalFormItem>
-                  <HorizontalFormItem label="When triggered, send notification">
+                  <HorizontalFormItem label="发送通知">
                     <Rearm value={pendingRearm || 0} onChange={onRearmChange} editMode />
                   </HorizontalFormItem>
-                  <HorizontalFormItem label="Template">
+                  <HorizontalFormItem label="模板">
                     <NotificationTemplate
                       alert={alert}
                       query={query}
@@ -99,7 +99,7 @@ export default class AlertEdit extends React.Component {
             </Form>
             <div>
               <HelpTrigger className="f-13" type="ALERT_SETUP">
-                Setup Instructions <i className="fa fa-question-circle" />
+                设置说明 <i className="fa fa-question-circle" />
               </HelpTrigger>
             </div>
           </div>

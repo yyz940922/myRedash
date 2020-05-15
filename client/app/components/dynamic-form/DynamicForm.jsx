@@ -25,9 +25,9 @@ const fieldRules = ({ type, required, minLength }) => {
   const emailTypeRule = type === "email";
 
   return [
-    requiredRule && { required, message: "This field is required." },
-    minLengthRule && { min: minLength, message: "This field is too short." },
-    emailTypeRule && { type: "email", message: "This field must be a valid email." },
+    requiredRule && { required, message: "必填项不能为空！" },
+    minLengthRule && { min: minLength, message: "内容太短！" },
+    emailTypeRule && { type: "email", message: "不是合法的电子邮箱格式！" },
   ].filter(rule => rule);
 };
 
@@ -49,7 +49,7 @@ class DynamicForm extends React.Component {
     actions: [],
     feedbackIcons: false,
     hideSubmitButton: false,
-    saveText: "Save",
+    saveText: "保存",
     onSubmit: () => {},
   };
 
@@ -155,7 +155,7 @@ class DynamicForm extends React.Component {
     const upload = (
       <Upload {...props} beforeUpload={() => false}>
         <Button disabled={disabled}>
-          <Icon type="upload" /> Click to upload
+          <Icon type="upload" /> 点击上载
         </Button>
       </Upload>
     );

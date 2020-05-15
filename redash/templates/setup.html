@@ -25,7 +25,7 @@
 <div class="fixed-width-page">
   <div class="bg-white tiled">
     <h4 class="m-t-0">Welcome to Redash!</h4>
-    <div>Before you can use your instance, you need to do a quick setup.</div>
+    <div>开始使用前，要进行一个快速初始化。</div>
 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -36,7 +36,7 @@
     {% endwith %}
 
     <form role="form" method="post" name="create_account">
-      <h4 class="m-t-25">Admin User</h4>
+      <h4 class="m-t-25">系统管理员</h4>
       {{ render_field(form.name) }}
       {{ render_field(form.email) }}
       {{ render_field(form.password) }}
@@ -44,22 +44,22 @@
       <div class="checkbox">
         <label>
           {{ form.security_notifications() }}
-          Subscribe to Security Notifications
+          订阅安全通知。
         </label>
       </div>
 
       <div class="checkbox">
         <label>
           {{ form.newsletter() }}
-          Subscribe to newsletter (version updates, no more than once a month)
+          订阅动态 (版本更新，每月一期)。
         </label>
       </div>
 
-      <h4 class="m-t-25">General</h4>
+      <h4 class="m-t-25">单位名称</h4>
 
       {{ render_field(form.org_name, help_block="Used in email notifications and the UI.") }}
 
-      <button type="submit" class="btn btn-primary btn-block m-t-25">Setup</button>
+      <button type="submit" class="btn btn-primary btn-block m-t-25">设置</button>
     </form>
   </div>
 </div>

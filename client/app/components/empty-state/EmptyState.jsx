@@ -90,57 +90,57 @@ function EmptyState({
         />
       </div>
       <div className="empty-state__steps">
-        <h4>Let&apos;s get started</h4>
+        <h4>开始</h4>
         <ol>
           {currentUser.isAdmin && (
             <Step
               show={isAvailable.dataSource}
               completed={isCompleted.dataSource}
               url="data_sources/new"
-              urlText="Connect"
-              text="a Data Source"
+              urlText="连接"
+              text="数据源"
             />
           )}
           {!currentUser.isAdmin && (
             <Step
               show={isAvailable.dataSource}
               completed={isCompleted.dataSource}
-              text="Ask an account admin to connect a data source"
+              text="连接数据源需要系统管理员权限！"
             />
           )}
           <Step
             show={isAvailable.query}
             completed={isCompleted.query}
             url="queries/new"
-            urlText="Create"
-            text="your first Query"
+            urlText="新建"
+            text="第一个查询"
           />
           <Step
             show={isAvailable.alert}
             completed={isCompleted.alert}
             url="alerts/new"
-            urlText="Create"
-            text="your first Alert"
+            urlText="新建"
+            text="第一个提醒"
           />
           <Step
             show={isAvailable.dashboard}
             completed={isCompleted.dashboard}
             onClick={showCreateDashboardDialog}
-            urlText="Create"
-            text="your first Dashboard"
+            urlText="新建"
+            text="第一张报表"
           />
           <Step
             show={isAvailable.inviteUsers}
             completed={isCompleted.inviteUsers}
             url="users/new"
-            urlText="Invite"
-            text="your team members"
+            urlText="邀请"
+            text="你的团队成员"
           />
         </ol>
         <p>
-          Need more support?{" "}
+          需要支持?{" "}
           <a href={helpLink} target="_blank" rel="noopener noreferrer">
-            See our Help
+            请查看帮助
             <i className="fa fa-external-link m-l-5" aria-hidden="true" />
           </a>
         </p>

@@ -44,11 +44,11 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
     }
 
     if (isNaN(alertOptions.value)) {
-      return "Value column type doesn't match threshold type.";
+      return "取值列类型和阈值类型不匹配。";
     }
 
     if (isNaN(columnValue)) {
-      return "Value column isn't supported by condition type.";
+      return "取值列类型和条件类型不匹配。";
     }
 
     return null;
@@ -63,7 +63,7 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
   return (
     <div data-test="Criteria">
       <div className="input-title">
-        <span>Value column</span>
+        <span>取值列</span>
         {editMode ? (
           <Select
             value={alertOptions.column}
@@ -79,7 +79,7 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
         )}
       </div>
       <div className="input-title">
-        <span>Condition</span>
+        <span>条件</span>
         {editMode ? (
           <Select
             value={alertOptions.op}
@@ -88,28 +88,28 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
             dropdownMatchSelectWidth={false}
             style={{ width: 55 }}>
             <Select.Option value=">" label={CONDITIONS[">"]}>
-              {CONDITIONS[">"]} greater than
+              {CONDITIONS[">"]} 大于
             </Select.Option>
             <Select.Option value=">=" label={CONDITIONS[">="]}>
-              {CONDITIONS[">="]} greater than or equals
+              {CONDITIONS[">="]} 大于等于
             </Select.Option>
             <Select.Option disabled key="dv1">
               <Divider className="select-option-divider m-t-10 m-b-5" />
             </Select.Option>
             <Select.Option value="<" label={CONDITIONS["<"]}>
-              {CONDITIONS["<"]} less than
+              {CONDITIONS["<"]} 小于
             </Select.Option>
             <Select.Option value="<=" label={CONDITIONS["<="]}>
-              {CONDITIONS["<="]} less than or equals
+              {CONDITIONS["<="]} 小于等于
             </Select.Option>
             <Select.Option disabled key="dv2">
               <Divider className="select-option-divider m-t-10 m-b-5" />
             </Select.Option>
             <Select.Option value="==" label={CONDITIONS["=="]}>
-              {CONDITIONS["=="]} equals
+              {CONDITIONS["=="]} 等于
             </Select.Option>
             <Select.Option value="!=" label={CONDITIONS["!="]}>
-              {CONDITIONS["!="]} not equal to
+              {CONDITIONS["!="]} 不等于
             </Select.Option>
           </Select>
         ) : (
@@ -117,7 +117,7 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
         )}
       </div>
       <div className="input-title">
-        <span>Threshold</span>
+        <span>阈值</span>
         {editMode ? (
           <Input style={{ width: 90 }} value={alertOptions.value} onChange={e => onChange({ value: e.target.value })} />
         ) : (

@@ -6,24 +6,24 @@ import EmptyState from "@/components/empty-state/EmptyState";
 
 export default function QueriesListEmptyState({ page, searchTerm, selectedTags }) {
   if (searchTerm !== "") {
-    return <BigMessage message="Sorry, we couldn't find anything." icon="fa-search" />;
+    return <BigMessage message="没有查询到任何记录。" icon="fa-search" />;
   }
   if (selectedTags.length > 0) {
     return <NoTaggedObjectsFound objectType="queries" tags={selectedTags} />;
   }
   switch (page) {
     case "favorites":
-      return <BigMessage message="Mark queries as Favorite to list them here." icon="fa-star" />;
+      return <BigMessage message="显示我关注的查询。" icon="fa-star" />;
     case "archive":
-      return <BigMessage message="Archived queries will be listed here." icon="fa-archive" />;
+      return <BigMessage message="显示归档的查询。" icon="fa-archive" />;
     case "my":
       return (
         <div className="tiled bg-white p-15">
           <a href="queries/new" className="btn btn-primary btn-sm">
-            Create your first query
+            新建查询
           </a>{" "}
-          to populate My Queries list. Need help? Check out our{" "}
-          <a href="https://redash.io/help/user-guide/querying/writing-queries">query writing documentation</a>.
+          显示我的查询，若需帮助{" "}
+          <a href="https://redash.io/help/user-guide/querying/writing-queries">查看帮助</a>.
         </div>
       );
     default:
@@ -31,7 +31,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
         <EmptyState
           icon="fa fa-code"
           illustration="query"
-          description="Getting the data from your datasources."
+          description="从数据源提取数据。"
           helpLink="https://help.redash.io/category/21-querying"
         />
       );

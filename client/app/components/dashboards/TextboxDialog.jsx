@@ -43,9 +43,9 @@ function TextboxDialog({ dialog, isNew, ...props }) {
   return (
     <Modal
       {...dialog.props}
-      title={isNew ? "Add Textbox" : "Edit Textbox"}
+      title={isNew ? "新增文本" : "编辑文本"}
       onOk={saveWidget}
-      okText={isNew ? "Add to Dashboard" : "Save"}
+      okText={isNew ? "添加至报表" : "保存"}
       width={500}
       wrapProps={{ "data-test": "TextboxDialog" }}>
       <div className="textbox-dialog">
@@ -55,19 +55,19 @@ function TextboxDialog({ dialog, isNew, ...props }) {
           value={text}
           onChange={handleInputChange}
           autoFocus
-          placeholder="This is where you write some text"
+          placeholder="请输入文本"
         />
         <small>
           Supports basic{" "}
           <a target="_blank" rel="noopener noreferrer" href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
-            <Tooltip title="Markdown guide opens in new window">Markdown</Tooltip>
+            <Tooltip title="在新窗口打开Markdown标记指南">Markdown标记</Tooltip>
           </a>
           .
         </small>
         {text && (
           <React.Fragment>
             <Divider dashed />
-            <strong className="preview-title">Preview:</strong>
+            <strong className="preview-title">预览：</strong>
             <HtmlContent className="preview markdown">{preview}</HtmlContent>
           </React.Fragment>
         )}

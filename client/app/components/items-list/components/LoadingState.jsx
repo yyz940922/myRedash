@@ -5,7 +5,7 @@ import BigMessage from "@/components/BigMessage";
 export default function LoadingState(props) {
   return (
     <div className="text-center">
-      <BigMessage icon="fa-spinner fa-2x fa-pulse" message="Loading..." {...props} />
+      <BigMessage icon="fa-spinner fa-2x fa-pulse" message="加载中..." {...props} />
     </div>
   );
 }

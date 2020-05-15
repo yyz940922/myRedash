@@ -36,7 +36,7 @@ export default function BoundsSettings({ options, onOptionsChange }) {
   return (
     <React.Fragment>
       <Section>
-        <ControlLabel label="North-East latitude and longitude">
+        <ControlLabel label="东北角对应纬度和经度">
           <Grid.Row gutter={15}>
             <Grid.Col span={12}>
               <InputNumber value={bounds[1][0]} onChange={value => updateBounds(1, 0, value)} />
@@ -49,7 +49,7 @@ export default function BoundsSettings({ options, onOptionsChange }) {
       </Section>
 
       <Section>
-        <ControlLabel label="South-West latitude and longitude">
+        <ControlLabel label="西南角对应纬度和经度">
           <Grid.Row gutter={15}>
             <Grid.Col span={12}>
               <InputNumber value={bounds[0][0]} onChange={value => updateBounds(0, 0, value)} />

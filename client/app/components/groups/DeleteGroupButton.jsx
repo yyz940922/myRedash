@@ -9,11 +9,11 @@ import Group from "@/services/group";
 
 function deleteGroup(event, group, onGroupDeleted) {
   Modal.confirm({
-    title: "Delete Group",
-    content: "Are you sure you want to delete this group?",
-    okText: "Yes",
+    title: "删除角色",
+    content: "确定删除角色？",
+    okText: "确定",
     okType: "danger",
-    cancelText: "No",
+    cancelText: "取消",
     onOk: () => {
       Group.delete(group).then(() => {
         notification.success("Group deleted successfully.");

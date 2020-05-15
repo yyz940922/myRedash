@@ -40,7 +40,7 @@ export class TagsControl extends React.Component {
         {tags.length === 0 && (
           <React.Fragment>
             <i className="zmdi zmdi-plus m-r-5" />
-            Add tag
+            添加标记
           </React.Fragment>
         )}
         {tags.length > 0 && <i className="zmdi zmdi-edit" />}
@@ -70,10 +70,10 @@ function modelTagsControl({ archivedTooltip }) {
   function ModelTagsControl({ isDraft, isArchived, ...props }) {
     return (
       <TagsControl {...props}>
-        {!isArchived && isDraft && <span className="label label-tag-unpublished">Unpublished</span>}
+        {!isArchived && isDraft && <span className="label label-tag-unpublished">草稿</span>}
         {isArchived && (
           <Tooltip placement="right" title={archivedTooltip}>
-            <span className="label label-tag-archived">Archived</span>
+            <span className="label label-tag-archived">归档</span>
           </Tooltip>
         )}
       </TagsControl>
@@ -94,9 +94,9 @@ function modelTagsControl({ archivedTooltip }) {
 }
 
 export const QueryTagsControl = modelTagsControl({
-  archivedTooltip: "This query is archived and can't be used in dashboards, or appear in search results.",
+  archivedTooltip: "归档查询不能用于报表，也不会出现在列表和搜索中。",
 });
 
 export const DashboardTagsControl = modelTagsControl({
-  archivedTooltip: "This dashboard is archived and won't be listed in dashboards nor search results.",
+  archivedTooltip: "归档报表不会出现在列表和搜索中。",
 });

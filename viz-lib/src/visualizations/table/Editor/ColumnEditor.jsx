@@ -42,13 +42,13 @@ export default function ColumnEditor({ column, onChange }) {
           data-test={`Table.Column.${column.name}.UseForSearch`}
           defaultChecked={column.allowSearch}
           onChange={event => handleChange({ allowSearch: event.target.checked })}>
-          Use for search
+          可用于搜索
         </Checkbox>
       </Section>
 
       <Section>
         <Input
-          label="Description"
+          label="描述"
           defaultValue={column.description}
           onChange={event => handleChangeDebounced({ description: event.target.value })}
         />
@@ -56,7 +56,7 @@ export default function ColumnEditor({ column, onChange }) {
 
       <Section>
         <Select
-          label="Display as:"
+          label="显示格式"
           data-test={`Table.Column.${column.name}.DisplayAs`}
           defaultValue={column.displayAs}
           onChange={displayAs => handleChange({ displayAs })}>

@@ -21,11 +21,11 @@ import { STATE_CLASS } from "../alerts/AlertsList";
 function AlertState({ state, lastTriggered }) {
   return (
     <div className="alert-state">
-      <span className={`alert-state-indicator label ${STATE_CLASS[state]}`}>Status: {state}</span>
-      {state === "unknown" && <div className="ant-form-explain">Alert condition has not been evaluated.</div>}
+      <span className={`alert-state-indicator label ${STATE_CLASS[state]}`}>状态：{state}</span>
+      {state === "unknown" && <div className="ant-form-explain">提醒设置已确认。</div>}
       {lastTriggered && (
         <div className="ant-form-explain">
-          Last triggered{" "}
+          最后触发时间{" "}
           <span className="alert-last-triggered">
             <TimeAgo date={lastTriggered} />
           </span>
@@ -64,7 +64,7 @@ export default class AlertView extends React.Component {
     return (
       <>
         <Title name={name} alert={alert}>
-          <Tooltip title={canEdit ? "" : "You do not have sufficient permissions to edit this alert"}>
+          <Tooltip title={canEdit ? "" : "没有权限"}>
             <Button type="default" onClick={canEdit ? onEdit : null} className={cx({ disabled: !canEdit })}>
               <i className="fa fa-edit m-r-5" />
               Edit
@@ -78,22 +78,22 @@ export default class AlertView extends React.Component {
               <HorizontalFormItem>
                 <AlertState state={alert.state} lastTriggered={alert.last_triggered_at} />
               </HorizontalFormItem>
-              <HorizontalFormItem label="Query">
+              <HorizontalFormItem label="查询">
                 <Query query={query} queryResult={queryResult} />
               </HorizontalFormItem>
               {queryResult && options && (
                 <>
-                  <HorizontalFormItem label="Trigger when" className="alert-criteria">
+                  <HorizontalFormItem label="触发条件" className="alert-criteria">
                     <Criteria
                       columnNames={queryResult.getColumnNames()}
                       resultValues={queryResult.getData()}
                       alertOptions={options}
                     />
                   </HorizontalFormItem>
-                  <HorizontalFormItem label="Notifications" className="form-item-line-height-normal">
+                  <HorizontalFormItem label="发送通知" className="form-item-line-height-normal">
                     <Rearm value={rearm || 0} />
                     <br />
-                    Set to {options.custom_subject || options.custom_body ? "custom" : "default"} notification template.
+                    设为 {options.custom_subject || options.custom_body ? "自定义" : "默认"} 通知模板。
                   </HorizontalFormItem>
                 </>
               )}
@@ -105,23 +105,23 @@ export default class AlertView extends React.Component {
                 className="m-b-20"
                 message={
                   <>
-                    <i className="fa fa-bell-slash-o" /> Notifications are muted
+                    <i className="fa fa-bell-slash-o" /> 通知设为静音
                   </>
                 }
                 description={
                   <>
-                    Notifications for this alert will not be sent.
+                    不发送通知
                     <br />
                     {canEdit && (
                       <>
-                        To restore notifications click
+                        点击恢复发送通知
                         <Button
                           size="small"
                           type="primary"
                           onClick={this.unmute}
                           loading={this.state.unmuting}
                           className="m-t-5 m-l-5">
-                          Unmute
+                          恢复有声
                         </Button>
                       </>
                     )}
@@ -132,7 +132,7 @@ export default class AlertView extends React.Component {
             )}
             <h4>
               Destinations{" "}
-              <Tooltip title="Open Alert Destinations page in a new tab.">
+              <Tooltip title="在新标签页打开提醒设置">
                 <a href="destinations" target="_blank">
                   <i className="fa fa-external-link f-13" />
                 </a>

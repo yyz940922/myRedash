@@ -110,7 +110,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <ChartTypeSelect
-          label="Chart Type"
+          label="图表类型"
           data-test="Chart.GlobalSeriesType"
           defaultValue={options.globalSeriesType}
           onChange={handleGlobalSeriesTypeChange}
@@ -131,7 +131,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
         <React.Fragment>
           <Section>
             <InputNumber
-              label="Bubble Size Coefficient"
+              label="气泡尺寸系数"
               data-test="Chart.BubbleCoefficient"
               defaultValue={options.coefficient}
               onChange={value => onOptionsChange({ coefficient: toNumber(value) })}
@@ -140,7 +140,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
           <Section>
             <Select
-              label="Bubble Size Proportional To"
+              label="气泡尺寸比例"
               data-test="Chart.SizeMode"
               defaultValue={options.sizemode}
               onChange={mode => onOptionsChange({ sizemode: mode })}>
@@ -158,15 +158,15 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {includes(["pie"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Direction"
+            label="方向"
             data-test="Chart.PieDirection"
             defaultValue={options.direction.type}
             onChange={type => onOptionsChange({ direction: { type } })}>
             <Select.Option value="counterclockwise" data-test="Chart.PieDirection.Counterclockwise">
-              Counterclockwise
+              逆时针
             </Select.Option>
             <Select.Option value="clockwise" data-test="Chart.PieDirection.Clockwise">
-              Clockwise
+              顺时针
             </Select.Option>
           </Select>
         </Section>
@@ -175,18 +175,18 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {!includes(["custom", "heatmap"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Legend Placement"
+            label="图例放置"
             data-test="Chart.LegendPlacement"
             value={options.legend.enabled ? options.legend.placement : "hidden"}
             onChange={handleLegendPlacementChange}>
             <Select.Option value="hidden" data-test="Chart.LegendPlacement.HideLegend">
-              Hide legend
+              不显示图例
             </Select.Option>
             <Select.Option value="auto" data-test="Chart.LegendPlacement.Auto">
-              Right
+              右侧
             </Select.Option>
             <Select.Option value="below" data-test="Chart.LegendPlacement.Below">
-              Bottom
+              底部
             </Select.Option>
           </Select>
         </Section>
@@ -198,7 +198,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
             data-test="Chart.ShowPoints"
             defaultChecked={options.showpoints}
             onChange={event => onOptionsChange({ showpoints: event.target.checked })}>
-            Show All Points
+            显示全部点
           </Checkbox>
         </Section>
       )}
@@ -206,16 +206,16 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {!includes(["custom", "heatmap"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Stacking"
+            label="数据堆叠"
             data-test="Chart.Stacking"
             defaultValue={options.series.stacking}
             disabled={!includes(["line", "area", "column"], options.globalSeriesType)}
             onChange={stacking => onOptionsChange({ series: { stacking } })}>
             <Select.Option value={null} data-test="Chart.Stacking.Disabled">
-              Disabled
+              不堆叠
             </Select.Option>
             <Select.Option value="stack" data-test="Chart.Stacking.Stack">
-              Stack
+              堆叠
             </Select.Option>
           </Select>
         </Section>
@@ -227,7 +227,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
             data-test="Chart.NormalizeValues"
             defaultChecked={options.series.percentValues}
             onChange={event => onOptionsChange({ series: { percentValues: event.target.checked } })}>
-            Normalize values to percentage
+            转换为百分比
           </Checkbox>
         </Section>
       )}
@@ -235,15 +235,15 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {!includes(["custom", "heatmap", "bubble", "scatter"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Missing and NULL values"
+            label="无值或空值"
             data-test="Chart.MissingValues"
             defaultValue={options.missingValuesAsZero ? 1 : 0}
             onChange={value => onOptionsChange({ missingValuesAsZero: !!value })}>
             <Select.Option value={0} data-test="Chart.MissingValues.Keep">
-              Do not display in chart
+              不显示
             </Select.Option>
             <Select.Option value={1} data-test="Chart.MissingValues.Zero">
-              Convert to 0 and display in chart
+              转化为0显示
             </Select.Option>
           </Select>
         </Section>

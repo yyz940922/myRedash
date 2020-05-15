@@ -42,7 +42,7 @@ class AlertsList extends React.Component {
         </div>
       ),
       {
-        title: "Name",
+        title: "名称",
         field: "name",
       }
     ),
@@ -54,13 +54,13 @@ class AlertsList extends React.Component {
         </div>
       ),
       {
-        title: "State",
+        title: "状态",
         field: "state",
         width: "1%",
       }
     ),
-    Columns.timeAgo.sortable({ title: "Last Updated At", field: "updated_at", className: "text-nowrap", width: "1%" }),
-    Columns.dateTime.sortable({ title: "Created At", field: "created_at", className: "text-nowrap", width: "1%" }),
+    Columns.timeAgo.sortable({ title: "最后更新时间", field: "updated_at", className: "text-nowrap", width: "1%" }),
+    Columns.dateTime.sortable({ title: "创建时间", field: "created_at", className: "text-nowrap", width: "1%" }),
   ];
 
   render() {
@@ -76,7 +76,7 @@ class AlertsList extends React.Component {
               <EmptyState
                 icon="fa fa-bell-o"
                 illustration="alert"
-                description="Get notified on certain events"
+                description="接收事件通知"
                 helpLink="https://redash.io/help/user-guide/alerts/"
                 showAlertStep
               />
@@ -122,6 +122,6 @@ const AlertsListPage = itemsList(
 
 export default routeWithUserSession({
   path: "/alerts",
-  title: "Alerts",
+  title: "提醒",
   render: pageProps => <AlertsListPage {...pageProps} currentPage="alerts" />,
 });

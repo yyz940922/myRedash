@@ -39,16 +39,14 @@ export default class AlertNew extends React.Component {
           <div className="d-flex">
             <Form className="flex-fill">
               <div className="m-b-30">
-                Start by selecting the query that you would like to monitor using the search bar.
-                <br />
-                Keep in mind that Alerts do not work with queries that use parameters.
+                请选择想要监控的查询（不适用于带有参数的查询）
               </div>
-              <HorizontalFormItem label="Query">
+              <HorizontalFormItem label="查询">
                 <Query query={query} queryResult={queryResult} onChange={onQuerySelected} editMode />
               </HorizontalFormItem>
               {queryResult && options && (
                 <>
-                  <HorizontalFormItem label="Trigger when" className="alert-criteria">
+                  <HorizontalFormItem label="触发条件" className="alert-criteria">
                     <Criteria
                       columnNames={queryResult.getColumnNames()}
                       resultValues={queryResult.getData()}
@@ -57,10 +55,10 @@ export default class AlertNew extends React.Component {
                       editMode
                     />
                   </HorizontalFormItem>
-                  <HorizontalFormItem label="When triggered, send notification">
+                  <HorizontalFormItem label="发送通知">
                     <Rearm value={pendingRearm || 0} onChange={onRearmChange} editMode />
                   </HorizontalFormItem>
-                  <HorizontalFormItem label="Template">
+                  <HorizontalFormItem label="模板">
                     <NotificationTemplate
                       alert={alert}
                       query={query}
@@ -77,12 +75,12 @@ export default class AlertNew extends React.Component {
               <HorizontalFormItem>
                 <Button type="primary" onClick={this.save} disabled={!query} className="btn-create-alert">
                   {saving && <i className="fa fa-spinner fa-pulse m-r-5" />}
-                  Create Alert
+                  创建提醒
                 </Button>
               </HorizontalFormItem>
             </Form>
             <HelpTrigger className="f-13" type="ALERT_SETUP">
-              Setup Instructions <i className="fa fa-question-circle" />
+              设置说明 <i className="fa fa-question-circle" />
             </HelpTrigger>
           </div>
         </div>

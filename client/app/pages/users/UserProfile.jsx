@@ -49,7 +49,7 @@ class UserProfile extends React.Component {
 
 const UserProfilePage = wrapSettingsTab(
   {
-    title: "Account",
+    title: "个人设置",
     path: "users/me",
     order: 7,
   },
@@ -59,12 +59,12 @@ const UserProfilePage = wrapSettingsTab(
 export default [
   routeWithUserSession({
     path: "/users/me",
-    title: "Account",
+    title: "个人设置",
     render: pageProps => <UserProfilePage {...pageProps} />,
   }),
   routeWithUserSession({
     path: "/users/:userId([0-9]+)",
-    title: "Users",
+    title: "用户",
     render: pageProps => <UserProfilePage {...pageProps} />,
   }),
 ];

@@ -29,7 +29,7 @@ function DynamicButton({ options, selectedDynamicValue, onSelect, enabled }) {
       {enabled && (
         <Menu.Item>
           <Icon type="arrow-left" />
-          <Text type="secondary">Back to Static Value</Text>
+          <Text type="secondary">返回静态内容</Text>
         </Menu.Item>
       )}
     </Menu>

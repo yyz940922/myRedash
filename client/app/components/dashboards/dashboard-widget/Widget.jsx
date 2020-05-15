@@ -15,7 +15,7 @@ function WidgetDropdownButton({ extraOptions, showDeleteOption, onDelete }) {
     <Menu data-test="WidgetDropdownButtonMenu">
       {extraOptions}
       {showDeleteOption && extraOptions && <Menu.Divider />}
-      {showDeleteOption && <Menu.Item onClick={onDelete}>Remove from Dashboard</Menu.Item>}
+      {showDeleteOption && <Menu.Item onClick={onDelete}>从报表中移除</Menu.Item>}
     </Menu>
   );
 
@@ -45,7 +45,7 @@ WidgetDropdownButton.defaultProps = {
 function WidgetDeleteButton({ onClick }) {
   return (
     <div className="widget-menu-remove">
-      <a className="action" title="Remove From Dashboard" onClick={onClick} data-test="WidgetDeleteButton">
+      <a className="action" title="从报表中移除" onClick={onClick} data-test="WidgetDeleteButton">
         <i className="zmdi zmdi-close" />
       </a>
     </div>
@@ -92,9 +92,9 @@ class Widget extends React.Component {
     const { widget, onDelete } = this.props;
 
     Modal.confirm({
-      title: "Delete Widget",
-      content: "Are you sure you want to remove this widget from the dashboard?",
-      okText: "Delete",
+      title: "删除部件",
+      content: "确定要从报表中移除该部件吗？",
+      okText: "删除",
       okType: "danger",
       onOk: () => widget.delete().then(onDelete),
       maskClosable: true,

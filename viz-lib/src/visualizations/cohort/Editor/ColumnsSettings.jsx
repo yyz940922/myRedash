@@ -9,7 +9,7 @@ export default function ColumnsSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="Date (Bucket)"
+          label="日期(时格)"
           data-test="Cohort.DateColumn"
           value={options.dateColumn}
           onChange={dateColumn => onOptionsChange({ dateColumn })}>
@@ -24,7 +24,7 @@ export default function ColumnsSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="Stage"
+          label="层级"
           data-test="Cohort.StageColumn"
           value={options.stageColumn}
           onChange={stageColumn => onOptionsChange({ stageColumn })}>
@@ -39,7 +39,7 @@ export default function ColumnsSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="Bucket Population Size"
+          label="时格规模值"
           data-test="Cohort.TotalColumn"
           value={options.totalColumn}
           onChange={totalColumn => onOptionsChange({ totalColumn })}>
@@ -54,7 +54,7 @@ export default function ColumnsSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="Stage Value"
+          label="层级值"
           data-test="Cohort.ValueColumn"
           value={options.valueColumn}
           onChange={valueColumn => onOptionsChange({ valueColumn })}>

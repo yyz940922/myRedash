@@ -1,10 +1,10 @@
-Redash failed to run the following queries:
+下列查询运行失败：
 
 {% for failure in failures %}
 
 {{failure.name}} ({{base_url}}/queries/{{failure.id}})
-Last failed: {{failure.failed_at}}{% if failure.failure_count > 1 %} + {{failure.failure_count - 1}} more failures since last report{% endif %}
-Exception:
+上次运行失败时间： {{failure.failed_at}}{% if failure.failure_count > 1 %} + {{failure.failure_count - 1}} 更多错误信息{% endif %}
+异常信息：
 
 {{failure.failure_reason}}
 

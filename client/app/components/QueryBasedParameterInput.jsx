@@ -94,7 +94,7 @@ export default class QueryBasedParameterInput extends React.Component {
           optionFilterProp="children"
           showSearch
           showArrow
-          notFoundContent={isEmpty(options) ? "No options available" : null}
+          notFoundContent={isEmpty(options) ? "没有可选数据" : null}
           {...otherProps}>
           {options.map(option => (
             <Option value={option.value} key={option.value}>

@@ -12,13 +12,13 @@ export default function Layout({ activeTab, children }) {
 
       <div className="bg-white tiled">
         <Tabs className="admin-page-layout-tabs" defaultActiveKey={activeTab} animated={false} tabBarGutter={0}>
-          <Tabs.TabPane key="system_status" tab={<a href="admin/status">System Status</a>}>
+          <Tabs.TabPane key="system_status" tab={<a href="admin/status">系统状态</a>}>
             {activeTab === "system_status" ? children : null}
           </Tabs.TabPane>
-          <Tabs.TabPane key="jobs" tab={<a href="admin/queries/jobs">RQ Status</a>}>
+          <Tabs.TabPane key="jobs" tab={<a href="admin/queries/jobs">任务队列状态</a>}>
             {activeTab === "jobs" ? children : null}
           </Tabs.TabPane>
-          <Tabs.TabPane key="outdated_queries" tab={<a href="admin/queries/outdated">Outdated Queries</a>}>
+          <Tabs.TabPane key="outdated_queries" tab={<a href="admin/queries/outdated">超期的查询</a>}>
             {activeTab === "outdated_queries" ? children : null}
           </Tabs.TabPane>
         </Tabs>

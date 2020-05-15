@@ -79,7 +79,7 @@ function RefreshButton({ dashboardOptions }) {
       <Tooltip title={refreshRate ? `Auto Refreshing every ${durationHumanize(refreshRate)}` : null}>
         <Button type={buttonType(refreshRate)} onClick={() => refreshDashboard()}>
           <i className={cx("zmdi zmdi-refresh m-r-5", { "zmdi-hc-spin": refreshing })} />
-          {refreshRate ? durationHumanize(refreshRate) : "Refresh"}
+          {refreshRate ? durationHumanize(refreshRate) : "刷新"}
         </Button>
       </Tooltip>
       <Dropdown
@@ -92,7 +92,7 @@ function RefreshButton({ dashboardOptions }) {
                 {durationHumanize(option)}
               </Menu.Item>
             ))}
-            {refreshRate && <Menu.Item key={null}>Disable auto refresh</Menu.Item>}
+            {refreshRate && <Menu.Item key={null}>停止自动刷新</Menu.Item>}
           </Menu>
         }>
         <Button className="icon-button hidden-xs" type={buttonType(refreshRate)}>
@@ -121,9 +121,10 @@ function DashboardMoreOptionsButton({ dashboardOptions }) {
 
   const archive = () => {
     Modal.confirm({
-      title: "Archive Dashboard",
-      content: `Are you sure you want to archive the "${dashboard.name}" dashboard?`,
-      okText: "Archive",
+      title: "报表归档",
+      content: `确定要将 "${dashboard.name}" 报表归档？`,
+      okText: "确定",
+      cancelText: "取消",
       okType: "danger",
       onOk: archiveDashboard,
       maskClosable: true,
@@ -138,20 +139,20 @@ function DashboardMoreOptionsButton({ dashboardOptions }) {
       overlay={
         <Menu data-test="DashboardMoreButtonMenu">
           <Menu.Item className={cx({ hidden: gridDisabled })}>
-            <a onClick={() => setEditingLayout(true)}>Edit</a>
+            <a onClick={() => setEditingLayout(true)}>编辑</a>
           </Menu.Item>
           {clientConfig.showPermissionsControl && isDashboardOwnerOrAdmin && (
             <Menu.Item>
-              <a onClick={managePermissions}>Manage Permissions</a>
+              <a onClick={managePermissions}>权限管理</a>
             </Menu.Item>
           )}
           {!dashboard.is_draft && (
             <Menu.Item>
-              <a onClick={togglePublished}>Unpublish</a>
+              <a onClick={togglePublished}>草稿</a>
             </Menu.Item>
           )}
           <Menu.Item>
-            <a onClick={archive}>Archive</a>
+            <a onClick={archive}>归档</a>
           </Menu.Item>
         </Menu>
       }>
@@ -186,19 +187,19 @@ function DashboardControl({ dashboardOptions }) {
         <span className="hidden-print">
           {showPublishButton && (
             <Button className="m-r-5 hidden-xs" onClick={togglePublished}>
-              <span className="fa fa-paper-plane m-r-5" /> Publish
+              <span className="fa fa-paper-plane m-r-5" /> 发布
             </Button>
           )}
           {showRefreshButton && <RefreshButton dashboardOptions={dashboardOptions} />}
           {showFullscreenButton && (
-            <Tooltip className="hidden-xs" title="Enable/Disable Fullscreen display">
+            <Tooltip className="hidden-xs" title="进入/退出 全屏显示">
               <Button type={buttonType(fullscreen)} className="icon-button m-l-5" onClick={toggleFullscreen}>
                 <i className="zmdi zmdi-fullscreen" />
               </Button>
             </Tooltip>
           )}
           {showShareButton && (
-            <Tooltip title="Dashboard Sharing Options">
+            <Tooltip title="报表共享设置">
               <Button
                 className="icon-button m-l-5"
                 type={buttonType(dashboard.publicAccessEnabled)}
@@ -223,17 +224,17 @@ function DashboardEditControl({ dashboardOptions }) {
   const { setEditingLayout, doneBtnClickedWhileSaving, dashboardStatus, retrySaveDashboardLayout } = dashboardOptions;
   let status;
   if (dashboardStatus === DashboardStatusEnum.SAVED) {
-    status = <span className="save-status">Saved</span>;
+    status = <span className="save-status">已保存</span>;
   } else if (dashboardStatus === DashboardStatusEnum.SAVING) {
     status = (
       <span className="save-status" data-saving>
-        Saving
+        正在保存
       </span>
     );
   } else {
     status = (
       <span className="save-status" data-error>
-        Saving Failed
+        保存失败
       </span>
     );
   }
@@ -242,11 +243,11 @@ function DashboardEditControl({ dashboardOptions }) {
       {status}
       {dashboardStatus === DashboardStatusEnum.SAVING_FAILED ? (
         <Button type="primary" onClick={retrySaveDashboardLayout}>
-          Retry
+          重试
         </Button>
       ) : (
         <Button loading={doneBtnClickedWhileSaving} type="primary" onClick={() => setEditingLayout(false)}>
-          {!doneBtnClickedWhileSaving && <i className="fa fa-check m-r-5" />} Done Editing
+          {!doneBtnClickedWhileSaving && <i className="fa fa-check m-r-5" />} 保存
         </Button>
       )}
     </div>

@@ -13,11 +13,11 @@ function wrapComponentWithSettings(WrappedComponent) {
       HelpTriggerComponent: HelpTrigger,
       choroplethAvailableMaps: {
         countries: {
-          name: "Countries",
+          name: "全球国家地图",
           url: countriesDataUrl,
         },
         subdiv_japan: {
-          name: "Japan/Prefectures",
+          name: "日本行政地图",
           url: subdivJapanDataUrl,
         },
       },

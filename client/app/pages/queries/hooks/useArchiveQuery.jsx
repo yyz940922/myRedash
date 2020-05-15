@@ -7,14 +7,15 @@ import notification from "@/services/notification";
 function confirmArchive() {
   return new Promise((resolve, reject) => {
     Modal.confirm({
-      title: "Archive Query",
+      title: "归档查询",
       content: (
         <React.Fragment>
-          <div className="m-b-5">Are you sure you want to archive this query?</div>
-          <div>All alerts and dashboard widgets created with its visualizations will be deleted.</div>
+          <div className="m-b-5">确定要归档查询？</div>
+          <div>查询归档后，所有和该查询以及视图关联的报表部件和提醒都将删除。</div>
         </React.Fragment>
       ),
-      okText: "Archive",
+      okText: "归档",
+      cancelText: "取消",
       okType: "danger",
       onOk: () => {
         resolve();
@@ -34,7 +35,7 @@ function doArchiveQuery(query) {
       return extend(query.clone(), { is_archived: true, schedule: null });
     })
     .catch(error => {
-      notification.error("Query could not be archived.");
+      notification.error("查询未能归档。");
       return Promise.reject(error);
     });
 }

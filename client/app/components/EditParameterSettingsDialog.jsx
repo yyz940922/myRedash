@@ -25,7 +25,7 @@ function isTypeDateRange(type) {
 
 function joinExampleList(multiValuesOptions) {
   const { prefix, suffix } = multiValuesOptions;
-  return ["value1", "value2", "value3"].map(value => `${prefix}${value}${suffix}`).join(",");
+  return ["值1", "值2", "值3"].map(value => `${prefix}${value}${suffix}`).join(",");
 }
 
 function NameInput({ name, type, onChange, existingNames, setValidation }) {
@@ -33,17 +33,17 @@ function NameInput({ name, type, onChange, existingNames, setValidation }) {
   let validateStatus = "";
 
   if (!name) {
-    helpText = "Choose a keyword for this parameter";
+    helpText = "参数代码";
     setValidation(false);
   } else if (includes(existingNames, name)) {
-    helpText = "Parameter with this name already exists";
+    helpText = "同名参数已存在！";
     setValidation(false);
     validateStatus = "error";
   } else {
     if (isTypeDateRange(type)) {
       helpText = (
         <React.Fragment>
-          Appears in query as{" "}
+          在查询中显示为{" "}
           <code style={{ display: "inline-block", color: "inherit" }}>{`{{${name}.start}} {{${name}.end}}`}</code>
         </React.Fragment>
       );
@@ -52,7 +52,7 @@ function NameInput({ name, type, onChange, existingNames, setValidation }) {
   }
 
   return (
-    <Form.Item required label="Keyword" help={helpText} validateStatus={validateStatus} {...formItemProps}>
+    <Form.Item required label="代码" help={helpText} validateStatus={validateStatus} {...formItemProps}>
       <Input onChange={e => onChange(e.target.value)} autoFocus />
     </Form.Item>
   );
@@ -116,7 +116,7 @@ function EditParameterSettingsDialog(props) {
   return (
     <Modal
       {...props.dialog.props}
-      title={isNew ? "Add Parameter" : param.name}
+      title={isNew ? "新增参数" : param.name}
       width={600}
       footer={[
         <Button key="cancel" onClick={props.dialog.dismiss}>
@@ -129,7 +129,7 @@ function EditParameterSettingsDialog(props) {
           type="primary"
           form="paramForm"
           data-test="SaveParameterSettings">
-          {isNew ? "Add Parameter" : "OK"}
+          {isNew ? "新增参数" : "确定"}
         </Button>,
       ]}>
       <Form layout="horizontal" onSubmit={onConfirm} id="paramForm">
@@ -142,45 +142,45 @@ function EditParameterSettingsDialog(props) {
             type={param.type}
           />
         )}
-        <Form.Item label="Title" {...formItemProps}>
+        <Form.Item label="名称" {...formItemProps}>
           <Input
             value={isNull(param.title) ? getDefaultTitle(param.name) : param.title}
             onChange={e => setParam({ ...param, title: e.target.value })}
             data-test="ParameterTitleInput"
           />
         </Form.Item>
-        <Form.Item label="Type" {...formItemProps}>
+        <Form.Item label="类型" {...formItemProps}>
           <Select value={param.type} onChange={type => setParam({ ...param, type })} data-test="ParameterTypeSelect">
             <Option value="text" data-test="TextParameterTypeOption">
-              Text
+              文本
             </Option>
             <Option value="number" data-test="NumberParameterTypeOption">
-              Number
+              数字
             </Option>
-            <Option value="enum">Dropdown List</Option>
-            <Option value="query">Query Based Dropdown List</Option>
+            <Option value="enum">选择</Option>
+            <Option value="query">查询结果</Option>
             <Option disabled key="dv1">
               <Divider className="select-option-divider" />
             </Option>
             <Option value="date" data-test="DateParameterTypeOption">
-              Date
+              日期(天)
             </Option>
             <Option value="datetime-local" data-test="DateTimeParameterTypeOption">
-              Date and Time
+              日期(时分)
             </Option>
-            <Option value="datetime-with-seconds">Date and Time (with seconds)</Option>
+            <Option value="datetime-with-seconds">日期(时分秒)</Option>
             <Option disabled key="dv2">
               <Divider className="select-option-divider" />
             </Option>
             <Option value="date-range" data-test="DateRangeParameterTypeOption">
-              Date Range
+              日期范围(天)
             </Option>
-            <Option value="datetime-range">Date and Time Range</Option>
-            <Option value="datetime-range-with-seconds">Date and Time Range (with seconds)</Option>
+            <Option value="datetime-range">日期范围(时分)</Option>
+            <Option value="datetime-range-with-seconds">日期范围(时分秒)</Option>
           </Select>
         </Form.Item>
         {param.type === "enum" && (
-          <Form.Item label="Values" help="Dropdown list values (newline delimited)" {...formItemProps}>
+          <Form.Item label="Values" help="待选值(每行一个)" {...formItemProps}>
             <Input.TextArea
               rows={3}
               value={param.enumOptions}
@@ -189,7 +189,7 @@ function EditParameterSettingsDialog(props) {
           </Form.Item>
         )}
         {param.type === "query" && (
-          <Form.Item label="Query" help="Select query to load dropdown values from" {...formItemProps}>
+          <Form.Item label="查询结果" help="待选值来自查询" {...formItemProps}>
             <QuerySelector
               selectedQuery={initialQuery}
               onChange={q => setParam({ ...param, queryId: q && q.id })}
@@ -214,7 +214,7 @@ function EditParameterSettingsDialog(props) {
                 })
               }
               data-test="AllowMultipleValuesCheckbox">
-              Allow multiple values
+              允许多选
             </Checkbox>
           </Form.Item>
         )}
@@ -223,7 +223,7 @@ function EditParameterSettingsDialog(props) {
             label="Quotation"
             help={
               <React.Fragment>
-                Placed in query as: <code>{joinExampleList(param.multiValuesOptions)}</code>
+                在查询脚本中显示为: <code>{joinExampleList(param.multiValuesOptions)}</code>
               </React.Fragment>
             }
             {...formItemProps}>
@@ -240,10 +240,10 @@ function EditParameterSettingsDialog(props) {
                 })
               }
               data-test="QuotationSelect">
-              <Option value="">None (default)</Option>
-              <Option value="'">Single Quotation Mark</Option>
+              <Option value="">无引号(默认)</Option>
+              <Option value="'">单引号</Option>
               <Option value={'"'} data-test="DoubleQuotationMarkOption">
-                Double Quotation Mark
+                双引号
               </Option>
             </Select>
           </Form.Item>

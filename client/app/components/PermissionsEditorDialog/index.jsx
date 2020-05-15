@@ -40,7 +40,7 @@ function useGrantees(url) {
     (userId, accessType = "modify") =>
       axios
         .post(url, { access_type: accessType, user_id: userId })
-        .catch(() => notification.error("Could not grant permission to the user")),
+        .catch(() => notification.error("未能授权用户。")),
     [url]
   );
 
@@ -48,7 +48,7 @@ function useGrantees(url) {
     (userId, accessType = "modify") =>
       axios
         .delete(url, { data: { access_type: accessType, user_id: userId } })
-        .catch(() => notification.error("Could not remove permission from the user")),
+        .catch(() => notification.error("未能移除用户。")),
     [url]
   );
 
@@ -63,17 +63,17 @@ const searchUsers = searchTerm =>
 function PermissionsEditorDialogHeader({ context }) {
   return (
     <>
-      Manage Permissions
+      权限管理
       <div className="modal-header-desc">
-        {`Editing this ${context} is enabled for the users in this list and for admins. `}
+        {`该${context}仅允许下列用户编辑：`}
         <HelpTrigger type="MANAGE_PERMISSIONS" />
       </div>
     </>
   );
 }
 
-PermissionsEditorDialogHeader.propTypes = { context: PropTypes.oneOf(["query", "dashboard"]) };
-PermissionsEditorDialogHeader.defaultProps = { context: "query" };
+PermissionsEditorDialogHeader.propTypes = { context: PropTypes.oneOf(["查询", "报表"]) };
+PermissionsEditorDialogHeader.defaultProps = { context: "查询" };
 
 function UserSelect({ onSelect, shouldShowUser }) {
   const [loadingUsers, setLoadingUsers] = useState(true);
@@ -99,7 +99,7 @@ function UserSelect({ onSelect, shouldShowUser }) {
   return (
     <Select
       className="w-100 m-b-10"
-      placeholder="Add users..."
+      placeholder="添加成员..."
       showSearch
       onSearch={setSearchTerm}
       suffixIcon={loadingUsers ? <i className="fa fa-spinner fa-pulse" /> : <i className="fa fa-search" />}
@@ -131,7 +131,7 @@ function PermissionsEditorDialog({ dialog, author, context, aclUrl }) {
     setLoadingGrantees(true);
     loadGrantees()
       .then(setGrantees)
-      .catch(() => notification.error("Failed to load grantees list"))
+      .catch(() => notification.error("未能加载权限列表。"))
       .finally(() => setLoadingGrantees(false));
   }, [loadGrantees]);
 
@@ -155,7 +155,7 @@ function PermissionsEditorDialog({ dialog, author, context, aclUrl }) {
         shouldShowUser={user => !userHasPermission(user)}
       />
       <div className="d-flex align-items-center m-t-5">
-        <h5 className="flex-fill">Users with permissions</h5>
+        <h5 className="flex-fill">用户权限</h5>
         {loadingGrantees && <i className="fa fa-spinner fa-pulse" />}
       </div>
       <div className="scrollbox p-5" style={{ maxHeight: "40vh" }}>
@@ -166,9 +166,9 @@ function PermissionsEditorDialog({ dialog, author, context, aclUrl }) {
             <List.Item>
               <UserPreviewCard key={user.id} user={user}>
                 {user.id === author.id ? (
-                  <Tag className="m-0">Author</Tag>
+                  <Tag className="m-0">作者</Tag>
                 ) : (
-                  <Tooltip title="Remove user permissions">
+                  <Tooltip title="移除用户权限">
                     <i
                       className="fa fa-remove clickable"
                       onClick={() => removePermission(user.id).then(loadUsersWithPermissions)}
@@ -187,10 +187,10 @@ function PermissionsEditorDialog({ dialog, author, context, aclUrl }) {
 PermissionsEditorDialog.propTypes = {
   dialog: DialogPropType.isRequired,
   author: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  context: PropTypes.oneOf(["query", "dashboard"]),
+  context: PropTypes.oneOf(["查询", "报表"]),
   aclUrl: PropTypes.string.isRequired,
 };
 
-PermissionsEditorDialog.defaultProps = { context: "query" };
+PermissionsEditorDialog.defaultProps = { context: "查询" };
 
 export default wrapDialog(PermissionsEditorDialog);

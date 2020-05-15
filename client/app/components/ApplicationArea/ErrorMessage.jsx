@@ -5,17 +5,17 @@ import PropTypes from "prop-types";
 function getErrorMessageByStatus(status, defaultMessage) {
   switch (status) {
     case 404:
-      return "It seems like the page you're looking for cannot be found.";
+      return "网页不存在。";
     case 401:
     case 403:
-      return "It seems like you don’t have permission to see this page.";
+      return "没有权限。";
     default:
       return defaultMessage;
   }
 }
 
 export function getErrorMessage(error) {
-  const message = "It seems like we encountered an error. Try refreshing this page or contact your administrator.";
+  const message = "系统出错，请刷新重试或者联系系统管理员！";
   if (isObject(error)) {
     // HTTP errors
     if (error.isAxiosError && isObject(error.response)) {

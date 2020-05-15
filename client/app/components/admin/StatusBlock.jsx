@@ -12,8 +12,8 @@ import { toHuman, prettySize } from "@/lib/utils";
 export function General({ info }) {
   info = toPairs(info);
   return (
-    <Card title="General" size="small">
-      {info.length === 0 && <div className="text-muted text-center">No data</div>}
+    <Card title="通用" size="small">
+      {info.length === 0 && <div className="text-muted text-center">无数据</div>}
       {info.length > 0 && (
         <List
           size="small"
@@ -30,8 +30,8 @@ export function General({ info }) {
 
 export function DatabaseMetrics({ info }) {
   return (
-    <Card title="Redash Database" size="small">
-      {info.length === 0 && <div className="text-muted text-center">No data</div>}
+    <Card title="数据库" size="small">
+      {info.length === 0 && <div className="text-muted text-center">无数据</div>}
       {info.length > 0 && (
         <List
           size="small"
@@ -49,8 +49,8 @@ export function DatabaseMetrics({ info }) {
 export function Queues({ info }) {
   info = toPairs(info);
   return (
-    <Card title="Queues" size="small">
-      {info.length === 0 && <div className="text-muted text-center">No data</div>}
+    <Card title="队列" size="small">
+      {info.length === 0 && <div className="text-muted text-center">无数据</div>}
       {info.length > 0 && (
         <List
           size="small"
@@ -74,7 +74,7 @@ export function Manager({ info }) {
               <TimeAgo date={info.lastRefreshAt} placeholder="n/a" />
             </span>
           }>
-          Last Refresh
+          最后刷新
         </List.Item>,
         <List.Item
           extra={
@@ -82,17 +82,17 @@ export function Manager({ info }) {
               <TimeAgo date={info.startedAt} placeholder="n/a" />
             </span>
           }>
-          Started
+          运行中
         </List.Item>,
         <List.Item extra={<span className="badge">{info.outdatedQueriesCount}</span>}>
-          Outdated Queries Count
+          运行超期查询数
         </List.Item>,
       ]
     : [];
 
   return (
     <Card title="Manager" size="small">
-      {!info && <div className="text-muted text-center">No data</div>}
+      {!info && <div className="text-muted text-center">无数据</div>}
       {info && <List size="small" itemLayout="vertical" dataSource={items} renderItem={item => item} />}
     </Card>
   );

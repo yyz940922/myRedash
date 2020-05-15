@@ -77,7 +77,7 @@ class PublicDashboardPage extends React.Component {
       <div className="public-dashboard-page">
         {loading ? (
           <div className="container loading-message">
-            <BigMessage className="" icon="fa-spinner fa-2x fa-pulse" message="Loading..." />
+            <BigMessage className="" icon="fa-spinner fa-2x fa-pulse" message="加载中..." />
           </div>
         ) : (
           <PublicDashboard dashboard={dashboard} />

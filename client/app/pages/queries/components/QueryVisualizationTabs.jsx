@@ -17,7 +17,7 @@ function EmptyState({ title, message, refreshButton }) {
     <div className="query-results-empty-state">
       <div className="empty-state-content">
         <div>
-          <img src="/static/images/illustrations/no-query-results.svg" alt="No Query Results Illustration" />
+          <img src="/static/images/illustrations/no-query-results.svg" alt="查询没有记录" />
         </div>
         <h3>{title}</h3>
         <div className="m-b-20">{message}</div>
@@ -42,9 +42,10 @@ function TabWithDeleteButton({ visualizationName, canDelete, onDelete, ...props 
     e => {
       e.stopPropagation();
       Modal.confirm({
-        title: "Delete Visualization",
-        content: "Are you sure you want to delete this visualization?",
-        okText: "Delete",
+        title: "删除视图",
+        content: "确定删除查询视图？",
+        okText: "删除",
+        cancelText: "取消",
         okType: "danger",
         onOk: onDelete,
         maskClosable: true,
@@ -76,7 +77,7 @@ TabWithDeleteButton.defaultProps = { canDelete: false, onDelete: () => {} };
 const defaultVisualizations = [
   {
     type: "TABLE",
-    name: "Table",
+    name: "表格",
     id: null,
     options: {},
   },
@@ -111,7 +112,7 @@ export default function QueryVisualizationTabs({
         type="link"
         onClick={() => onAddVisualization()}>
         <i className="fa fa-plus" />
-        <span className="m-l-5 hidden-xs">Add Visualization</span>
+        <span className="m-l-5 hidden-xs">新增视图</span>
       </Button>
     );
   }
@@ -146,8 +147,8 @@ export default function QueryVisualizationTabs({
             <VisualizationRenderer visualization={visualization} queryResult={queryResult} context="query" />
           ) : (
             <EmptyState
-              title="Query Has no Result"
-              message="Execute/Refresh the query to show results."
+              title="查询没有记录"
+              message="执行或刷新查询重试。"
               refreshButton={refreshButton}
             />
           )}

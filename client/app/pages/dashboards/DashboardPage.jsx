@@ -22,7 +22,7 @@ function DashboardSettings({ dashboardOptions }) {
         checked={!!dashboard.dashboard_filters_enabled}
         onChange={({ target }) => updateDashboard({ dashboard_filters_enabled: target.checked })}
         data-test="DashboardFiltersCheckbox">
-        Use Dashboard Level Filters
+        使用报表级别过滤
       </Checkbox>
     </div>
   );
@@ -39,16 +39,15 @@ function AddWidgetContainer({ dashboardOptions }) {
       <h2>
         <i className="zmdi zmdi-widgets" />
         <span className="hidden-xs hidden-sm">
-          Widgets are individual query visualizations or text boxes you can place on your dashboard in various
-          arrangements.
+          独立的查询视图部件或文本框，可以连续放置到报表上。
         </span>
       </h2>
       <div>
         <Button className="m-r-15" onClick={showAddTextboxDialog} data-test="AddTextboxButton">
-          Add Textbox
+          新增文本框
         </Button>
         <Button type="primary" onClick={showAddWidgetDialog} data-test="AddWidgetButton">
-          Add Widget
+          添加部件
         </Button>
       </div>
     </div>

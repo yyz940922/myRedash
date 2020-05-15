@@ -30,7 +30,7 @@ function NumberFormatSpecs() {
   const { HelpTriggerComponent } = visualizationsSettings;
   return (
     <HelpTriggerComponent
-      title="Formatting Numbers"
+      title="格式化数字"
       href="https://redash.io/help/user-guide/visualizations/formatting-numbers"
       className="visualization-editor-context-help">
       {ContextHelp.defaultIcon}
@@ -42,7 +42,7 @@ function DateTimeFormatSpecs() {
   const { HelpTriggerComponent } = visualizationsSettings;
   return (
     <HelpTriggerComponent
-      title="Formatting Dates and Times"
+      title="格式化日期和时间"
       href="https://momentjs.com/docs/#/displaying/format/"
       className="visualization-editor-context-help">
       {ContextHelp.defaultIcon}

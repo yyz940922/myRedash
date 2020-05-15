@@ -42,9 +42,9 @@ class EditDataSource extends React.Component {
     const { dataSource } = this.state;
     helper.updateTargetWithValues(dataSource, values);
     DataSource.save(dataSource)
-      .then(() => successCallback("Saved."))
+      .then(() => successCallback("保存成功！"))
       .catch(error => {
-        const message = get(error, "response.data.message", "Failed saving.");
+        const message = get(error, "response.data.message", "保存失败。");
         errorCallback(message);
       });
   };
@@ -55,7 +55,7 @@ class EditDataSource extends React.Component {
     const doDelete = () => {
       DataSource.delete(dataSource)
         .then(() => {
-          notification.success("Data source deleted successfully.");
+          notification.success("数据源删除成功！");
           navigateTo("data_sources");
         })
         .catch(() => {
@@ -64,9 +64,10 @@ class EditDataSource extends React.Component {
     };
 
     Modal.confirm({
-      title: "Delete Data Source",
-      content: "Are you sure you want to delete this data source?",
-      okText: "Delete",
+      title: "删除数据源",
+      content: "确定要删除数据源吗？",
+      okText: "删除",
+      cancelText: "取消",
       okType: "danger",
       onOk: doDelete,
       onCancel: callback,

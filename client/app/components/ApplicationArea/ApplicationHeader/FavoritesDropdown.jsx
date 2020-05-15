@@ -44,7 +44,7 @@ export default function FavoritesDropdown({ fetch, urlTemplate }) {
           <span className="btn-favourite m-r-5">
             <i className="fa fa-star" />
           </span>
-          No favorites selected yet <HelpTrigger type="FAVORITES" />
+          没有添加关注 <HelpTrigger type="FAVORITES" />
         </Menu.Item>
       ) : (
         items.map(item => (

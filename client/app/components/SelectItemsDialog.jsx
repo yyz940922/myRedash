@@ -86,7 +86,7 @@ function SelectItemsDialog({
   const save = useCallback(() => {
     dialog.close(selectedItems).catch(error => {
       if (error) {
-        notification.error("Failed to save some of selected items.");
+        notification.error("选择的条目保存失败。");
       }
     });
   }, [dialog, selectedItems]);
@@ -103,14 +103,14 @@ function SelectItemsDialog({
             {extraFooterContent}
           </span>
           <Button {...dialog.props.cancelButtonProps} onClick={dialog.dismiss}>
-            Cancel
+            取消
           </Button>
           <Button
             {...dialog.props.okButtonProps}
             onClick={save}
             disabled={selectedItems.length === 0 || dialog.props.okButtonProps.disabled}
             type="primary">
-            Save
+            保存
             {showCount && !isEmpty(selectedItems) ? ` (${size(selectedItems)})` : null}
           </Button>
         </div>
@@ -178,9 +178,9 @@ SelectItemsDialog.propTypes = {
 };
 
 SelectItemsDialog.defaultProps = {
-  dialogTitle: "Add Items",
-  inputPlaceholder: "Search...",
-  selectedItemsTitle: "Selected items",
+  dialogTitle: "添加",
+  inputPlaceholder: "搜索...",
+  selectedItemsTitle: "选取的条目",
   itemKey: item => item.id,
   renderItem: () => "",
   renderStagedItem: null, // hidden by default

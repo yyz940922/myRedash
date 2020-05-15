@@ -15,7 +15,7 @@ function ParameterApplyButton({ paramCount, onClick }) {
         <Tooltip title={paramCount ? `${KeyboardShortcuts.modKey} + Enter` : null}>
           <span>
             <Button onClick={onClick}>
-              <i className={`fa fa-${icon}`} /> Apply Changes
+              <i className={`fa fa-${icon}`} /> 应用变更
             </Button>
           </span>
         </Tooltip>

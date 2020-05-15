@@ -103,7 +103,7 @@ function AddWidgetDialog({ dialog, dashboard }) {
 
   const saveWidget = useCallback(() => {
     dialog.close({ visualization: selectedVisualization, parameterMappings }).catch(() => {
-      notification.error("Widget could not be added");
+      notification.error("部件未能添加！");
     });
   }, [dialog, selectedVisualization, parameterMappings]);
 
@@ -112,13 +112,13 @@ function AddWidgetDialog({ dialog, dashboard }) {
   return (
     <Modal
       {...dialog.props}
-      title="Add Widget"
+      title="添加部件"
       onOk={saveWidget}
       okButtonProps={{
         ...dialog.props.okButtonProps,
         disabled: !selectedQuery || dialog.props.okButtonProps.disabled,
       }}
-      okText="Add to Dashboard"
+      okText="添加至报表"
       width={700}>
       <div data-test="AddWidgetDialog">
         <QuerySelector onChange={query => selectQuery(query ? query.id : null)} />
@@ -133,7 +133,7 @@ function AddWidgetDialog({ dialog, dashboard }) {
 
         {parameterMappings.length > 0 && [
           <label key="parameters-title" htmlFor="parameter-mappings">
-            Parameters
+            参数
           </label>,
           <ParameterMappingListInput
             key="parameters-list"

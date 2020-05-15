@@ -14,21 +14,21 @@ export default function QueryExecutionStatus({ status, updatedAt, error, isCance
   switch (status) {
     case "waiting":
       if (!isCancelling) {
-        message = <React.Fragment>Query in queue&hellip;</React.Fragment>;
+        message = <React.Fragment>查询进入队列&hellip;</React.Fragment>;
       }
       break;
     case "processing":
       if (!isCancelling) {
-        message = <React.Fragment>Executing query&hellip;</React.Fragment>;
+        message = <React.Fragment>执行查询&hellip;</React.Fragment>;
       }
       break;
     case "loading-result":
-      message = <React.Fragment>Loading results&hellip;</React.Fragment>;
+      message = <React.Fragment>加载查询结果&hellip;</React.Fragment>;
       break;
     case "failed":
       message = (
         <React.Fragment>
-          Error running query: <strong>{error}</strong>
+          查询运行错误：<strong>{error}</strong>
         </React.Fragment>
       );
       break;
@@ -47,7 +47,7 @@ export default function QueryExecutionStatus({ status, updatedAt, error, isCance
           <div>
             {isCancelButtonAvailable && (
               <Button className="m-l-10" type="primary" size="small" disabled={isCancelling} onClick={onCancel}>
-                Cancel
+                取消
               </Button>
             )}
           </div>

@@ -175,21 +175,21 @@ export class ParameterMappingInput extends React.Component {
     return (
       <Radio.Group value={this.props.mapping.type} onChange={e => this.updateSourceType(e.target.value)}>
         <Radio className="radio" value={MappingType.DashboardAddNew} data-test="NewDashboardParameterOption">
-          New dashboard parameter
+          新建报表参数
         </Radio>
         <Radio className="radio" value={MappingType.DashboardMapToExisting} disabled={noExisting}>
-          Existing dashboard parameter{" "}
+          已有报表参数{" "}
           {noExisting ? (
-            <Tooltip title="There are no dashboard parameters corresponding to this data type">
+            <Tooltip title="报表参数数据类型不匹配">
               <Icon type="question-circle" theme="filled" />
             </Tooltip>
           ) : null}
         </Radio>
         <Radio className="radio" value={MappingType.WidgetLevel} data-test="WidgetParameterOption">
-          Widget parameter
+          部件参数
         </Radio>
         <Radio className="radio" value={MappingType.StaticValue} data-test="StaticValueOption">
-          Static value
+          静态值
         </Radio>
       </Radio.Group>
     );
@@ -237,9 +237,9 @@ export class ParameterMappingInput extends React.Component {
     const { mapping } = this.props;
     switch (mapping.type) {
       case MappingType.DashboardAddNew:
-        return ["Key", "Enter a new parameter keyword", this.renderDashboardAddNew()];
+        return ["Key", "请输入参数代码", this.renderDashboardAddNew()];
       case MappingType.DashboardMapToExisting:
-        return ["Key", "Select from a list of existing parameters", this.renderDashboardMapToExisting()];
+        return ["Key", "请选择参数", this.renderDashboardMapToExisting()];
       case MappingType.StaticValue:
         return ["Value", null, this.renderStaticValue()];
       default:
@@ -296,9 +296,9 @@ class MappingEditor extends React.Component {
 
     if (mapping.type === MappingType.DashboardAddNew) {
       if (isEmpty(mapping.mapTo)) {
-        inputError = "Keyword must have a value";
+        inputError = "代码不能为空";
       } else if (includes(this.props.existingParamNames, mapping.mapTo)) {
-        inputError = "A parameter with this name already exists";
+        inputError = "同名参数已存在";
       }
     }
 
@@ -447,7 +447,7 @@ class TitleEditor extends React.Component {
     const { mapping } = this.props;
     if (mapping.type === MappingType.StaticValue) {
       return (
-        <Tooltip placement="right" title="Titles for static values don't appear in widgets">
+        <Tooltip placement="right" title="静态值标题不显示在部件里">
           <i className="fa fa-eye-slash" />
         </Tooltip>
       );

@@ -107,13 +107,12 @@ class DataSourcesList extends React.Component {
 
     return isEmpty(dataSources) ? (
       <div className="text-center">
-        There are no data sources yet.
+        还没有配置数据源，只有系统管理员才可创建数据源。
         {policy.isCreateDataSourceEnabled() && (
           <div className="m-t-5">
             <a className="clickable" onClick={this.showCreateSourceDialog}>
-              Click here
+              点击添加
             </a>{" "}
-            to add one.
           </div>
         )}
       </div>
@@ -134,7 +133,7 @@ class DataSourcesList extends React.Component {
         <div className="m-b-15">
           <Button {...newDataSourceProps}>
             <i className="fa fa-plus m-r-5" />
-            New Data Source
+            新建数据源
           </Button>
           <DynamicComponent name="DataSourcesListExtra" />
         </div>
@@ -147,7 +146,7 @@ class DataSourcesList extends React.Component {
 const DataSourcesListPage = wrapSettingsTab(
   {
     permission: "admin",
-    title: "Data Sources",
+    title: "数据源",
     path: "data_sources",
     order: 1,
   },
@@ -157,12 +156,12 @@ const DataSourcesListPage = wrapSettingsTab(
 export default [
   routeWithUserSession({
     path: "/data_sources",
-    title: "Data Sources",
+    title: "数据源",
     render: pageProps => <DataSourcesListPage {...pageProps} />,
   }),
   routeWithUserSession({
     path: "/data_sources/new",
-    title: "Data Sources",
+    title: "数据源",
     render: pageProps => <DataSourcesListPage {...pageProps} isNewDataSourcePage />,
   }),
 ];

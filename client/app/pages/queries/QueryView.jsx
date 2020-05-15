@@ -104,7 +104,7 @@ function QueryView(props) {
               shortcut="mod+enter, alt+enter"
               disabled={!queryFlags.canExecute || isExecuting || areParametersDirty}
               onClick={doExecuteQuery}>
-              Refresh
+              刷新
             </QueryViewButton>
           }
           tagsExtra={
@@ -114,7 +114,7 @@ function QueryView(props) {
             !fullscreen && (
               <a className="label label-tag hidden-xs" role="none" onClick={() => setAddingDescription(true)}>
                 <i className="zmdi zmdi-plus m-r-5" />
-                Add description
+                添加描述
               </a>
             )
           }
@@ -167,7 +167,7 @@ function QueryView(props) {
                   loading={isExecuting}
                   onClick={doExecuteQuery}>
                   {!isExecuting && <i className="zmdi zmdi-refresh m-r-5" aria-hidden="true" />}
-                  Refresh Now
+                  立即刷新
                 </Button>
               }
             />
@@ -184,7 +184,7 @@ function QueryView(props) {
                 extraActions={
                   <QueryViewButton
                     className="icon-button m-r-5 hidden-xs"
-                    title="Toggle Fullscreen"
+                    title="切换全屏显示"
                     type="default"
                     shortcut="alt+f"
                     onClick={toggleFullscreen}>

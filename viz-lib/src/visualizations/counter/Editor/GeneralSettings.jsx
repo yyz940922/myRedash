@@ -9,7 +9,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Input
           layout="horizontal"
-          label="Counter Label"
+          label="异常标题"
           data-test="Counter.General.Label"
           defaultValue={options.counterLabel}
           placeholder={visualizationName}
@@ -20,7 +20,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Select
           layout="horizontal"
-          label="Counter Value Column Name"
+          label="异常值取值"
           data-test="Counter.General.ValueColumn"
           defaultValue={options.counterColName}
           disabled={options.countRow}
@@ -36,7 +36,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <InputNumber
           layout="horizontal"
-          label="Counter Value Row Number"
+          label="异常值行号"
           data-test="Counter.General.ValueRowNumber"
           defaultValue={options.rowNumber}
           disabled={options.countRow}
@@ -47,7 +47,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Select
           layout="horizontal"
-          label="Target Value Column Name"
+          label="目标值取值"
           data-test="Counter.General.TargetValueColumn"
           defaultValue={options.targetColName}
           onChange={targetColName => onOptionsChange({ targetColName })}>
@@ -63,7 +63,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <InputNumber
           layout="horizontal"
-          label="Target Value Row Number"
+          label="目标值行号"
           data-test="Counter.General.TargetValueRowNumber"
           defaultValue={options.targetRowNumber}
           onChange={targetRowNumber => onOptionsChange({ targetRowNumber })}
@@ -75,7 +75,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
           data-test="Counter.General.CountRows"
           defaultChecked={options.countRow}
           onChange={countRow => onOptionsChange({ countRow })}>
-          Count Rows
+          统计行数
         </Switch>
       </Section>
     </React.Fragment>

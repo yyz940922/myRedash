@@ -30,9 +30,9 @@ export default function HeatmapColorsSettings({ options, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Color Scheme"
+          label="配色方案"
           data-test="Chart.Colors.Heatmap.ColorScheme"
-          placeholder="Choose Color Scheme..."
+          placeholder="请选择配色方案..."
           allowClear
           value={options.colorScheme || undefined}
           onChange={value => onOptionsChange({ colorScheme: value || null })}>
@@ -49,7 +49,7 @@ export default function HeatmapColorsSettings({ options, onOptionsChange }) {
           <Section>
             <ColorPicker
               layout="horizontal"
-              label="Min Color:"
+              label="最小值颜色"
               data-test="Chart.Colors.Heatmap.MinColor"
               interactive
               placement="topLeft"
@@ -62,7 +62,7 @@ export default function HeatmapColorsSettings({ options, onOptionsChange }) {
           <Section>
             <ColorPicker
               layout="horizontal"
-              label="Max Color:"
+              label="最大值颜色"
               data-test="Chart.Colors.Heatmap.MaxColor"
               interactive
               placement="topRight"

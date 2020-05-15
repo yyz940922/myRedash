@@ -5,12 +5,12 @@
   <div class="bg-white tiled">
     {% if submitted %}
       <div>
-        If we found an account associated with that email address, you will find an email from us in your inbox shortly.
+        如果用户设置了电子邮箱，重置密码邮件将会立即发送至该邮箱。
       </div>
     {% else %}
       <form role="form" method="post">
         <div class="form-group">
-          <label for="email">Enter the email address you used for this account:</label>
+          <label for="email">请输入用户电子邮箱：</label>
           <input type="email" class="form-control" name="email" value="{{email}}">
         </div>
         <button type="submit" class="btn btn-primary btn-block m-t-25">Reset my password</button>

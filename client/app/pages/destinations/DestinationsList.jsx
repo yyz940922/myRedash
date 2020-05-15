@@ -72,7 +72,7 @@ class DestinationsList extends React.Component {
   showCreateSourceDialog = () => {
     CreateSourceDialog.showModal({
       types: reject(this.state.destinationTypes, "deprecated"),
-      sourceType: "Alert Destination",
+      sourceType: "提醒设置",
       imageFolder: IMG_ROOT,
       onCreate: this.createDestination,
     })
@@ -96,13 +96,12 @@ class DestinationsList extends React.Component {
 
     return isEmpty(destinations) ? (
       <div className="text-center">
-        There are no alert destinations yet.
+        还没有创建提醒设置。
         {policy.isCreateDestinationEnabled() && (
           <div className="m-t-5">
             <a className="clickable" onClick={this.showCreateSourceDialog}>
-              Click here
+              点击添加
             </a>{" "}
-            to add one.
           </div>
         )}
       </div>
@@ -123,7 +122,7 @@ class DestinationsList extends React.Component {
         <div className="m-b-15">
           <Button {...newDestinationProps}>
             <i className="fa fa-plus m-r-5" />
-            New Alert Destination
+            新建提醒设置
           </Button>
         </div>
         {this.state.loading ? <LoadingState className="" /> : this.renderDestinations()}
@@ -135,7 +134,7 @@ class DestinationsList extends React.Component {
 const DestinationsListPage = wrapSettingsTab(
   {
     permission: "admin",
-    title: "Alert Destinations",
+    title: "提醒设置",
     path: "destinations",
     order: 4,
   },
@@ -145,12 +144,12 @@ const DestinationsListPage = wrapSettingsTab(
 export default [
   routeWithUserSession({
     path: "/destinations",
-    title: "Alert Destinations",
+    title: "提醒设置",
     render: pageProps => <DestinationsListPage {...pageProps} />,
   }),
   routeWithUserSession({
     path: "/destinations/new",
-    title: "Alert Destinations",
+    title: "提醒设置",
     render: pageProps => <DestinationsListPage {...pageProps} isNewDestinationPage />,
   }),
 ];

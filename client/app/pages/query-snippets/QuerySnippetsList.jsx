@@ -39,23 +39,23 @@ class QuerySnippetsList extends React.Component {
         </div>
       ),
       {
-        title: "Trigger",
+        title: "代码",
         field: "trigger",
         className: "text-nowrap",
       }
     ),
     Columns.custom.sortable(text => text, {
-      title: "Description",
+      title: "描述",
       field: "description",
       className: "text-nowrap",
     }),
     Columns.custom(snippet => <code className="snippet-content">{snippet}</code>, {
-      title: "Snippet",
+      title: "脚本",
       field: "snippet",
     }),
     Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `Created by ${name}`),
     Columns.date.sortable({
-      title: "Created At",
+      title: "创建时间",
       field: "created_at",
       className: "text-nowrap",
       width: "1%",
@@ -64,7 +64,7 @@ class QuerySnippetsList extends React.Component {
       (text, querySnippet) =>
         canEditQuerySnippet(querySnippet) && (
           <Button type="danger" className="w-100" onClick={e => this.deleteQuerySnippet(e, querySnippet)}>
-            Delete
+            删除
           </Button>
         ),
       {
@@ -100,11 +100,11 @@ class QuerySnippetsList extends React.Component {
 
   deleteQuerySnippet = (event, querySnippet) => {
     Modal.confirm({
-      title: "Delete Query Snippet",
-      content: "Are you sure you want to delete this query snippet?",
-      okText: "Yes",
+      title: "删除常用查询脚本",
+      content: "确定要删除常用查询脚本吗？",
+      okText: "确定",
       okType: "danger",
-      cancelText: "No",
+      cancelText: "取消",
       onOk: () => {
         QuerySnippet.delete(querySnippet)
           .then(() => {

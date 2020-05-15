@@ -85,9 +85,9 @@ export default class UserEdit extends React.Component {
     };
 
     Modal.confirm({
-      title: "Regenerate API Key",
-      content: "Are you sure you want to regenerate?",
-      okText: "Regenerate",
+      title: "重新创建 API Key",
+      content: "确定要重新创建吗?",
+      okText: "重新创建",
       onOk: doRegenerate,
       maskClosable: true,
       autoFocusButton: null,
@@ -118,11 +118,11 @@ export default class UserEdit extends React.Component {
 
     User.save(data)
       .then(user => {
-        successCallback("Saved.");
+        successCallback("保存成功！");
         this.setState({ user: User.convertUserInfo(user) });
       })
       .catch(error => {
-        errorCallback(get(error, "response.data.message", "Failed saving."));
+        errorCallback(get(error, "response.data.message", "保存失败。"));
       });
   };
 
@@ -132,30 +132,30 @@ export default class UserEdit extends React.Component {
     const formFields = [
       {
         name: "name",
-        title: "Name",
+        title: "名称",
         type: "text",
         initialValue: user.name,
       },
       {
         name: "email",
-        title: "Email",
+        title: "电子邮箱",
         type: "email",
         initialValue: user.email,
       },
       !user.isDisabled && currentUser.id !== user.id
         ? {
             name: "group_ids",
-            title: "Groups",
+            title: "角色",
             type: "select",
             mode: "multiple",
             options: groups,
             initialValue: groups.filter(group => includes(user.groupIds, group.value)).map(group => group.value),
             loading: loadingGroups,
-            placeholder: loadingGroups ? "Loading..." : "",
+            placeholder: loadingGroups ? "加载中..." : "",
           }
         : {
             name: "group_ids",
-            title: "Groups",
+            title: "角色",
             type: "content",
             content: this.renderUserGroups(),
           },
@@ -168,7 +168,7 @@ export default class UserEdit extends React.Component {
     const { user, groups, loadingGroups } = this.state;
 
     return loadingGroups ? (
-      "Loading..."
+      "加载中..."
     ) : (
       <div data-test="Groups">
         {groups
@@ -196,7 +196,7 @@ export default class UserEdit extends React.Component {
           onClick={this.regenerateApiKey}
           loading={regeneratingApiKey}
           data-test="RegenerateApiKey">
-          Regenerate
+          重新创建
         </Button>
       </Form>
     );
@@ -207,11 +207,11 @@ export default class UserEdit extends React.Component {
 
     return (
       <Alert
-        message="Email not sent!"
+        message="电子邮件未能发送！"
         description={
           <Fragment>
             <p>
-              The mail server is not configured, please send the following link to <b>{user.name}</b>:
+              邮件服务器美誉配置，请自行发送下列激活连接给<b>{user.name}</b>:
             </p>
             <InputWithCopy value={absoluteUrl(passwordLink)} readOnly />
           </Fragment>
@@ -229,7 +229,7 @@ export default class UserEdit extends React.Component {
   renderResendInvitation() {
     return (
       <Button className="w-100 m-t-10" onClick={this.resendInvitation} loading={this.state.resendingInvitation}>
-        Resend Invitation
+        重新发送邀请
       </Button>
     );
   }
@@ -240,7 +240,7 @@ export default class UserEdit extends React.Component {
     return (
       <Fragment>
         <Button className="w-100 m-t-10" onClick={this.sendPasswordReset} loading={sendingPasswordEmail}>
-          Send Password Reset Email
+          发送密码重置邮件
         </Button>
       </Fragment>
     );
@@ -251,11 +251,11 @@ export default class UserEdit extends React.Component {
 
     return user.isDisabled ? (
       <Button className="w-100 m-t-10" type="primary" onClick={this.toggleUser} loading={togglingUser}>
-        Enable User
+        用户启用
       </Button>
     ) : (
       <Button className="w-100 m-t-10" type="danger" onClick={this.toggleUser} loading={togglingUser}>
-        Disable User
+        用户停用
       </Button>
     );
   }
@@ -273,10 +273,10 @@ export default class UserEdit extends React.Component {
           <Fragment>
             {this.renderApiKey()}
             <hr />
-            <h5>Password</h5>
+            <h5>密码</h5>
             {user.id === currentUser.id && (
               <Button className="w-100 m-t-10" onClick={this.changePassword} data-test="ChangePassword">
-                Change Password
+                变更密码
               </Button>
             )}
             {currentUser.isAdmin && user.id !== currentUser.id && (
