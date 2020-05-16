@@ -23,8 +23,7 @@ function DeprecatedEmbedFeatureAlert() {
       type="warning"
       message={
         <>
-          You have enabled <code>ALLOW_PARAMETERS_IN_EMBEDS</code>. This setting is now deprecated and should be turned
-          off. Parameters in embeds are supported by default.{" "}
+          你已设置参数 <code>ALLOW_PARAMETERS_IN_EMBEDS</code>，但这个特征暂时不可用。{" "}
           <a
             href="https://discuss.redash.io/t/support-for-parameters-in-embedded-visualizations/3337"
             target="_blank"
@@ -51,10 +50,9 @@ function EmailNotVerifiedAlert() {
       type="warning"
       message={
         <>
-          We have sent an email with a confirmation link to your email address. Please follow the link to verify your
-          email address.{" "}
+          电子邮箱校验邮件已发送，请查收并点击邮件里的链接，已确认邮箱输入正确。{" "}
           <a className="clickable" onClick={verifyEmail}>
-            Resend email
+            重新发送邮件
           </a>
           .
         </>
@@ -89,7 +87,7 @@ function FavoriteList({ title, resource, itemUrl, emptyState }) {
                 <i className="fa fa-star" aria-hidden="true" />
               </span>
               {item.name}
-              {item.is_draft && <span className="label label-default m-l-5">Unpublished</span>}
+              {item.is_draft && <span className="label label-default m-l-5">草稿</span>}
             </a>
           ))}
         </div>
@@ -114,7 +112,7 @@ function DashboardAndQueryFavoritesList() {
         <div className="row home-favorites-list">
           <div className="col-sm-6 m-t-20">
             <FavoriteList
-              title="Favorite Dashboards"
+              title="我关注的报表"
               resource={Dashboard}
               itemUrl={dashboard => `dashboard/${dashboard.slug}`}
               emptyState={
@@ -122,14 +120,14 @@ function DashboardAndQueryFavoritesList() {
                   <span className="btn-favourite m-r-5">
                     <i className="fa fa-star" aria-hidden="true" />
                   </span>
-                  Favorite <a href="dashboards">Dashboards</a> will appear here
+                  <a href="dashboards">关注的报表</a>
                 </p>
               }
             />
           </div>
           <div className="col-sm-6 m-t-20">
             <FavoriteList
-              title="Favorite Queries"
+              title="我关注的查询"
               resource={Query}
               itemUrl={query => `queries/${query.id}`}
               emptyState={
@@ -137,7 +135,7 @@ function DashboardAndQueryFavoritesList() {
                   <span className="btn-favourite m-r-5">
                     <i className="fa fa-star" aria-hidden="true" />
                   </span>
-                  Favorite <a href="queries">Queries</a> will appear here
+                  <a href="queries">关注的查询</a>
                 </p>
               }
             />
@@ -159,8 +157,8 @@ function Home() {
         {includes(messages, "using-deprecated-embed-feature") && <DeprecatedEmbedFeatureAlert />}
         {includes(messages, "email-not-verified") && <EmailNotVerifiedAlert />}
         <EmptyState
-          header="Welcome to Redash 👋"
-          description="Connect to any data source, easily visualize and share your data"
+          header="欢迎使用 Redash 👋"
+          description="连接任何数据源，轻松看见和分享数据。"
           illustration="dashboard"
           helpLink="https://redash.io/help/user-guide/getting-started"
           showDashboardStep

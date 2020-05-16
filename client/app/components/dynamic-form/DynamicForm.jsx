@@ -302,7 +302,7 @@ class DynamicForm extends React.Component {
               block
               className="extra-options-button"
               onClick={() => this.setState({ showExtraFields: !showExtraFields })}>
-              Additional Settings
+              附加设置
               <i className={cx("fa m-l-5", { "fa-caret-up": showExtraFields, "fa-caret-down": !showExtraFields })} />
             </Button>
             <Collapse collapsed={!showExtraFields} className="extra-options-content">

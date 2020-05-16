@@ -146,20 +146,19 @@ class QuerySnippetsList extends React.Component {
             onClick={() => this.showSnippetDialog()}
             disabled={!policy.isCreateQuerySnippetEnabled()}>
             <i className="fa fa-plus m-r-5" />
-            New Query Snippet
+            新建常用查询脚本
           </Button>
         </div>
 
         {!controller.isLoaded && <LoadingState className="" />}
         {controller.isLoaded && controller.isEmpty && (
           <div className="text-center">
-            There are no query snippets yet.
+            还没有创建常用查询脚本，点击
             {policy.isCreateQuerySnippetEnabled() && (
               <div className="m-t-5">
                 <a className="clickable" onClick={() => this.showSnippetDialog()}>
-                  Click here
+                  新建常用查询脚本
                 </a>{" "}
-                to add one.
               </div>
             )}
           </div>
@@ -190,7 +189,7 @@ class QuerySnippetsList extends React.Component {
 const QuerySnippetsListPage = wrapSettingsTab(
   {
     permission: "create_query",
-    title: "Query Snippets",
+    title: "常用查询脚本",
     path: "query_snippets",
     order: 5,
   },
@@ -213,12 +212,12 @@ const QuerySnippetsListPage = wrapSettingsTab(
 export default [
   routeWithUserSession({
     path: "/query_snippets",
-    title: "Query Snippets",
+    title: "常用查询脚本",
     render: pageProps => <QuerySnippetsListPage {...pageProps} currentPage="query_snippets" />,
   }),
   routeWithUserSession({
     path: "/query_snippets/:querySnippetId(new|[0-9]+)",
-    title: "Query Snippets",
+    title: "常用查询脚本",
     render: pageProps => <QuerySnippetsListPage {...pageProps} currentPage="query_snippets" isNewOrEditPage />,
   }),
 ];
