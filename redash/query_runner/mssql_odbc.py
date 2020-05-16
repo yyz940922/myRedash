@@ -25,20 +25,20 @@ class SQLServerODBC(BaseSQLQueryRunner):
         return {
             "type": "object",
             "properties": {
-                "server": {"type": "string"},
-                "port": {"type": "number", "default": 1433},
-                "user": {"type": "string"},
-                "password": {"type": "string"},
-                "db": {"type": "string", "title": "Database Name"},
+                "server": {"type": "string", "title": "服务器"},
+                "port": {"type": "number", "title": "端口", "default": 1433},
+                "user": {"type": "string", "title": "用户"},
+                "password": {"type": "string", "title": "密码"},
+                "db": {"type": "string", "title": "数据库"},
                 "charset": {
                     "type": "string",
                     "default": "UTF-8",
-                    "title": "Character Set",
+                    "title": "字符集",
                 },
-                "use_ssl": {"type": "boolean", "title": "Use SSL", "default": False,},
+                "use_ssl": {"type": "boolean", "title": "使用SSL", "default": False,},
                 "verify_ssl": {
                     "type": "boolean",
-                    "title": "Verify SSL certificate",
+                    "title": "校验SSL证书",
                     "default": True,
                 },
             },

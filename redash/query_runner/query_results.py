@@ -54,13 +54,13 @@ def get_query_results(user, query_id, bring_from_cache):
         if query.latest_query_data_id is not None:
             results = query.latest_query_data.data
         else:
-            raise Exception("No cached result available for query {}.".format(query.id))
+            raise Exception("查询 {} 没有缓存的查询结果。".format(query.id))
     else:
         results, error = query.data_source.query_runner.run_query(
             query.query_text, user
         )
         if error:
-            raise Exception("Failed loading results for query id {}.".format(query.id))
+            raise Exception("查询 {} 加载查询结果失败。".format(query.id))
         else:
             results = json_loads(results)
 
@@ -127,7 +127,7 @@ class Results(BaseQueryRunner):
 
     @classmethod
     def name(cls):
-        return "Query Results"
+        return "<查询结果运算>"
 
     def run_query(self, query, user):
         connection = sqlite3.connect(":memory:")
@@ -162,7 +162,7 @@ class Results(BaseQueryRunner):
                 error = None
                 json_data = json_dumps(data)
             else:
-                error = "Query completed but it returned no data."
+                error = "查询成功执行，但查询结果没有数据。"
                 json_data = None
         except (KeyboardInterrupt, JobTimeoutException):
             connection.cancel()

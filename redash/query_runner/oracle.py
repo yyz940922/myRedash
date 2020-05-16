@@ -53,12 +53,12 @@ class Oracle(BaseSQLQueryRunner):
         return {
             "type": "object",
             "properties": {
-                "user": {"type": "string"},
-                "password": {"type": "string"},
-                "host": {"type": "string"},
-                "port": {"type": "number"},
-                "servicename": {"type": "string", "title": "DSN Service Name"},
-                "encoding": {"type": "string"},
+                "user": {"type": "string", "title": "用户"},
+                "password": {"type": "string", "title": "密码"},
+                "host": {"type": "string", "title": "服务器"},
+                "port": {"type": "number", "title": "端口"},
+                "servicename": {"type": "string", "title": "DSN服务名称"},
+                "encoding": {"type": "string", "title": "字符编码"},
             },
             "required": ["servicename", "user", "password", "host", "port"],
             "extra_options": ["encoding"],
