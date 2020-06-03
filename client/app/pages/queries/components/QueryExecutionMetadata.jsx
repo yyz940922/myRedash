@@ -6,7 +6,7 @@ import useEmbedDialog from "../hooks/useEmbedDialog";
 import QueryControlDropdown from "@/components/EditVisualizationButton/QueryControlDropdown";
 import EditVisualizationButton from "@/components/EditVisualizationButton";
 import useQueryResultData from "@/lib/useQueryResultData";
-import { durationHumanize, pluralize, prettySize } from "@/lib/utils";
+import { durationHumanize, prettySize } from "@/lib/utils";
 
 import "./QueryExecutionMetadata.less";
 
