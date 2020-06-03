@@ -59,7 +59,7 @@ function CreateDashboardDialog({ dialog }) {
           defaultValue={name}
           onChange={handleNameChange}
           onPressEnter={save}
-          placeholder="Dashboard Name"
+          placeholder="报表名称"
           disabled={saveInProgress}
           autoFocus
         />
