@@ -23,6 +23,11 @@ ARG skip_dev_deps
 
 RUN useradd --create-home redash
 
+# Ubuntu 阿里云镜像
+RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+RUN  apt-get clean
+RUN  apt-get update
+
 # Ubuntu packages
 RUN apt-get update && \
   apt-get install -y \
@@ -68,6 +73,9 @@ WORKDIR /app
 # Disalbe PIP Cache and Version Check
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PIP_NO_CACHE_DIR=1
+
+#pip国内源
+COPY pip.conf /etc/pip.conf
 
 # We first copy only the requirements file, to avoid rebuilding on every file
 # change.
