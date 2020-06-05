@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "COHORT",
-  name: "Cohort",
+  name: "同期群分析(Cohort)",
   getOptions,
   Renderer,
   Editor,

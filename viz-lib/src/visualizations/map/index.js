@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "MAP",
-  name: "Map (Markers)",
+  name: "地理标记(Map Markers)",
   getOptions,
   Renderer,
   Editor,

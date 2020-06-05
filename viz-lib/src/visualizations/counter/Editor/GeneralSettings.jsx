@@ -9,7 +9,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Input
           layout="horizontal"
-          label="异常标题"
+          label="计数器标题"
           data-test="Counter.General.Label"
           defaultValue={options.counterLabel}
           placeholder={visualizationName}
@@ -20,7 +20,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Select
           layout="horizontal"
-          label="异常值取值"
+          label="计数器取值"
           data-test="Counter.General.ValueColumn"
           defaultValue={options.counterColName}
           disabled={options.countRow}
@@ -36,7 +36,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <InputNumber
           layout="horizontal"
-          label="异常值行号"
+          label="计数器行号"
           data-test="Counter.General.ValueRowNumber"
           defaultValue={options.rowNumber}
           disabled={options.countRow}

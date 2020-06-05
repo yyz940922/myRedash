@@ -3,7 +3,7 @@ import Editor from "./Editor";
 
 export default {
   type: "BOXPLOT",
-  name: "Boxplot (Deprecated)",
+  name: "箱形图(Boxplot Deprecated)",
   isDeprecated: true,
   getOptions: options => ({ ...options }),
   Renderer,

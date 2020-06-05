@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "FUNNEL",
-  name: "Funnel",
+  name: "漏斗分析(Funnel)",
   getOptions,
   Renderer,
   Editor,
