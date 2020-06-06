@@ -1,4 +1,4 @@
-import { isEqual, extend, map, sortBy, findIndex, filter, pick, omit } from "lodash";
+import { isEqual, extend, map, findIndex, filter, pick, omit } from "lodash";
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import Modal from "antd/lib/modal";
@@ -153,7 +153,7 @@ function EditVisualizationDialog({ dialog, visualization, query, queryResult }) 
   // When editing existing visualization chart type selector is disabled, so add only existing visualization's
   // descriptor there (to properly render the component). For new visualizations show all types except of deprecated
   const availableVisualizations = isNew
-    ? filter(sortBy(registeredVisualizations, ["name"]), vis => !vis.isDeprecated)
+    ? filter(registeredVisualizations, vis => !vis.isDeprecated)
     : pick(registeredVisualizations, [type]);
 
   return (
