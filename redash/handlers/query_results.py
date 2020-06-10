@@ -53,10 +53,10 @@ error_messages = {
         403,
     ),
     "no_permission": error_response(
-        "You do not have permission to run queries with this data source.", 403
+        "没有权限运行当前查询。", 403
     ),
     "select_data_source": error_response(
-        "Please select data source to run this query.", 401
+        "请为当前查询选择数据源。", 401
     ),
 }
 

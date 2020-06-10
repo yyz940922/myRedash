@@ -141,6 +141,6 @@ const EditDataSourcePage = wrapSettingsTab(null, EditDataSource);
 
 export default routeWithUserSession({
   path: "/data_sources/:dataSourceId([0-9]+)",
-  title: "Data Sources",
+  title: "数据源",
   render: pageProps => <EditDataSourcePage {...pageProps} />,
 });
