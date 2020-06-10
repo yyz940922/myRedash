@@ -89,7 +89,7 @@ export default function QueryPageHeader({
             isEnabled: !queryFlags.isNew && queryFlags.canFork && !isDuplicating,
             title: (
               <React.Fragment>
-                Fork
+                复制
                 <i className="fa fa-external-link m-l-5" />
               </React.Fragment>
             ),

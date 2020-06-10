@@ -39,7 +39,7 @@ function ApiKeyDialog({ dialog, ...props }) {
   );
 
   return (
-    <Modal {...dialog.props} width={600} footer={<Button onClick={() => dialog.close(query)}>Close</Button>}>
+    <Modal {...dialog.props} width={600} footer={<Button onClick={() => dialog.close(query)}>关闭</Button>}>
       <div className="query-api-key-dialog-wrapper">
         <h5>API Key</h5>
         <div className="m-b-20">

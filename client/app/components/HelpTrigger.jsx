@@ -172,7 +172,7 @@ export default class HelpTrigger extends React.Component {
                   </a>
                 </Tooltip>
               )}
-              <Tooltip title="Close" placement="bottom">
+              <Tooltip title="关闭" placement="bottom">
                 <a onClick={this.closeDrawer}>
                   <Icon type="close" />
                 </a>

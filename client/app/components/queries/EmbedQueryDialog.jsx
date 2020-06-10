@@ -45,7 +45,7 @@ class EmbedQueryDialog extends React.Component {
         {...dialog.props}
         className="embed-query-dialog"
         title="嵌入查询"
-        footer={<Button onClick={dialog.dismiss}>Close</Button>}>
+        footer={<Button onClick={dialog.dismiss}>关闭</Button>}>
         {query.is_safe ? (
           <React.Fragment>
             <h5 className="m-t-0">Public URL</h5>

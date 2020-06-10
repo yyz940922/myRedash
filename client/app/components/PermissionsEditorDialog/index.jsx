@@ -149,7 +149,7 @@ function PermissionsEditorDialog({ dialog, author, context, aclUrl }) {
       {...dialog.props}
       className="permissions-editor-dialog"
       title={<PermissionsEditorDialogHeader context={context} />}
-      footer={<Button onClick={dialog.dismiss}>Close</Button>}>
+      footer={<Button onClick={dialog.dismiss}>关闭</Button>}>
       <UserSelect
         onSelect={userId => addPermission(userId).then(loadUsersWithPermissions)}
         shouldShowUser={user => !userHasPermission(user)}

@@ -81,16 +81,16 @@ class EditDataSource extends React.Component {
     DataSource.test({ id: dataSource.id })
       .then(httpResponse => {
         if (httpResponse.ok) {
-          notification.success("Success");
+          notification.success("连接成功！");
         } else {
-          notification.error("Connection Test Failed:", httpResponse.message, { duration: 10 });
+          notification.error("连接测试失败：", httpResponse.message, { duration: 10 });
         }
         callback();
       })
       .catch(() => {
         notification.error(
-          "Connection Test Failed:",
-          "Unknown error occurred while performing connection test. Please try again later.",
+          "连接测试失败：",
+          "数据源连接过程中发生错误，请重试。",
           { duration: 10 }
         );
         callback();
@@ -105,8 +105,8 @@ class EditDataSource extends React.Component {
       fields,
       type,
       actions: [
-        { name: "Delete", type: "danger", callback: this.deleteDataSource },
-        { name: "Test Connection", pullRight: true, callback: this.testConnection, disableWhenDirty: true },
+        { name: "删除", type: "danger", callback: this.deleteDataSource },
+        { name: "连接测试", pullRight: true, callback: this.testConnection, disableWhenDirty: true },
       ],
       onSubmit: this.saveDataSource,
       feedbackIcons: true,
