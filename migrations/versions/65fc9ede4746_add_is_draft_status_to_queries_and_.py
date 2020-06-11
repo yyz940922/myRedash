@@ -26,7 +26,7 @@ def upgrade():
         op.add_column(
             "dashboards", sa.Column("is_draft", sa.Boolean, default=True, index=True)
         )
-        op.execute("UPDATE queries SET is_draft = (name = 'New Query')")
+        op.execute("UPDATE queries SET is_draft = (name = '新查询')")
         op.execute("UPDATE dashboards SET is_draft = false")
     except ProgrammingError as e:
         # The columns might exist if you ran the old migrations.

@@ -12,9 +12,9 @@ export default function useRenameQuery(query, onChange) {
       const changes = { name };
       const options = {};
 
-      if (query.is_draft && clientConfig.autoPublishNamedQueries && name !== "New Query") {
+      if (query.is_draft && clientConfig.autoPublishNamedQueries && name !== "新查询") {
         changes.is_draft = false;
-        options.successMessage = "Query saved and published";
+        options.successMessage = "查询保存并发布成功！";
       }
 
       updateQuery(changes, options);
