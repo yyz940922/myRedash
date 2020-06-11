@@ -78,7 +78,7 @@ class DataSourcesList extends React.Component {
     recordEvent("view", "page", "data_sources/new");
     this.newDataSourceDialog = CreateSourceDialog.showModal({
       types: reject(this.state.dataSourceTypes, "deprecated"),
-      sourceType: "Data Source",
+      sourceType: "数据源",
       imageFolder: IMG_ROOT,
       helpTriggerPrefix: "DS_",
       onCreate: this.createDataSource,
