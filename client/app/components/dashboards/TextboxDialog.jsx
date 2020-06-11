@@ -46,6 +46,7 @@ function TextboxDialog({ dialog, isNew, ...props }) {
       title={isNew ? "新增文本" : "编辑文本"}
       onOk={saveWidget}
       okText={isNew ? "添加至报表" : "保存"}
+      cancelText="取消"
       width={500}
       wrapProps={{ "data-test": "TextboxDialog" }}>
       <div className="textbox-dialog">

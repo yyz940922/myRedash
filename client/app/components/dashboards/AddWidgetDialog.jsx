@@ -29,7 +29,7 @@ function VisualizationSelect({ query, visualization, onChange }) {
   return (
     <div>
       <div className="form-group">
-        <label htmlFor="choose-visualization">Choose Visualization</label>
+        <label htmlFor="choose-visualization">选择视图</label>
         <Select
           id="choose-visualization"
           className="w-100"
@@ -119,6 +119,7 @@ function AddWidgetDialog({ dialog, dashboard }) {
         disabled: !selectedQuery || dialog.props.okButtonProps.disabled,
       }}
       okText="添加至报表"
+      cancelText="取消"
       width={700}>
       <div data-test="AddWidgetDialog">
         <QuerySelector onChange={query => selectQuery(query ? query.id : null)} />
