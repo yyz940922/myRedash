@@ -1,4 +1,4 @@
-import { find, pick, reduce } from "lodash";
+import { find, pick } from "lodash";
 
 function fixLegendContainer(plotlyElement) {
   const legend = plotlyElement.querySelector(".legend");
