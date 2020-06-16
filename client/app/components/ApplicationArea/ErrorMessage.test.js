@@ -3,9 +3,9 @@ import { mount } from "enzyme";
 import ErrorMessage from "./ErrorMessage";
 
 const ErrorMessages = {
-  UNAUTHORIZED: "It seems like you don’t have permission to see this page.",
-  NOT_FOUND: "It seems like the page you're looking for cannot be found.",
-  GENERIC: "It seems like we encountered an error. Try refreshing this page or contact your administrator.",
+  UNAUTHORIZED: "没有权限",
+  NOT_FOUND: "网页不存在",
+  GENERIC: "系统出错，请联系管理员。",
 };
 
 function mockAxiosError(status = 500, response = {}) {

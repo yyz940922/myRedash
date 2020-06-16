@@ -165,7 +165,7 @@ export default class HelpTrigger extends React.Component {
           <div className="drawer-wrapper">
             <div className="drawer-menu">
               {url && (
-                <Tooltip title="Open page in a new window" placement="left">
+                <Tooltip title="在新窗口打开" placement="left">
                   {/* eslint-disable-next-line react/jsx-no-target-blank */}
                   <a href={url} target="_blank">
                     <i className="fa fa-external-link" />
@@ -198,13 +198,13 @@ export default class HelpTrigger extends React.Component {
             {/* error message */}
             {this.state.error && (
               <BigMessage icon="fa-exclamation-circle" className="help-message">
-                Something went wrong.
+                系统出错
                 <br />
                 {/* eslint-disable-next-line react/jsx-no-target-blank */}
                 <a href={this.state.error} target="_blank" rel="noopener">
-                  Click here
+                  点击
                 </a>{" "}
-                to open the page in a new window.
+                在新窗口打开。
               </BigMessage>
             )}
           </div>

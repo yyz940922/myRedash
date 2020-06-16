@@ -6,8 +6,8 @@ export default function useUnsavedChangesAlert(shouldShowAlert = false) {
   shouldShowAlertRef.current = shouldShowAlert;
 
   useEffect(() => {
-    const unloadMessage = "You will lose your changes if you leave";
-    const confirmMessage = `${unloadMessage}\n\nAre you sure you want to leave this page?`;
+    const unloadMessage = "如果离开将会导致变更丢失！";
+    const confirmMessage = `${unloadMessage}\n\n确定离开当前网页?`;
     // store original handler (if any)
     const savedOnBeforeUnload = window.onbeforeunload;
 
