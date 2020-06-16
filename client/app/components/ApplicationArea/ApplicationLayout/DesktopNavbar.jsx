@@ -39,7 +39,7 @@ export default function DesktopNavbar() {
           <Menu.Item key="dashboards">
             <a href="dashboards">
               <Icon type="desktop" />
-              <span>Dashboards</span>
+              <span>报表</span>
             </a>
           </Menu.Item>
         )}
@@ -47,7 +47,7 @@ export default function DesktopNavbar() {
           <Menu.Item key="queries">
             <a href="queries">
               <Icon type="code" />
-              <span>Queries</span>
+              <span>查询</span>
             </a>
           </Menu.Item>
         )}
@@ -55,7 +55,7 @@ export default function DesktopNavbar() {
           <Menu.Item key="alerts">
             <a href="alerts">
               <Icon type="alert" />
-              <span>Alerts</span>
+              <span>提醒</span>
             </a>
           </Menu.Item>
         )}
@@ -71,28 +71,28 @@ export default function DesktopNavbar() {
             <React.Fragment>
               <span data-test="CreateButton">
                 <Icon type="plus" />
-                <span>Create</span>
+                <span>新建</span>
               </span>
             </React.Fragment>
           }>
           {currentUser.hasPermission("create_query") && (
             <Menu.Item key="new-query">
               <a href="queries/new" data-test="CreateQueryMenuItem">
-                New Query
+                新建查询
               </a>
             </Menu.Item>
           )}
           {currentUser.hasPermission("create_dashboard") && (
             <Menu.Item key="new-dashboard">
               <a data-test="CreateDashboardMenuItem" onMouseUp={() => CreateDashboardDialog.showModal()}>
-                New Dashboard
+                新建报表
               </a>
             </Menu.Item>
           )}
           {currentUser.hasPermission("list_alerts") && (
             <Menu.Item key="new-alert">
               <a data-test="CreateAlertMenuItem" href="alerts/new">
-                New Alert
+                新建提醒
               </a>
             </Menu.Item>
           )}
@@ -103,14 +103,14 @@ export default function DesktopNavbar() {
         <Menu.Item key="help">
           <HelpTrigger showTooltip={false} type="HOME">
             <Icon type="question-circle" />
-            <span>Help</span>
+            <span>帮助</span>
           </HelpTrigger>
         </Menu.Item>
         {currentUser.isAdmin && (
           <Menu.Item key="settings">
             <a href="data_sources">
               <Icon type="setting" />
-              <span>Settings</span>
+              <span>设置</span>
             </a>
           </Menu.Item>
         )}
@@ -128,17 +128,17 @@ export default function DesktopNavbar() {
             </span>
           }>
           <Menu.Item key="profile">
-            <a href="users/me">Profile</a>
+            <a href="users/me">个人设置</a>
           </Menu.Item>
           {currentUser.hasPermission("super_admin") && (
             <Menu.Item key="status">
-              <a href="admin/status">System Status</a>
+              <a href="admin/status">系统状态</a>
             </Menu.Item>
           )}
           <Menu.Divider />
           <Menu.Item key="logout">
             <a data-test="LogOutButton" onClick={() => Auth.logout()}>
-              Log out
+              退出
             </a>
           </Menu.Item>
           <Menu.Divider />
