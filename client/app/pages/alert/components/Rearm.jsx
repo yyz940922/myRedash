@@ -8,11 +8,11 @@ import Select from "antd/lib/select";
 import "./Rearm.less";
 
 const DURATIONS = [
-  ["Second", 1],
-  ["Minute", 60],
-  ["Hour", 3600],
-  ["Day", 86400],
-  ["Week", 604800],
+  ["秒", 1],
+  ["分钟", 60],
+  ["小时", 3600],
+  ["天", 86400],
+  ["周", 604800],
 ];
 
 function RearmByDuration({ value, onChange, editMode }) {
@@ -91,14 +91,14 @@ function RearmEditor({ value, onChange }) {
         defaultValue={selected || 0}
         dropdownMatchSelectWidth={false}
         onChange={_onChange}>
-        <Select.Option value={0} label="Just once">
-          Just once <em>until back to normal</em>
+        <Select.Option value={0} label="仅提醒一次">
+          仅一次 <em>直至正常返回</em>
         </Select.Option>
-        <Select.Option value={1} label="Each time alert is evaluated">
-          Each time alert is evaluated <em>until back to normal</em>
+        <Select.Option value={1} label="每次执行都提醒">
+          每次执行都提醒 <em>直至正常返回</em>
         </Select.Option>
-        <Select.Option value={2} label="At most every">
-          At most every ... <em>when alert is evaluated</em>
+        <Select.Option value={2} label="最多提醒一次：每">
+          最多提醒一次：每<em>当提醒触发后</em>
         </Select.Option>
       </Select>
       {selected === 2 && value && <RearmByDuration value={value} onChange={onChange} editMode />}
@@ -115,20 +115,20 @@ function RearmViewer({ value }) {
   let phrase = "";
   switch (value) {
     case 0:
-      phrase = "just once, until back to normal";
+      phrase = "仅提醒一次，直至返回正常";
       break;
     case 1:
-      phrase = "each time alert is evaluated, until back to normal";
+      phrase = "每次执行都提醒，直至返回正常";
       break;
     default:
       phrase = (
         <>
-          at most every <RearmByDuration value={value} editMode={false} />, when alert is evaluated
+          最多一次：每 <RearmByDuration value={value} editMode={false} />, 当提醒触发。
         </>
       );
   }
 
-  return <span>Notifications are sent {phrase}.</span>;
+  return <span>通知将会发送 {phrase}.</span>;
 }
 
 RearmViewer.propTypes = {

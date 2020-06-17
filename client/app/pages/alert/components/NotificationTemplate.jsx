@@ -68,10 +68,10 @@ function NotificationTemplate({ alert, query, columnNames, resultValues, subject
         optionLabelProp="label"
         dropdownMatchSelectWidth={false}
         style={{ width: "fit-content" }}>
-        <Select.Option value={0} label="Use default template">
+        <Select.Option value={0} label="使用默认模板">
           默认模板
         </Select.Option>
-        <Select.Option value={1} label="Use custom template">
+        <Select.Option value={1} label="使用自定义模板">
           自定义模板
         </Select.Option>
       </Select>

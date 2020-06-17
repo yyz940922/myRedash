@@ -674,7 +674,7 @@ class Query(ChangeTrackingMixin, TimestampMixin, BelongsToOrgMixin, db.Model):
                 db.session.commit()
 
                 message = (
-                    "Could not determine if query %d is outdated due to %s. The schedule for this query has been disabled."
+                    "如果不能确定查询 %d 超时原因 %s，自动刷新将会停用。"
                     % (query.id, repr(e))
                 )
                 logging.info(message)

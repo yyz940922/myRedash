@@ -68,7 +68,7 @@ export default class AlertView extends React.Component {
           <Tooltip title={canEdit ? "" : "没有权限"}>
             <Button type="default" onClick={canEdit ? onEdit : null} className={cx({ disabled: !canEdit })}>
               <i className="fa fa-edit m-r-5" />
-              Edit
+              编辑
             </Button>
             {menuButton}
           </Tooltip>
@@ -133,7 +133,7 @@ export default class AlertView extends React.Component {
                 />
               )}
               <h4>
-                Destinations{" "}
+                目标{" "}
                 <Tooltip title="在新标签页打开提醒设置。">
                   <a href="destinations" target="_blank">
                     <i className="fa fa-external-link f-13" />

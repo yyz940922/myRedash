@@ -8,9 +8,9 @@ function TemplateFormatHint() {
   return (
     <ContextHelp placement="topLeft" arrowPointAtCenter>
       <div style={{ paddingBottom: 5 }}>
-        All query result columns can be referenced using <code>{"{{ column_name }}"}</code> syntax.
+        所有查询结果列都可以按列名 <code>{"{{ column_name }}"}</code> 进行引用.
       </div>
-      <div style={{ paddingBottom: 5 }}>Leave this field empty to use default template.</div>
+      <div style={{ paddingBottom: 5 }}>内容为空将使用默认模板。</div>
     </ContextHelp>
   );
 }

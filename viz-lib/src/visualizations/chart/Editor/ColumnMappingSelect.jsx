@@ -7,7 +7,7 @@ const MappingTypes = {
   x: { label: "X 轴" },
   y: { label: "Y 轴", multiple: true },
   series: { label: "分组" },
-  yError: { label: "错误" },
+  yError: { label: "Y轴误差" },
   size: { label: "气泡尺寸(Bubble Size)" },
   zVal: { label: "颜色" },
 };

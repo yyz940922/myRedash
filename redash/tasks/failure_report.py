@@ -16,8 +16,8 @@ def key(user_id):
 def comment_for(failure):
     schedule_failures = failure.get("schedule_failures")
     if schedule_failures > settings.MAX_FAILURE_REPORTS_PER_QUERY * 0.75:
-        return """NOTICE: This query has failed a total of {schedule_failures} times.
-        Reporting may stop when the query exceeds {max_failure_reports} overall failures.""".format(
+        return """警告: 该查询已累计失败 {schedule_failures} 次。
+        一旦查询执行失败超过 {max_failure_reports} 次，将会被停止。""".format(
             schedule_failures=schedule_failures,
             max_failure_reports=settings.MAX_FAILURE_REPORTS_PER_QUERY,
         )

@@ -46,7 +46,7 @@ class AlertsList extends React.Component {
         field: "name",
       }
     ),
-    Columns.custom((text, item) => item.user.name, { title: "Created By" }),
+    Columns.custom((text, item) => item.user.name, { title: "创建人" }),
     Columns.custom.sortable(
       (text, alert) => (
         <div>

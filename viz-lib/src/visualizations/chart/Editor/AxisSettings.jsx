@@ -26,7 +26,7 @@ export default function AxisSettings({ id, options, features, onChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Scale"
+          label="缩放"
           data-test={`Chart.${id}.Type`}
           defaultValue={options.type}
           onChange={type => optionsChanged({ type })}>

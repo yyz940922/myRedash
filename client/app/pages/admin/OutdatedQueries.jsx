@@ -55,7 +55,7 @@ class OutdatedQueries extends React.Component {
         width: null,
       }
     ),
-    Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `Created by ${name}`),
+    Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `创建人 ${name}`),
     Columns.dateTime.sortable({ title: "创建时间", field: "created_at" }),
     Columns.duration.sortable({ title: "耗时", field: "runtime" }),
     Columns.dateTime.sortable({ title: "最后执行时间", field: "retrieved_at", orderByField: "executed_at" }),

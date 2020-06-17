@@ -56,7 +56,7 @@ export default function Criteria({ columnNames, resultValues, alertOptions, onCh
 
   const columnHint = (
     <small className="alert-criteria-hint">
-      Top row value is <code className="p-0">{toString(columnValue) || "unknown"}</code>
+      最大取值 <code className="p-0">{toString(columnValue) || "unknown"}</code>
     </small>
   );
 

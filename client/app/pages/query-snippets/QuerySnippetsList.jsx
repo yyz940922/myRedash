@@ -53,7 +53,7 @@ class QuerySnippetsList extends React.Component {
       title: "脚本",
       field: "snippet",
     }),
-    Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `Created by ${name}`),
+    Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `创建人 ${name}`),
     Columns.date.sortable({
       title: "创建时间",
       field: "created_at",
@@ -108,11 +108,11 @@ class QuerySnippetsList extends React.Component {
       onOk: () => {
         QuerySnippet.delete(querySnippet)
           .then(() => {
-            notification.success("Query snippet deleted successfully.");
+            notification.success("常用查询脚本删除成功！");
             this.props.controller.update();
           })
           .catch(() => {
-            notification.error("Failed deleting query snippet.");
+            notification.error("常用查询脚本删除失败。");
           });
       },
     });

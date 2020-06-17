@@ -65,7 +65,7 @@ export default class AlertEdit extends React.Component {
         <div className="bg-white tiled p-20">
           <div className="d-flex">
             <Form className="flex-fill">
-              <HorizontalFormItem label="Query">
+              <HorizontalFormItem label="查询">
                 <Query query={query} queryResult={queryResult} onChange={onQuerySelected} editMode />
               </HorizontalFormItem>
               {queryResult && options && (
