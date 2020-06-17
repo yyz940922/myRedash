@@ -40,7 +40,7 @@ class UserProfile extends React.Component {
     const UserComponent = canEdit ? UserEdit : UserShow;
     return (
       <React.Fragment>
-        <EmailSettingsWarning featureName="invite emails" className="m-b-20" adminOnly />
+        <EmailSettingsWarning featureName="邮件邀请用户" className="m-b-20" adminOnly />
         <div className="row">{user ? <UserComponent user={user} /> : <LoadingState className="" />}</div>
       </React.Fragment>
     );
