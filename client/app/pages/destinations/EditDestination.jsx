@@ -81,7 +81,7 @@ class EditDestination extends React.Component {
     const formProps = {
       fields,
       type,
-      actions: [{ name: "Delete", type: "danger", callback: this.deleteDestination }],
+      actions: [{ name: "删除", type: "danger", callback: this.deleteDestination }],
       onSubmit: this.saveDestination,
       feedbackIcons: true,
     };
@@ -108,6 +108,6 @@ const EditDestinationPage = wrapSettingsTab(null, EditDestination);
 
 export default routeWithUserSession({
   path: "/destinations/:destinationId([0-9]+)",
-  title: "Alert Destinations",
+  title: "提醒设置",
   render: pageProps => <EditDestinationPage {...pageProps} />,
 });

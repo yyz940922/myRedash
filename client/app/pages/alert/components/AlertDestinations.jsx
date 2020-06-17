@@ -90,7 +90,7 @@ export default class AlertDestinations extends React.Component {
           <i className="fa fa-info-circle" /> Create new destinations in{" "}
           <Tooltip title="在新标签页中打开。">
             <a href="destinations/new" target="_blank">
-              Alert Destinations
+              提醒设置
             </a>
           </Tooltip>
         </>

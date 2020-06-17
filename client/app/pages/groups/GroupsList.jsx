@@ -41,7 +41,7 @@ class GroupsList extends React.Component {
     Columns.custom(
       (text, group) => (
         <Button.Group>
-          <Button href={`groups/${group.id}`}>Members</Button>
+          <Button href={`groups/${group.id}`}>成员</Button>
           {currentUser.isAdmin && <Button href={`groups/${group.id}/data_sources`}>数据源</Button>}
         </Button.Group>
       ),
