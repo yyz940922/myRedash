@@ -37,10 +37,10 @@ def get_db_sizes():
     database_metrics = []
     queries = [
         [
-            "查询结果集大小",
+            "查询结果集容量",
             "select pg_total_relation_size('query_results') as size from (select 1) as a",
         ],
-        ["数据库总体大小", "select pg_database_size(current_database()) as size"],
+        ["数据库总体容量", "select pg_database_size(current_database()) as size"],
     ]
     for query_name, query in queries:
         result = db.session.execute(query).first()

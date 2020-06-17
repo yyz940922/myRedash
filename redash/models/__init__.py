@@ -536,7 +536,7 @@ class Query(ChangeTrackingMixin, TimestampMixin, BelongsToOrgMixin, db.Model):
         db.session.add(
             Visualization(
                 query_rel=query,
-                name="Table",
+                name="表格",
                 description="",
                 type="TABLE",
                 options="{}",
