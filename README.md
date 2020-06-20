@@ -5,6 +5,8 @@ Redash是全球最受欢迎的开源实时数据可视化和商业智能(BI)软�
 
 
 Redash系统架构
-
+<p align="center">
+  <img title="Redash" src='http://www.dazdata.com/wp-content/uploads/2020/06/tech.jpg' width="960px"/>
+</p>
 
 达之数据推出的Redash中文版，秉承开源精神，为广大企业提供优秀的免费开源软件，并提供专业的Redash技术支持和服务，研发本地化应用插件和基于Redash技术架构的Dazdata数据分析与预测平台。
