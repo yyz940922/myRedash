@@ -114,7 +114,7 @@ class QueriesList extends React.Component {
             actions={
               <Button block type="primary" href="queries/new">
                 <i className="fa fa-plus m-r-5" />
-                New Query
+                新建查询
               </Button>
             }
           />

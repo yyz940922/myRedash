@@ -82,7 +82,7 @@ class DashboardList extends React.Component {
             actions={
               <Button block type="primary" onClick={() => CreateDashboardDialog.showModal()}>
                 <i className="fa fa-plus m-r-5" />
-                New Dashboard
+                新建报表
               </Button>
             }
           />

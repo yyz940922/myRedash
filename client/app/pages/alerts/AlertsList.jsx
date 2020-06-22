@@ -75,7 +75,7 @@ class AlertsList extends React.Component {
             actions={
               <Button block type="primary" href="alerts/new">
                 <i className="fa fa-plus m-r-5" />
-                New Alert
+                新建提醒
               </Button>
             }
           />
