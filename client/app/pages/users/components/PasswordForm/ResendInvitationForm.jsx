@@ -26,7 +26,7 @@ export default function ResendInvitationForm(props) {
   return (
     <DynamicComponent name="UserProfile.ResendInvitationForm" {...props}>
       <Button className="w-100 m-t-10" onClick={resendInvitation} loading={loading}>
-        Resend Invitation
+        重新发送邀请
       </Button>
       <PasswordLinkAlert user={user} passwordLink={passwordLink} afterClose={() => setPasswordLink(null)} />
     </DynamicComponent>

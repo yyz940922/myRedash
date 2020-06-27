@@ -44,32 +44,32 @@ export default function UserInfoForm(props) {
         [
           {
             name: "name",
-            title: "Name",
+            title: "名称",
             type: "text",
             initialValue: user.name,
           },
           {
             name: "email",
-            title: "Email",
+            title: "电子邮箱",
             type: "email",
             initialValue: user.email,
           },
           !user.isDisabled && currentUser.id !== user.id
             ? {
                 name: "group_ids",
-                title: "Groups",
+                title: "角色",
                 type: "select",
                 mode: "multiple",
                 options: map(allGroups, group => ({ name: group.name, value: group.id })),
                 initialValue: map(groups, group => group.id),
                 loading: isLoadingGroups,
-                placeholder: isLoadingGroups ? "Loading..." : "",
+                placeholder: isLoadingGroups ? "加载中..." : "",
               }
             : {
                 name: "group_ids",
-                title: "Groups",
+                title: "角色",
                 type: "content",
-                content: isLoadingGroups ? "Loading..." : <UserGroups data-test="Groups" groups={groups} />,
+                content: isLoadingGroups ? "加载中..." : <UserGroups data-test="Groups" groups={groups} />,
               },
         ],
         field => ({ readOnly: user.isDisabled, required: true, ...field })

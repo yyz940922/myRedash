@@ -33,7 +33,7 @@ export default function ToggleUserForm(props) {
 
   const buttonProps = {
     type: user.isDisabled ? "primary" : "danger",
-    children: user.isDisabled ? "Enable User" : "Disable User",
+    children: user.isDisabled ? "用户启用" : "用户停用",
   };
 
   return (

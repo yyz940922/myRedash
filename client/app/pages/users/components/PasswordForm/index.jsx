@@ -17,10 +17,10 @@ export default function PasswordForm(props) {
 
   return (
     <DynamicComponent name="UserProfile.PasswordForm" {...props}>
-      <h5>Password</h5>
+      <h5>密码</h5>
       {user.id === currentUser.id && (
         <Button className="w-100 m-t-10" onClick={changePassword} data-test="ChangePassword">
-          Change Password
+          变更密码
         </Button>
       )}
       {user.id !== currentUser.id && currentUser.isAdmin && (

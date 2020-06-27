@@ -26,7 +26,7 @@ export default function AuthSettings(props) {
   return (
     <DynamicComponent name="OrganizationSettings.AuthSettings" {...props}>
       <h3 className="m-t-0">
-        Authentication <HelpTrigger type="AUTHENTICATION_OPTIONS" />
+        用户认证 <HelpTrigger type="AUTHENTICATION_OPTIONS" />
       </h3>
       <hr />
       <PasswordLoginSettings {...props} onChange={handleChange} />

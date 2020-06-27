@@ -9,7 +9,7 @@ import BeaconConsentSettings from "./BeaconConsentSettings";
 export default function GeneralSettings(props) {
   return (
     <DynamicComponent name="OrganizationSettings.GeneralSettings" {...props}>
-      <h3 className="m-t-0">General</h3>
+      <h3 className="m-t-0">通用参数</h3>
       <hr />
       <FormatSettings {...props} />
       <PlotlySettings {...props} />

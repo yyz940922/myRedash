@@ -16,8 +16,8 @@ export default function GoogleLoginSettings(props) {
 
   return (
     <DynamicComponent name="OrganizationSettings.GoogleLoginSettings" {...props}>
-      <h4>Google Login</h4>
-      <Form.Item label="Allowed Google Apps Domains">
+      <h4>集成Google账户</h4>
+      <Form.Item label="允许 Google Apps Domains">
         <Select
           mode="tags"
           value={values.auth_google_apps_domains}
@@ -27,9 +27,8 @@ export default function GoogleLoginSettings(props) {
           <Alert
             message={
               <p>
-                Any user registered with a <strong>{join(values.auth_google_apps_domains, ", ")}</strong> Google Apps
-                account will be able to login. If they don't have an existing user, a new user will be created and join
-                the <strong>Default</strong> group.
+                可以用<strong>{join(values.auth_google_apps_domains, ", ")}</strong>谷歌账户注册新用户；
+                没有注册而直接用谷歌账户登陆，将会自动创建一个默认角色用户。
               </p>
             }
             className="m-t-15"

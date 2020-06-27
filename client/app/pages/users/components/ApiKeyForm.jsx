@@ -30,9 +30,10 @@ export default function ApiKeyForm(props) {
     };
 
     Modal.confirm({
-      title: "Regenerate API Key",
-      content: "Are you sure you want to regenerate?",
-      okText: "Regenerate",
+      title: "重新生成 API Key",
+      content: "确定要重新生成 API Key 吗?",
+      okText: "重新生成",
+      cancelText: "取消",
       onOk: doRegenerate,
       maskClosable: true,
       autoFocusButton: null,
@@ -47,7 +48,7 @@ export default function ApiKeyForm(props) {
           <InputWithCopy id="apiKey" className="hide-in-percy" value={user.apiKey} data-test="ApiKey" readOnly />
         </Form.Item>
         <Button className="w-100" onClick={regenerateApiKey} loading={loading} data-test="RegenerateApiKey">
-          Regenerate
+          重新生成API Key
         </Button>
       </Form>
     </DynamicComponent>

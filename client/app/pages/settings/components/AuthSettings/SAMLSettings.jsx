@@ -16,7 +16,7 @@ export default function SAMLSettings(props) {
           name="auth_saml_enabled"
           checked={values.auth_saml_enabled}
           onChange={e => onChange({ auth_saml_enabled: e.target.checked })}>
-          SAML Enabled
+          SAML 认证启用
         </Checkbox>
       </Form.Item>
       {values.auth_saml_enabled && (

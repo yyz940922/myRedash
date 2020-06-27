@@ -10,7 +10,7 @@ export default function FormatSettings(props) {
 
   return (
     <DynamicComponent name="OrganizationSettings.FormatSettings" {...props}>
-      <Form.Item label="Date Format">
+      <Form.Item label="日期格式">
         <Select
           value={values.date_format}
           onChange={value => onChange({ date_format: value })}
@@ -20,7 +20,7 @@ export default function FormatSettings(props) {
           ))}
         </Select>
       </Form.Item>
-      <Form.Item label="Time Format">
+      <Form.Item label="时间格式">
         <Select
           value={values.time_format}
           onChange={value => onChange({ time_format: value })}
