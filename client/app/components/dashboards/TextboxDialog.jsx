@@ -45,7 +45,7 @@ function TextboxDialog({ dialog, isNew, ...props }) {
     if (text !== originalText) {
       Modal.confirm({
         title: "退出编辑?",
-        content: "您的更改将不会保存，确定退出吗?",
+        content: "更改内容将不会保存，确定退出吗?",
         okText: "不保存退出",
         cancelText: "取消",
         okType: "danger",
@@ -79,7 +79,7 @@ function TextboxDialog({ dialog, isNew, ...props }) {
           placeholder="请输入文本"
         />
         <small>
-          Supports basic{" "}
+          支持基本的{" "}
           <a target="_blank" rel="noopener noreferrer" href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
             <Tooltip title="在新窗口打开Markdown标记指南">Markdown标记</Tooltip>
           </a>
