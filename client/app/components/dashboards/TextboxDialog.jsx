@@ -40,6 +40,25 @@ function TextboxDialog({ dialog, isNew, ...props }) {
     });
   }, [dialog, isNew, text]);
 
+  const confirmDialogDismiss = useCallback(() => {
+    const originalText = props.text;
+    if (text !== originalText) {
+      Modal.confirm({
+        title: "退出编辑?",
+        content: "您的更改将不会保存，确定退出吗?",
+        okText: "不保存退出",
+        cancelText: "取消",
+        okType: "danger",
+        onOk: () => dialog.dismiss(),
+        maskClosable: true,
+        autoFocusButton: null,
+        style: { top: 170 },
+      });
+    } else {
+      dialog.dismiss();
+    }
+  }, [dialog, text, props.text]);
+
   return (
     <Modal
       {...dialog.props}
@@ -47,6 +66,7 @@ function TextboxDialog({ dialog, isNew, ...props }) {
       onOk={saveWidget}
       okText={isNew ? "添加至报表" : "保存"}
       cancelText="取消"
+      onCancel={confirmDialogDismiss}
       width={500}
       wrapProps={{ "data-test": "TextboxDialog" }}>
       <div className="textbox-dialog">
