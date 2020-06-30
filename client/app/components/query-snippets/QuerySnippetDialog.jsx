@@ -48,7 +48,7 @@ function QuerySnippetDialog({ querySnippet, dialog, readOnly }) {
             type="primary"
             form="querySnippetForm"
             data-test="SaveQuerySnippetButton">
-            {isEditing ? "保存" : "新建"}
+            {isEditing ? "保存" : "创建"}
           </Button>
         ),
       ]}
