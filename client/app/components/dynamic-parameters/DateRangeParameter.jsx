@@ -13,6 +13,7 @@ import "./DynamicParameters.less";
 const DYNAMIC_DATE_OPTIONS = [
   {
     name: "This week",
+    title: "本周",
     value: getDynamicDateRangeFromString("d_this_week"),
     label: () =>
       getDynamicDateRangeFromString("d_this_week")
@@ -25,6 +26,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "This month",
+    title: "本月",
     value: getDynamicDateRangeFromString("d_this_month"),
     label: () =>
       getDynamicDateRangeFromString("d_this_month")
@@ -33,6 +35,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "This year",
+    title: "今年",
     value: getDynamicDateRangeFromString("d_this_year"),
     label: () =>
       getDynamicDateRangeFromString("d_this_year")
@@ -41,6 +44,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last week",
+    title: "上周",
     value: getDynamicDateRangeFromString("d_last_week"),
     label: () =>
       getDynamicDateRangeFromString("d_last_week")
@@ -53,6 +57,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last month",
+    title: "上月",
     value: getDynamicDateRangeFromString("d_last_month"),
     label: () =>
       getDynamicDateRangeFromString("d_last_month")
@@ -61,6 +66,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last year",
+    title: "去年",
     value: getDynamicDateRangeFromString("d_last_year"),
     label: () =>
       getDynamicDateRangeFromString("d_last_year")
@@ -69,6 +75,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 7 days",
+    title: "前7天",
     value: getDynamicDateRangeFromString("d_last_7_days"),
     label: () =>
       getDynamicDateRangeFromString("d_last_7_days")
@@ -77,6 +84,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 14 days",
+    title: "前14天",
     value: getDynamicDateRangeFromString("d_last_14_days"),
     label: () =>
       getDynamicDateRangeFromString("d_last_14_days")
@@ -85,6 +93,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 30 days",
+    title: "前30天",
     value: getDynamicDateRangeFromString("d_last_30_days"),
     label: () =>
       getDynamicDateRangeFromString("d_last_30_days")
@@ -93,6 +102,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 60 days",
+    title: "前60天",
     value: getDynamicDateRangeFromString("d_last_60_days"),
     label: () =>
       getDynamicDateRangeFromString("d_last_60_days")
@@ -101,6 +111,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 90 days",
+    title: "前90天",
     value: getDynamicDateRangeFromString("d_last_90_days"),
     label: () =>
       getDynamicDateRangeFromString("d_last_90_days")
@@ -109,6 +120,7 @@ const DYNAMIC_DATE_OPTIONS = [
   },
   {
     name: "Last 12 months",
+    title: "前12个月",
     value: getDynamicDateRangeFromString("d_last_12_months"),
     label: null,
   },
