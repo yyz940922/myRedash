@@ -112,7 +112,7 @@ const EditDestinationPage = wrapSettingsTab("AlertDestinations.Edit", null, Edit
 routes.register(
   "AlertDestinations.Edit",
   routeWithUserSession({
-    path: "/destinations/:destinationId([0-9]+)",
+    path: "/destinations/:destinationId",
     title: "提醒设置",
     render: pageProps => <EditDestinationPage {...pageProps} />,
   })
