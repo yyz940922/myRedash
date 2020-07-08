@@ -322,6 +322,7 @@ default_query_runners = [
     "redash.query_runner.graphite",
     "redash.query_runner.mongodb",
     "redash.query_runner.couchbase",
+    "redash.query_runner.oracle",
     "redash.query_runner.mysql",
     "redash.query_runner.pg",
     "redash.query_runner.url",

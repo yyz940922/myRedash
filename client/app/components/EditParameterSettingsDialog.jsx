@@ -120,7 +120,7 @@ function EditParameterSettingsDialog(props) {
       width={600}
       footer={[
         <Button key="cancel" onClick={props.dialog.dismiss}>
-          Cancel
+          取消
         </Button>,
         <Button
           key="submit"
