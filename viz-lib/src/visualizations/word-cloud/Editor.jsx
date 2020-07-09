@@ -31,7 +31,7 @@ export default function Editor({ options, data, onOptionsChange }) {
           value={options.frequenciesColumn}
           onChange={frequenciesColumn => optionsChanged({ frequenciesColumn })}>
           <Select.Option key="none" value="">
-            <i>(count word frequencies automatically)</i>
+            <i>(自动统计关键次出现频率)</i>
           </Select.Option>
           {map(data.columns, ({ name }) => (
             <Select.Option key={"column-" + name} value={name} data-test={"WordCloud.FrequenciesColumn." + name}>
