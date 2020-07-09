@@ -85,7 +85,7 @@ export default function DatabricksSchemaBrowser({
       <div className="schema-control">
         <Input
           className={isDatabaseSelectOpen ? "database-select-open" : ""}
-          placeholder="Filter tables & columns..."
+          placeholder="筛选表和列..."
           disabled={loadingDatabases || loadingSchema}
           onChange={event => handleFilterChange(event.target.value)}
           addonBefore={
