@@ -3,7 +3,7 @@ import React from "react";
 export default function Editor() {
   return (
     <React.Fragment>
-      <p>This visualization expects the query result to have rows in the following format:</p>
+      <p>该视图要求查询结果包含下列行格式：</p>
       <ul>
         <li>
           <strong>stage1</strong> - 层级1的值
