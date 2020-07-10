@@ -24,7 +24,7 @@ def parse_query(query):
     # TODO: copy paste from Metrica query runner, we should extract this into a utility
     query = query.strip()
     if query == "":
-        raise QueryParseError("Query is empty.")
+        raise QueryParseError("空查询。")
     try:
         params = yaml.safe_load(query)
         return params
