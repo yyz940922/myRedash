@@ -1,5 +1,6 @@
 import logging
 import time
+import os
 
 import unicodedata
 from flask import make_response, request
@@ -451,3 +452,23 @@ class JobResource(BaseResource):
         """
         job = Job.fetch(job_id)
         job.cancel()
+
+
+class QueryUploadResource(BaseResource):
+    @require_permission("execute_query")
+    def post(self, datasource_id):
+        data_source = models.DataSource.get_by_id_and_org(datasource_id, self.current_org)
+        file = request.files['file']
+
+        basepath = os.path.abspath(os.path.join(settings.STATIC_ASSETS_PATH,'files'))
+        if not os.path.exists(basepath):
+            os.mkdir(basepath)
+
+        filename = str(datasource_id) + file.filename
+        fullname = os.path.join(basepath, filename)
+        if os.path.isfile(fullname):
+            os.remove(fullname)
+
+        file.save(fullname)
+        query = "files/" + filename
+        return query

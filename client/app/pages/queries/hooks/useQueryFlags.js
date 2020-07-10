@@ -11,6 +11,7 @@ export default function useQueryFlags(query, dataSource = null) {
       isNew: isNil(query.id),
       isDraft: query.is_draft,
       isArchived: query.is_archived,
+      isFileSource: dataSource.type === 'json' || dataSource.type === 'csv' || dataSource.type === 'excel',
 
       // permissions flags
       canCreate: currentUser.hasPermission("create_query"),
@@ -23,6 +24,6 @@ export default function useQueryFlags(query, dataSource = null) {
       canFork: currentUser.hasPermission("edit_query") && !dataSource.view_only,
       canSchedule: currentUser.hasPermission("schedule_query"),
     }),
-    [query, dataSource.view_only]
+    [query, dataSource.view_only, dataSource.type]
   );
 }
