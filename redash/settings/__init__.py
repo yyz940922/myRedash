@@ -359,6 +359,8 @@ default_query_runners = [
     "redash.query_runner.snowflake",
     "redash.query_runner.phoenix",
     "redash.query_runner.json_ds",
+    "redash.query_runner.csv",
+    "redash.query_runner.excel",
     "redash.query_runner.cass",
     "redash.query_runner.dgraph",
     "redash.query_runner.azure_kusto",
@@ -499,3 +501,12 @@ SQLPARSE_FORMAT_OPTIONS = {
 REQUESTS_ALLOW_REDIRECTS = parse_boolean(
     os.environ.get("REDASH_REQUESTS_ALLOW_REDIRECTS", "false")
 )
+
+# dazdata
+DAZ_COMMON = os.environ.get("REDASH_DAZ_COMMON", "")
+
+DAZ_CONTRACT = os.environ.get("REDASH_DAZ_CONTRACT", "")
+DAZ_DATA = os.environ.get("REDASH_DAZ_DATA", "")
+
+DAZ_EXCEL = os.environ.get("REDASH_DAZ_EXCEL", "")
+DAZ_CHINAGEO = os.environ.get("REDASH_DAZ_CHINAGEO", "")
