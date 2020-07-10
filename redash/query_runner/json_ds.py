@@ -1,10 +1,9 @@
 import logging
 import yaml
 import datetime
-import os
 from funcy import compact, project
 from redash import settings
-from redash.utils import json_dumps, daz_password, get_uname
+from redash.utils import json_dumps
 from redash.query_runner import (
     BaseHTTPQueryRunner,
     register,
@@ -25,7 +24,7 @@ def parse_query(query):
     # TODO: copy paste from Metrica query runner, we should extract this into a utility
     query = query.strip()
     if query == "":
-        raise QueryParseError("空查询。")
+        raise QueryParseError("Query is empty.")
     try:
         params = yaml.safe_load(query)
         return params
@@ -154,66 +153,52 @@ class JSON(BaseHTTPQueryRunner):
         pass
 
     def run_query(self, query, user):
-        if not daz_password("EXCEL",settings.DAZ_EXCEL) and not daz_password("COMMON",settings.DAZ_COMMON):
-            error = "请使用正版软件！设备名称：" + get_uname()
-            return None, error
+        query = parse_query(query)
 
-        if query.find(".files/") == 0:
-            path = os.path.join(os.path.abspath(settings.STATIC_ASSETS_PATH), query)
-            try:
-                with open(path, 'r', encoding='utf8') as f:
-                    data = json_dumps(json.load(f))
-            except Exception as e:
-                error = "文件读取错误 {0}. {1}".format(path, str(e))
-                data = None
-        else:
-            query = parse_query(query)
-
-            if not isinstance(query, dict):
-                raise QueryParseError(
-                    "查询语句应该是一个YAML对象描述。"
-                )
-
-            if "url" not in query:
-                raise QueryParseError("查询必须包含'url'参数.")
-
-            if is_private_address(query["url"]) and settings.ENFORCE_PRIVATE_ADDRESS_BLOCK:
-                raise Exception("不能查询私有地址。")
-
-            method = query.get("method", "get")
-            request_options = project(query, ("params", "headers", "data", "auth", "json"))
-
-            fields = query.get("fields")
-            path = query.get("path")
-
-            if isinstance(request_options.get("auth", None), list):
-                request_options["auth"] = tuple(request_options["auth"])
-            elif self.configuration.get("username") or self.configuration.get("password"):
-                request_options["auth"] = (
-                    self.configuration.get("username"),
-                    self.configuration.get("password"),
-                )
-
-            if method not in ("get", "post"):
-                raise QueryParseError("仅允许GET或POST方法。")
-
-            if fields and not isinstance(fields, list):
-                raise QueryParseError("需要字段列表。")
-
-            response, error = self.get_response(
-                query["url"], http_method=method, **request_options
+        if not isinstance(query, dict):
+            raise QueryParseError(
+                "Query should be a YAML object describing the URL to query."
             )
 
-            if error is not None:
-                return None, error
+        if "url" not in query:
+            raise QueryParseError("Query must include 'url' option.")
 
-            error = "返回为空 '{}'.".format(query["url"])
-            data = json_dumps(parse_json(response.json(), path, fields))
+        if is_private_address(query["url"]) and settings.ENFORCE_PRIVATE_ADDRESS_BLOCK:
+            raise Exception("Can't query private addresses.")
+
+        method = query.get("method", "get")
+        request_options = project(query, ("params", "headers", "data", "auth", "json"))
+
+        fields = query.get("fields")
+        path = query.get("path")
+
+        if isinstance(request_options.get("auth", None), list):
+            request_options["auth"] = tuple(request_options["auth"])
+        elif self.configuration.get("username") or self.configuration.get("password"):
+            request_options["auth"] = (
+                self.configuration.get("username"),
+                self.configuration.get("password"),
+            )
+
+        if method not in ("get", "post"):
+            raise QueryParseError("Only GET or POST methods are allowed.")
+
+        if fields and not isinstance(fields, list):
+            raise QueryParseError("'fields' needs to be a list.")
+
+        response, error = self.get_response(
+            query["url"], http_method=method, **request_options
+        )
+
+        if error is not None:
+            return None, error
+
+        data = json_dumps(parse_json(response.json(), path, fields))
 
         if data:
             return data, None
         else:
-            return None, error
+            return None, "Got empty response from '{}'.".format(query["url"])
 
 
 register(JSON)

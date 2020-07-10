@@ -9,8 +9,6 @@ import random
 import re
 import uuid
 import binascii
-import socket
-import base64
 
 import pystache
 import pytz
@@ -72,8 +70,8 @@ def generate_token(length):
 
 class JSONEncoder(simplejson.JSONEncoder):
     """Adapter for `simplejson.dumps`."""
-
-
+    
+    
     def default(self, o):
         # Some SQLAlchemy collections are lazy.
         if isinstance(o, Query):
@@ -215,14 +213,3 @@ def render_template(path, context):
     function decorated with the `context_processor` decorator, which is not explicitly required for rendering purposes.
     """
     current_app.jinja_env.get_template(path).render(**context)
-
-def get_uname():
-    host = socket.getfqdn(socket.gethostname())
-    addr = socket.gethostbyname(host)
-    return host + addr
-
-def daz_password(symbol, pws):
-    metastr = symbol + get_uname()
-    shastr = metastr.encode('gbk')
-    sha = hashlib.sha1(shastr).hexdigest()
-    return True if sha == pws else False 
