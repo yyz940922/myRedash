@@ -86,6 +86,7 @@ class EditDestination extends React.Component {
       type,
       actions: [{ name: "删除", type: "danger", callback: this.deleteDestination }],
       onSubmit: this.saveDestination,
+      defaultShowExtraFields: helper.hasFilledExtraField(type, destination),
       feedbackIcons: true,
     };
 
