@@ -164,6 +164,10 @@ function QuerySource(props) {
     [query, queryFlags.canExecute, areParametersDirty, isQueryExecuting, isDirty, selectedText, executeQuery]
   );
 
+  const doUploadQuery =  useCallback(file => {
+    setQuery(extend(query.clone(), { query: file }));
+  }, [query, setQuery]);
+
   const [isQuerySaving, setIsQuerySaving] = useState(false);
 
   const doSaveQuery = useCallback(() => {
@@ -294,11 +298,14 @@ function QuerySource(props) {
                         }
                       }
                       executeButtonProps={{
-                        disabled: !queryFlags.canExecute || isQueryExecuting || areParametersDirty,
+                        disabled:  !queryFlags.isFileSource && !queryFlags.canExecute || isQueryExecuting || areParametersDirty,
                         shortcut: "mod+enter, alt+enter, ctrl+enter, shift+enter",
-                        onClick: doExecuteQuery,
+                        onClick: queryFlags.isFileSource && query.query === '' ? doUploadQuery : doExecuteQuery,
+                        title: queryFlags.isFileSource && query.query === '' ? query.name : '',
                         text: (
-                          <span className="hidden-xs">{selectedText === null ? "执行" : "执行选中脚本"}</span>
+                          <span className="hidden-xs">
+                            {queryFlags.isFileSource && query.query ==='' ? "文件上载" : selectedText === null ? "执行" : "执行选中脚本"}
+                          </span>
                         ),
                       }}
                       autocompleteToggleProps={{
@@ -310,6 +317,7 @@ function QuerySource(props) {
                         dataSource
                           ? {
                               disabled: !queryFlags.canEdit,
+                              type: dataSource.type,
                               value: dataSource.id,
                               onChange: handleDataSourceChange,
                               options: map(dataSources, ds => ({ value: ds.id, label: ds.name })),

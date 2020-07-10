@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Tooltip from "antd/lib/tooltip";
 import Button from "antd/lib/button";
 import Select from "antd/lib/select";
+import { Upload, message, Icon } from 'antd';
 import KeyboardShortcuts, { humanReadableShortcut } from "@/services/KeyboardShortcuts";
 
 import AutocompleteToggle from "./AutocompleteToggle";
@@ -53,6 +54,26 @@ export default function EditorControl({
       };
     }
   }, [addParameterButtonProps, formatButtonProps, saveButtonProps, executeButtonProps]);
+
+  const uploadProps = {
+    name: 'file',
+    showUploadList: false,
+    accept: `.${dataSourceSelectorProps.type==='excel' ? 'xls,.xlsx' : dataSourceSelectorProps.type}`,
+    action: `/api/queries/${dataSourceSelectorProps.value}/upload`,
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        executeButtonProps.onClick(info.file.response);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} 文件上载失败！`);
+      }
+    },
+  };
 
   return (
     <div className="query-editor-controls">
@@ -111,7 +132,14 @@ export default function EditorControl({
           </Button>
         </ButtonTooltip>
       )}
-      {executeButtonProps !== false && (
+      {executeButtonProps !== false && executeButtonProps.title !== '' && (
+        <Upload {...uploadProps}>
+          <button style={{ width: 100, height: 35 }}>
+            <Icon type="upload" />文件上载
+          </button>
+        </Upload>
+      )}
+      {executeButtonProps !== false && executeButtonProps.title === '' && (
         <ButtonTooltip title={executeButtonProps.title} shortcut={executeButtonProps.shortcut}>
           <Button
             className="query-editor-controls-button m-l-5"
@@ -157,6 +185,7 @@ EditorControl.propTypes = {
     PropTypes.bool, // `false` to hide
     PropTypes.shape({
       disabled: PropTypes.bool,
+      type: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       options: PropTypes.arrayOf(
         PropTypes.shape({
