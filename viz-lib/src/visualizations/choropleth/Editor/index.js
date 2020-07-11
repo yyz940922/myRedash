@@ -6,8 +6,8 @@ import FormatSettings from "./FormatSettings";
 import BoundsSettings from "./BoundsSettings";
 
 export default createTabbedEditor([
-  { key: "General", title: "General", component: GeneralSettings },
-  { key: "Colors", title: "Colors", component: ColorsSettings },
-  { key: "Format", title: "Format", component: FormatSettings },
-  { key: "Bounds", title: "Bounds", component: BoundsSettings },
+  { key: "General", title: "通用", component: GeneralSettings },
+  { key: "Colors", title: "颜色", component: ColorsSettings },
+  { key: "Format", title: "格式化", component: FormatSettings },
+  { key: "Bounds", title: "边界", component: BoundsSettings },
 ]);
