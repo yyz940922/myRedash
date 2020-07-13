@@ -139,11 +139,11 @@ class UserListResource(BaseResource):
         require_fields(req, ("name", "email"))
 
         if "@" not in req["email"]:
-            abort(400, message="Bad email address.")
+            abort(400, message="非法的电子邮箱。")
         name, domain = req["email"].split("@", 1)
 
-        if domain.lower() in blacklist or domain.lower() == "qq.com":
-            abort(400, message="Bad email address.")
+        if domain.lower() in blacklist:
+            abort(400, message="黑名单的电子邮箱。")
 
         user = models.User(
             org=self.current_org,
@@ -158,7 +158,7 @@ class UserListResource(BaseResource):
             models.db.session.commit()
         except IntegrityError as e:
             if "email" in str(e):
-                abort(400, message="Email already taken.")
+                abort(400, message="电子邮箱已占用。")
             abort(500)
 
         self.record_event(
@@ -260,8 +260,8 @@ class UserResource(BaseResource):
         if "email" in params:
             _, domain = params["email"].split("@", 1)
 
-            if domain.lower() in blacklist or domain.lower() == "qq.com":
-                abort(400, message="Bad email address.")
+            if domain.lower() in blacklist:
+                abort(400, message="黑名单的电子邮箱。")
 
         email_address_changed = "email" in params and params["email"] != user.email
         needs_to_verify_email = (
