@@ -200,10 +200,10 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
                 value={options.legend.traceorder}
                 onChange={traceorder => onOptionsChange({ legend: { traceorder } })}>
                 <Select.Option value="normal" data-test="Chart.LegendItemsOrder.Normal">
-                  升序
+                  正常
                 </Select.Option>
                 <Select.Option value="reversed" data-test="Chart.LegendItemsOrder.Reversed">
-                  降序
+                  倒序
                 </Select.Option>
               </Select>
             </Section>
