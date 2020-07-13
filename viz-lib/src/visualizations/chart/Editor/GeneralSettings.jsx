@@ -173,23 +173,42 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       )}
 
       {!includes(["custom", "heatmap"], options.globalSeriesType) && (
-        <Section>
-          <Select
-            label="图例放置"
-            data-test="Chart.LegendPlacement"
-            value={options.legend.enabled ? options.legend.placement : "hidden"}
-            onChange={handleLegendPlacementChange}>
-            <Select.Option value="hidden" data-test="Chart.LegendPlacement.HideLegend">
-              不显示图例
-            </Select.Option>
-            <Select.Option value="auto" data-test="Chart.LegendPlacement.Auto">
-              右侧
-            </Select.Option>
-            <Select.Option value="below" data-test="Chart.LegendPlacement.Below">
-              底部
-            </Select.Option>
-          </Select>
-        </Section>
+        <React.Fragment>
+          <Section>
+            <Select
+              label="图例放置"
+              data-test="Chart.LegendPlacement"
+              value={options.legend.enabled ? options.legend.placement : "hidden"}
+              onChange={handleLegendPlacementChange}>
+              <Select.Option value="hidden" data-test="Chart.LegendPlacement.HideLegend">
+                不显示图例
+              </Select.Option>
+              <Select.Option value="auto" data-test="Chart.LegendPlacement.Auto">
+                右侧
+              </Select.Option>
+              <Select.Option value="below" data-test="Chart.LegendPlacement.Below">
+                底部
+              </Select.Option>
+            </Select>
+          </Section>
+
+          {options.legend.enabled && (
+            <Section>
+              <Select
+                label="图例顺序"
+                data-test="Chart.LegendItemsOrder"
+                value={options.legend.traceorder}
+                onChange={traceorder => onOptionsChange({ legend: { traceorder } })}>
+                <Select.Option value="normal" data-test="Chart.LegendItemsOrder.Normal">
+                  升序
+                </Select.Option>
+                <Select.Option value="reversed" data-test="Chart.LegendItemsOrder.Reversed">
+                  降序
+                </Select.Option>
+              </Select>
+            </Section>
+          )}
+        </React.Fragment>
       )}
 
       {includes(["box"], options.globalSeriesType) && (
