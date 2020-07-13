@@ -18,7 +18,7 @@ export default function DashboardListEmptyState({ page, searchTerm, selectedTags
       return (
         <EmptyState
           icon="zmdi zmdi-view-quilt"
-          description="See the big picture"
+          description="看见大数据"
           illustration="dashboard"
           helpLink="https://help.redash.io/category/22-dashboards"
           showDashboardStep

@@ -26,6 +26,11 @@ function VisualizationSelect({ query, visualization, onChange }) {
     return null;
   }
 
+  const groups = {"BOXPLOT":"箱线图","CHART":"图表","CHOROPLETH":"地理分布图",
+    "COHORT":"同期群分析","COUNTER":"计数器","DETAILS":"记录明细显示","FUNNEL":"漏斗分析",
+    "MAP":"地理标记","PIVOT":"旋转表格","SANKEY":"桑基图","SUNBURST_SEQUENCE":"旭辉图",
+    "TABLE":"表格","WORD_CLOUD":"词云图"};
+
   return (
     <div>
       <div className="form-group">
@@ -36,7 +41,7 @@ function VisualizationSelect({ query, visualization, onChange }) {
           value={visualization ? visualization.id : undefined}
           onChange={handleChange}>
           {map(visualizationGroups, (visualizations, groupKey) => (
-            <Select.OptGroup key={groupKey} label={groupKey}>
+            <Select.OptGroup key={groupKey} label={groups[groupKey]}>
               {map(visualizations, visualization => (
                 <Select.Option key={`${visualization.id}`} value={visualization.id}>
                   {visualization.name}
