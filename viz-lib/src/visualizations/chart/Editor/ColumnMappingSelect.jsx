@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import { Section, Select } from "@/components/visualizations/editor";
 
 const MappingTypes = {
-  x: { label: "X 轴" },
-  y: { label: "Y 轴", multiple: true },
-  series: { label: "分组" },
-  yError: { label: "Y轴误差" },
-  size: { label: "气泡尺寸(Bubble Size)" },
-  zVal: { label: "颜色" },
+  x: { label: "X Column" },
+  y: { label: "Y Columns", multiple: true },
+  series: { label: "Group by" },
+  yError: { label: "Errors column" },
+  size: { label: "Bubble Size Column" },
+  zVal: { label: "Color Column" },
 };
 
 export default function ColumnMappingSelect({ value, availableColumns, type, onChange }) {
@@ -24,7 +24,7 @@ export default function ColumnMappingSelect({ value, availableColumns, type, onC
         mode={multiple ? "multiple" : "default"}
         allowClear
         showSearch
-        placeholder={multiple ? "请选择列(多选)..." : "请选择列..."}
+        placeholder={multiple ? "Choose columns..." : "Choose column..."}
         value={value || undefined}
         onChange={column => onChange(column || null, type)}>
         {map(options, c => (

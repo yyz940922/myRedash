@@ -25,7 +25,7 @@ ErrorMessage.propTypes = {
 };
 
 ErrorMessage.defaultProps = {
-  children: "系统出错。",
+  children: "Something went wrong.",
 };
 
 export default class ErrorBoundary extends React.Component {

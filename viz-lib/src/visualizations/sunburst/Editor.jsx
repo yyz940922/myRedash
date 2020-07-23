@@ -4,48 +4,48 @@ import { Section } from "@/components/visualizations/editor";
 export default function Editor() {
   return (
     <React.Fragment>
-      <p>该视图要求查询结果具备下列格式之一：</p>
+      <p>This visualization expects the query result to have rows in one of the following formats:</p>
       <Section>
         <p>
-          <strong>格式1：</strong>
+          <strong>Option 1:</strong>
         </p>
         <ul>
           <li>
-            <strong>sequence</strong> - 序列id
+            <strong>sequence</strong> - sequence id
           </li>
           <li>
-            <strong>stage</strong> - 系列层级(如：1, 2, ...)
+            <strong>stage</strong> - what stage in sequence this is (1, 2, ...)
           </li>
           <li>
-            <strong>node</strong> - 层级名称
+            <strong>node</strong> - stage name
           </li>
           <li>
-            <strong>value</strong> - 序列数
+            <strong>value</strong> - number of times this sequence occurred
           </li>
         </ul>
       </Section>
       <Section>
         <p>
-          <strong>格式2：</strong>
+          <strong>Option 2:</strong>
         </p>
         <ul>
           <li>
-            <strong>stage1</strong> - 层级1的值
+            <strong>stage1</strong> - stage 1 value
           </li>
           <li>
-            <strong>stage2</strong> - 层级2的值(可空)
+            <strong>stage2</strong> - stage 2 value (or null)
           </li>
           <li>
-            <strong>stage3</strong> - 层级3的值(可空)
+            <strong>stage3</strong> - stage 3 value (or null)
           </li>
           <li>
-            <strong>stage4</strong> - 层级5的值(可空)
+            <strong>stage4</strong> - stage 4 value (or null)
           </li>
           <li>
-            <strong>stage5</strong> - 层级5的值(可空)
+            <strong>stage5</strong> - stage 5 value (or null)
           </li>
           <li>
-            <strong>value</strong> - 序列数
+            <strong>value</strong> - number of times this sequence occurred
           </li>
         </ul>
       </Section>

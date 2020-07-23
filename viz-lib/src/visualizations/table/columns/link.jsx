@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
     <React.Fragment>
       <Section>
         <Input
-          label="URL模板"
+          label="URL template"
           data-test="Table.ColumnEditor.Link.UrlTemplate"
           defaultValue={column.linkUrlTemplate}
           onChange={event => onChangeDebounced({ linkUrlTemplate: event.target.value })}
@@ -21,7 +21,7 @@ function Editor({ column, onChange }) {
 
       <Section>
         <Input
-          label="文本模板"
+          label="Text template"
           data-test="Table.ColumnEditor.Link.TextTemplate"
           defaultValue={column.linkTextTemplate}
           onChange={event => onChangeDebounced({ linkTextTemplate: event.target.value })}
@@ -30,7 +30,7 @@ function Editor({ column, onChange }) {
 
       <Section>
         <Input
-          label="标题模板"
+          label="Title template"
           data-test="Table.ColumnEditor.Link.TitleTemplate"
           defaultValue={column.linkTitleTemplate}
           onChange={event => onChangeDebounced({ linkTitleTemplate: event.target.value })}
@@ -42,7 +42,7 @@ function Editor({ column, onChange }) {
           data-test="Table.ColumnEditor.Link.OpenInNewTab"
           checked={column.linkOpenInNewTab}
           onChange={event => onChange({ linkOpenInNewTab: event.target.checked })}>
-          在新标签页打开
+          Open in new tab
         </Checkbox>
       </Section>
 
@@ -52,12 +52,12 @@ function Editor({ column, onChange }) {
           arrowPointAtCenter
           icon={<span style={{ cursor: "default" }}>Format specs {ContextHelp.defaultIcon}</span>}>
           <div>
-          所有列都可以关联使用，请按 <code>{"{{ column_name }}"}</code> 表达形式。.
+            All columns can be referenced using <code>{"{{ column_name }}"}</code> syntax.
           </div>
           <div>
-          使用 <code>{"{{ @ }}"}</code> 关联当前列。
+            Use <code>{"{{ @ }}"}</code> to reference current (this) column.
           </div>
-          <div>该表达形式也适用于URL、文本和标题设置。</div>
+          <div>This syntax is applicable to URL, Text and Title options.</div>
         </ContextHelp>
       </Section>
     </React.Fragment>
@@ -113,5 +113,5 @@ export default function initLinkColumn(column) {
   return LinkColumn;
 }
 
-initLinkColumn.friendlyName = "链接";
+initLinkColumn.friendlyName = "Link";
 initLinkColumn.Editor = Editor;

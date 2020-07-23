@@ -14,9 +14,9 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="层级取值"
+          label="Step Column"
           data-test="Funnel.StepColumn"
-          placeholder="请选择列..."
+          placeholder="Choose column..."
           defaultValue={options.stepCol.colName || undefined}
           onChange={colName => onOptionsChange({ stepCol: { colName: colName || null } })}>
           {map(columnNames, col => (
@@ -30,7 +30,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="层级标题"
+          label="Step Column Title"
           data-test="Funnel.StepColumnTitle"
           defaultValue={options.stepCol.displayAs}
           onChange={event => onOptionsChangeDebounced({ stepCol: { displayAs: event.target.value } })}
@@ -40,9 +40,9 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="统计值取值"
+          label="Value Column"
           data-test="Funnel.ValueColumn"
-          placeholder="请选择列..."
+          placeholder="Choose column..."
           defaultValue={options.valueCol.colName || undefined}
           onChange={colName => onOptionsChange({ valueCol: { colName: colName || null } })}>
           {map(columnNames, col => (
@@ -56,7 +56,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="统计值标题"
+          label="Value Column Title"
           data-test="Funnel.ValueColumnTitle"
           defaultValue={options.valueCol.displayAs}
           onChange={event => onOptionsChangeDebounced({ valueCol: { displayAs: event.target.value } })}
@@ -68,7 +68,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
           data-test="Funnel.CustomSort"
           checked={!options.autoSort}
           onChange={event => onOptionsChange({ autoSort: !event.target.checked })}>
-          自定义排序
+          Custom Sorting
         </Checkbox>
       </Section>
 
@@ -77,10 +77,10 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
           <Section>
             <Select
               layout="horizontal"
-              label="排序取值"
+              label="Sort Column"
               data-test="Funnel.SortColumn"
               allowClear
-              placeholder="请选择列..."
+              placeholder="Choose column..."
               defaultValue={options.sortKeyCol.colName || undefined}
               onChange={colName => onOptionsChange({ sortKeyCol: { colName: colName || null } })}>
               {map(columnNames, col => (
@@ -94,16 +94,16 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
           <Section>
             <Select
               layout="horizontal"
-              label="排序方式"
+              label="Sort Order"
               data-test="Funnel.SortDirection"
               disabled={!options.sortKeyCol.colName}
               defaultValue={options.sortKeyCol.reverse ? "desc" : "asc"}
               onChange={order => onOptionsChange({ sortKeyCol: { reverse: order === "desc" } })}>
               <Select.Option value="asc" data-test="Funnel.SortDirection.Ascending">
-                升序
+                ascending
               </Select.Option>
               <Select.Option value="desc" data-test="Funnel.SortDirection.Descending">
-                降序
+                descending
               </Select.Option>
             </Select>
           </Section>

@@ -8,9 +8,9 @@ function TemplateFormatHint() {
   return (
     <ContextHelp placement="topLeft" arrowPointAtCenter>
       <div style={{ paddingBottom: 5 }}>
-        所有查询结果列都可以按列名 <code>{"{{ column_name }}"}</code> 进行引用.
+        All query result columns can be referenced using <code>{"{{ column_name }}"}</code> syntax.
       </div>
-      <div style={{ paddingBottom: 5 }}>内容为空将使用默认模板。</div>
+      <div style={{ paddingBottom: 5 }}>Leave this field empty to use default template.</div>
     </ContextHelp>
   );
 }
@@ -27,16 +27,16 @@ export default function FormatSettings({ options, onOptionsChange }) {
           data-test="Map.Editor.TooltipEnabled"
           checked={options.tooltip.enabled}
           onChange={event => onOptionsChange({ tooltip: { enabled: event.target.checked } })}>
-          显示提示信息
+          Show tooltip
         </Checkbox>
       </Section>
 
       <Section>
         <Input
-          label={<React.Fragment>提示信息模板 {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>Tooltip template {templateFormatHint}</React.Fragment>}
           data-test="Map.Editor.TooltipTemplate"
           disabled={!options.tooltip.enabled}
-          placeholder="默认模板"
+          placeholder="Default template"
           defaultValue={options.tooltip.template}
           onChange={event => onOptionsChangeDebounced({ tooltip: { template: event.target.value } })}
         />
@@ -47,17 +47,17 @@ export default function FormatSettings({ options, onOptionsChange }) {
           data-test="Map.Editor.PopupEnabled"
           checked={options.popup.enabled}
           onChange={event => onOptionsChange({ popup: { enabled: event.target.checked } })}>
-          显示弹出信息
+          Show popup
         </Checkbox>
       </Section>
 
       <Section>
         <TextArea
-          label={<React.Fragment>弹出信息模板 {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>Popup template {templateFormatHint}</React.Fragment>}
           data-test="Map.Editor.PopupTemplate"
           disabled={!options.popup.enabled}
           rows={4}
-          placeholder="默认模板"
+          placeholder="Default template"
           defaultValue={options.popup.template}
           onChange={event => onOptionsChangeDebounced({ popup: { template: event.target.value } })}
         />

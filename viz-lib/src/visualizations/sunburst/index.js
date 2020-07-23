@@ -3,7 +3,7 @@ import Editor from "./Editor";
 
 export default {
   type: "SUNBURST_SEQUENCE",
-  name: "旭辉图(Sunburst Sequence)",
+  name: "Sunburst Sequence",
   getOptions: options => ({ ...options }),
   Renderer,
   Editor,

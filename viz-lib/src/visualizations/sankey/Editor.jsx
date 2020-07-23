@@ -3,25 +3,25 @@ import React from "react";
 export default function Editor() {
   return (
     <React.Fragment>
-      <p>该视图要求查询结果包含下列行格式：</p>
+      <p>This visualization expects the query result to have rows in the following format:</p>
       <ul>
         <li>
-          <strong>stage1</strong> - 层级1的值
+          <strong>stage1</strong> - stage 1 value
         </li>
         <li>
-          <strong>stage2</strong> - 层级2的值(可空)
+          <strong>stage2</strong> - stage 2 value (or null)
         </li>
         <li>
-          <strong>stage3</strong> - 层级3的值(可空)
+          <strong>stage3</strong> - stage 3 value (or null)
         </li>
         <li>
-          <strong>stage4</strong> - 层级4的值(可空)
+          <strong>stage4</strong> - stage 4 value (or null)
         </li>
         <li>
-          <strong>stage5</strong> - 层级5的值(可空)
+          <strong>stage5</strong> - stage 5 value (or null)
         </li>
         <li>
-          <strong>value</strong> - 序列数
+          <strong>value</strong> - number of times this sequence occurred
         </li>
       </ul>
     </React.Fragment>

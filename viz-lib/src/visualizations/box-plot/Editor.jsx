@@ -17,7 +17,7 @@ export default function Editor({ options, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Input
-          label="X轴标签"
+          label="X Axis Label"
           data-test="BoxPlot.XAxisLabel"
           value={options.xAxisLabel}
           onChange={event => onXAxisLabelChanged(event.target.value)}
@@ -26,7 +26,7 @@ export default function Editor({ options, onOptionsChange }) {
 
       <Section>
         <Input
-          label="Y轴标签"
+          label="Y Axis Label"
           data-test="BoxPlot.YAxisLabel"
           value={options.yAxisLabel}
           onChange={event => onYAxisLabelChanged(event.target.value)}

@@ -36,7 +36,7 @@ export default function GroupsSettings({ options, data, onOptionsChange }) {
 
   const columns = [
     {
-      title: "分组",
+      title: "Group",
       dataIndex: "name",
     },
     {

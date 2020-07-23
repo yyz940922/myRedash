@@ -20,7 +20,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
             data-test="Chart.DataLabels.ShowDataLabels"
             defaultChecked={options.showDataLabels}
             onChange={event => onOptionsChange({ showDataLabels: event.target.checked })}>
-            显示标注
+            Show Data Labels
           </Checkbox>
         </Section>
       )}
@@ -29,7 +29,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              数字格式
+              Number Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -43,7 +43,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              百分比格式
+              Percent Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -57,7 +57,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              日期时间格式
+              Date/Time Values Format
               <ContextHelp.DateTimeFormatSpecs />
             </React.Fragment>
           }
@@ -71,7 +71,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              标注格式
+              Data Labels
               <ContextHelp placement="topRight" arrowPointAtCenter>
                 <div style={{ paddingBottom: 5 }}>Use special names to access additional properties:</div>
                 <div>
@@ -93,7 +93,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
                   <code>{"{{ @@size }}"}</code> bubble size;
                 </div>
                 <div style={{ paddingTop: 5 }}>
-                  所有查询结果列都可关联使用
+                  Also, all query result columns can be referenced
                   <br />
                   using
                   <code style={{ whiteSpace: "nowrap" }}>{"{{ column_name }}"}</code> syntax.

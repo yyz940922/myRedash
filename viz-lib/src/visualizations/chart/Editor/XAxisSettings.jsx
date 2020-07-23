@@ -19,7 +19,7 @@ export default function XAxisSettings({ options, onOptionsChange }) {
           data-test="Chart.XAxis.Sort"
           defaultChecked={options.sortX}
           onChange={sortX => onOptionsChange({ sortX })}>
-          排序
+          Sort Values
         </Switch>
       </Section>
 
@@ -28,7 +28,7 @@ export default function XAxisSettings({ options, onOptionsChange }) {
           data-test="Chart.XAxis.Reverse"
           defaultChecked={options.reverseX}
           onChange={reverseX => onOptionsChange({ reverseX })}>
-          升序/降序
+          Reverse Order
         </Switch>
       </Section>
 
@@ -37,7 +37,7 @@ export default function XAxisSettings({ options, onOptionsChange }) {
           data-test="Chart.XAxis.ShowLabels"
           defaultChecked={options.xAxis.labels.enabled}
           onChange={enabled => onOptionsChange({ xAxis: { labels: { enabled } } })}>
-          显示标签
+          Show Labels
         </Switch>
       </Section>
     </React.Fragment>

@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "CHART",
-  name: "图表(Chart)",
+  name: "Chart",
   isDefault: true,
   getOptions,
   Renderer,

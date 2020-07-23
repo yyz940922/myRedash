@@ -4,14 +4,14 @@ import { Section, Select } from "@/components/visualizations/editor";
 import { EditorPropTypes } from "@/visualizations/prop-types";
 
 const CohortTimeIntervals = {
-  daily: "每日",
-  weekly: "每周",
-  monthly: "每月",
+  daily: "Daily",
+  weekly: "Weekly",
+  monthly: "Monthly",
 };
 
 const CohortModes = {
-  diagonal: "空值用0代替",
-  simple: "原样显示",
+  diagonal: "Fill gaps with zeros",
+  simple: "Show data as is",
 };
 
 export default function OptionsSettings({ options, onOptionsChange }) {
@@ -20,7 +20,7 @@ export default function OptionsSettings({ options, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="时间周期"
+          label="Time Interval"
           data-test="Cohort.TimeInterval"
           value={options.timeInterval}
           onChange={timeInterval => onOptionsChange({ timeInterval })}>
@@ -35,7 +35,7 @@ export default function OptionsSettings({ options, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="模式"
+          label="Mode"
           data-test="Cohort.Mode"
           value={options.mode}
           onChange={mode => onOptionsChange({ mode })}>

@@ -13,7 +13,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
           layout="horizontal"
           label={
             <React.Fragment>
-              数字格式
+              Number Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -28,7 +28,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
           layout="horizontal"
           label={
             <React.Fragment>
-              百分比格式
+              Percent Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -41,7 +41,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <InputNumber
           layout="horizontal"
-          label="最大层级数"
+          label="Items Count Limit"
           data-test="Funnel.ItemsLimit"
           min={2}
           defaultValue={options.itemsLimit}
@@ -52,7 +52,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <InputNumber
           layout="horizontal"
-          label="百分比最小值"
+          label="Min Percent Value"
           data-test="Funnel.PercentRangeMin"
           min={0}
           defaultValue={options.percentValuesRange.min}
@@ -63,7 +63,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <InputNumber
           layout="horizontal"
-          label="百分比最大值"
+          label="Max Percent Value"
           data-test="Funnel.PercentRangeMax"
           min={0}
           defaultValue={options.percentValuesRange.max}

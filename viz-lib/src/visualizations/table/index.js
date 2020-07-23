@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "TABLE",
-  name: "表格(Table)",
+  name: "Table",
   getOptions,
   Renderer,
   Editor,

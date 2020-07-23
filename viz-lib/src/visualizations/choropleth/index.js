@@ -4,7 +4,7 @@ import Editor from "./Editor";
 
 export default {
   type: "CHOROPLETH",
-  name: "地理分布图(Choropleth Map)",
+  name: "Map (Choropleth)",
   getOptions,
   Renderer,
   Editor,

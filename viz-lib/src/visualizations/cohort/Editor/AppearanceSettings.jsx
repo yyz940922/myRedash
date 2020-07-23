@@ -11,7 +11,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="时间标题"
+          label="Time Column Title"
           defaultValue={options.timeColumnTitle}
           onChange={e => debouncedOnOptionsChange({ timeColumnTitle: e.target.value })}
         />
@@ -19,7 +19,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="统计值标题"
+          label="People Column Title"
           defaultValue={options.peopleColumnTitle}
           onChange={e => debouncedOnOptionsChange({ peopleColumnTitle: e.target.value })}
         />
@@ -29,7 +29,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
           layout="horizontal"
           label={
             <React.Fragment>
-              层级标题格式
+              Stage Column Title
               <ContextHelp placement="topRight" arrowPointAtCenter>
                 <div>
                   Use <code>{"{{ @ }}"}</code> to insert a stage number
@@ -47,7 +47,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
           layout="horizontal"
           label={
             <React.Fragment>
-              数字格式
+              Number Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -60,7 +60,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
           layout="horizontal"
           label={
             <React.Fragment>
-              百分比格式
+              Percent Values Format
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -72,7 +72,7 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="无值提示符"
+          label="No Value Placeholder"
           defaultValue={options.noValuePlaceholder}
           onChange={e => debouncedOnOptionsChange({ noValuePlaceholder: e.target.value })}
         />
@@ -82,14 +82,14 @@ export default function AppearanceSettings({ options, onOptionsChange }) {
         <Checkbox
           defaultChecked={options.showTooltips}
           onChange={event => onOptionsChange({ showTooltips: event.target.checked })}>
-          显示提示信息
+          Show Tooltips
         </Checkbox>
       </Section>
       <Section>
         <Checkbox
           defaultChecked={options.percentValues}
           onChange={event => onOptionsChange({ percentValues: event.target.checked })}>
-          转换为百分比
+          Normalize Values to Percentage
         </Checkbox>
       </Section>
     </React.Fragment>

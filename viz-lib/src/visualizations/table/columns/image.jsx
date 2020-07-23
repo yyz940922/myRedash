@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
     <React.Fragment>
       <Section>
         <Input
-          label="URL模板"
+          label="URL template"
           data-test="Table.ColumnEditor.Image.UrlTemplate"
           defaultValue={column.imageUrlTemplate}
           onChange={event => onChangeDebounced({ imageUrlTemplate: event.target.value })}
@@ -23,24 +23,24 @@ function Editor({ column, onChange }) {
         <ControlLabel
           label={
             <React.Fragment>
-              尺寸
+              Size
               <ContextHelp placement="topLeft" arrowPointAtCenter>
-                <div style={{ marginBottom: 5 }}>输入正整数像素值。</div>
-                <div>为空将使用默认值。</div>
+                <div style={{ marginBottom: 5 }}>Any positive integer value that specifies size in pixels.</div>
+                <div>Leave empty to use default value.</div>
               </ContextHelp>
             </React.Fragment>
           }>
           <div className="image-dimension-selector">
             <Input
               data-test="Table.ColumnEditor.Image.Width"
-              placeholder="宽度"
+              placeholder="Width"
               defaultValue={column.imageWidth}
               onChange={event => onChangeDebounced({ imageWidth: event.target.value })}
             />
             <span className="image-dimension-selector-spacer">&times;</span>
             <Input
               data-test="Table.ColumnEditor.Image.Height"
-              placeholder="高度"
+              placeholder="Height"
               defaultValue={column.imageHeight}
               onChange={event => onChangeDebounced({ imageHeight: event.target.value })}
             />
@@ -50,7 +50,7 @@ function Editor({ column, onChange }) {
 
       <Section>
         <Input
-          label="标题模板"
+          label="Title template"
           data-test="Table.ColumnEditor.Image.TitleTemplate"
           defaultValue={column.imageTitleTemplate}
           onChange={event => onChangeDebounced({ imageTitleTemplate: event.target.value })}
@@ -63,12 +63,12 @@ function Editor({ column, onChange }) {
           arrowPointAtCenter
           icon={<span style={{ cursor: "default" }}>Format specs {ContextHelp.defaultIcon}</span>}>
           <div>
-            所有列都可以关联使用，请按 <code>{"{{ column_name }}"}</code> 表达形式。
+            All columns can be referenced using <code>{"{{ column_name }}"}</code> syntax.
           </div>
           <div>
-            使用 <code>{"{{ @ }}"}</code> 关联当前列。
+            Use <code>{"{{ @ }}"}</code> to reference current (this) column.
           </div>
-          <div>该表达形式也适用于URL、标题和尺寸设置。</div>
+          <div>This syntax is applicable to URL, Title and Size options.</div>
         </ContextHelp>
       </Section>
     </React.Fragment>
@@ -127,5 +127,5 @@ export default function initImageColumn(column) {
   return ImageColumn;
 }
 
-initImageColumn.friendlyName = "图像";
+initImageColumn.friendlyName = "Image";
 initImageColumn.Editor = Editor;

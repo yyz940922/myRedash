@@ -26,35 +26,35 @@ function TemplateFormatHint({ mapType }) {
       {mapType === "countries" && (
         <React.Fragment>
           <div>
-            <code>{"{{ @@name }}"}</code> 国家简称(英文);
+            <code>{"{{ @@name }}"}</code> short country name;
           </div>
           <div>
-            <code>{"{{ @@name_long }}"}</code> 国家全称(英文);
+            <code>{"{{ @@name_long }}"}</code> full country name;
           </div>
           <div>
-            <code>{"{{ @@abbrev }}"}</code> 国家缩写(英文);
+            <code>{"{{ @@abbrev }}"}</code> abbreviated country name;
           </div>
           <div>
-            <code>{"{{ @@iso_a2 }}"}</code> ISO国家代码(2字母);
+            <code>{"{{ @@iso_a2 }}"}</code> two-letter ISO country code;
           </div>
           <div>
-            <code>{"{{ @@iso_a3 }}"}</code> ISO国家代码(3字母);
+            <code>{"{{ @@iso_a3 }}"}</code> three-letter ISO country code;
           </div>
           <div>
-            <code>{"{{ @@iso_n3 }}"}</code> ISO国家代码(3数字).
+            <code>{"{{ @@iso_n3 }}"}</code> three-digit ISO country code.
           </div>
         </React.Fragment>
       )}
       {mapType === "subdiv_japan" && (
         <React.Fragment>
           <div>
-            <code>{"{{ @@name }}"}</code> 日本行政区划名称(英文);
+            <code>{"{{ @@name }}"}</code> Prefecture name in English;
           </div>
           <div>
-            <code>{"{{ @@name_local }}"}</code> 日本行政区划名称(日文);
+            <code>{"{{ @@name_local }}"}</code> Prefecture name in Kanji;
           </div>
           <div>
-            <code>{"{{ @@iso_3166_2 }}"}</code> 5字母ISO日本行政区划代码(JP-xx);
+            <code>{"{{ @@iso_3166_2 }}"}</code> five-letter ISO subdivision code (JP-xx);
           </div>
         </React.Fragment>
       )}
@@ -75,7 +75,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
             <Input
               label={
                 <React.Fragment>
-                  显示值格式
+                  Value format
                   <ContextHelp.NumberFormatSpecs />
                 </React.Fragment>
               }
@@ -86,7 +86,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           </Grid.Col>
           <Grid.Col span={12}>
             <Input
-              label="显示值提示信息"
+              label="Value placeholder"
               data-test="Choropleth.Editor.ValuePlaceholder"
               defaultValue={options.noValuePlaceholder}
               onChange={event => onOptionsChangeDebounced({ noValuePlaceholder: event.target.value })}
@@ -100,7 +100,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.LegendVisibility"
           checked={options.legend.visible}
           onChange={event => onOptionsChange({ legend: { visible: event.target.checked } })}>
-          显示图例
+          Show legend
         </Checkbox>
       </Section>
 
@@ -108,29 +108,29 @@ export default function GeneralSettings({ options, onOptionsChange }) {
         <Grid.Row gutter={15}>
           <Grid.Col span={12}>
             <Select
-              label="图例位置"
+              label="Legend position"
               data-test="Choropleth.Editor.LegendPosition"
               disabled={!options.legend.visible}
               defaultValue={options.legend.position}
               onChange={position => onOptionsChange({ legend: { position } })}>
               <Select.Option value="top-left" data-test="Choropleth.Editor.LegendPosition.TopLeft">
-                顶部 / 左边
+                top / left
               </Select.Option>
               <Select.Option value="top-right" data-test="Choropleth.Editor.LegendPosition.TopRight">
-                顶部 / 右边
+                top / right
               </Select.Option>
               <Select.Option value="bottom-left" data-test="Choropleth.Editor.LegendPosition.BottomLeft">
-                底部 / 左边
+                bottom / left
               </Select.Option>
               <Select.Option value="bottom-right" data-test="Choropleth.Editor.LegendPosition.BottomRight">
-                底部 / 右边
+                bottom / right
               </Select.Option>
             </Select>
           </Grid.Col>
           <Grid.Col span={12}>
             <TextAlignmentSelect
               data-test="Choropleth.Editor.LegendTextAlignment"
-              label="图例文本对齐"
+              label="Legend text alignment"
               disabled={!options.legend.visible}
               defaultValue={options.legend.alignText}
               onChange={event => onOptionsChange({ legend: { alignText: event.target.value } })}
@@ -144,13 +144,13 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.TooltipEnabled"
           checked={options.tooltip.enabled}
           onChange={event => onOptionsChange({ tooltip: { enabled: event.target.checked } })}>
-          显示提示信息
+          Show tooltip
         </Checkbox>
       </Section>
 
       <Section>
         <Input
-          label={<React.Fragment>提示信息模板 {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>Tooltip template {templateFormatHint}</React.Fragment>}
           data-test="Choropleth.Editor.TooltipTemplate"
           disabled={!options.tooltip.enabled}
           defaultValue={options.tooltip.template}
@@ -163,13 +163,13 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.PopupEnabled"
           checked={options.popup.enabled}
           onChange={event => onOptionsChange({ popup: { enabled: event.target.checked } })}>
-          显示弹出信息
+          Show popup
         </Checkbox>
       </Section>
 
       <Section>
         <TextArea
-          label={<React.Fragment>弹出信息模板 {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>Popup template {templateFormatHint}</React.Fragment>}
           data-test="Choropleth.Editor.PopupTemplate"
           disabled={!options.popup.enabled}
           rows={4}

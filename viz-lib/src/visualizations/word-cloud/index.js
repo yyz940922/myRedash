@@ -12,7 +12,7 @@ const DEFAULT_OPTIONS = {
 
 export default {
   type: "WORD_CLOUD",
-  name: "词云图(Word Cloud)",
+  name: "Word Cloud",
   getOptions: options => merge({}, DEFAULT_OPTIONS, options),
   Renderer,
   Editor,

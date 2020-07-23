@@ -3,7 +3,7 @@ import Editor from "./Editor";
 
 export default {
   type: "SANKEY",
-  name: "桑基图(Sankey)",
+  name: "Sankey",
   getOptions: options => ({ ...options }),
   Renderer,
   Editor,

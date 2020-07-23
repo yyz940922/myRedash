@@ -12,18 +12,18 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <Select
           layout="horizontal"
-          label="聚类模式"
+          label="Clustering mode"
           data-test="Choropleth.Editor.ClusteringMode"
           defaultValue={options.clusteringMode}
           onChange={clusteringMode => onOptionsChange({ clusteringMode })}>
           <Select.Option value="q" data-test="Choropleth.Editor.ClusteringMode.q">
-            分位数(quantile)
+            quantile
           </Select.Option>
           <Select.Option value="e" data-test="Choropleth.Editor.ClusteringMode.e">
-            等距(equidistant)
+            equidistant
           </Select.Option>
           <Select.Option value="k" data-test="Choropleth.Editor.ClusteringMode.k">
-            K均值(k-means)
+            k-means
           </Select.Option>
         </Select>
       </Section>
@@ -31,7 +31,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <InputNumber
           layout="horizontal"
-          label="层级"
+          label="Steps"
           data-test="Choropleth.Editor.ColorSteps"
           min={3}
           max={11}
@@ -43,7 +43,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <ColorPicker
           layout="horizontal"
-          label="最小值颜色"
+          label="Min Color"
           interactive
           presetColors={ColorPalette}
           placement="topRight"
@@ -57,7 +57,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <ColorPicker
           layout="horizontal"
-          label="最大值颜色"
+          label="Max Color"
           interactive
           presetColors={ColorPalette}
           placement="topRight"
@@ -71,7 +71,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <ColorPicker
           layout="horizontal"
-          label="无值颜色"
+          label="No value color"
           interactive
           presetColors={ColorPalette}
           placement="topRight"
@@ -85,7 +85,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <ColorPicker
           layout="horizontal"
-          label="背景颜色"
+          label="Background color"
           interactive
           presetColors={ColorPalette}
           placement="topRight"
@@ -99,7 +99,7 @@ export default function ColorsSettings({ options, onOptionsChange }) {
       <Section>
         <ColorPicker
           layout="horizontal"
-          label="边框颜色"
+          label="Borders color"
           interactive
           presetColors={ColorPalette}
           placement="topRight"
